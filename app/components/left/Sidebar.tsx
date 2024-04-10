@@ -12,7 +12,9 @@ export default function Sidebar() {
       className="justify-start h-screen items-baseline flex flex-col"
       style={{ width: 50 }}
     >
-      <LuDog size={40} style={{}} />
+      <div style={{ marginLeft: -6, marginTop: 20 }}>
+        <LuDog size={40} style={{ marginBottom: 20 }} />
+      </div>
       <SettingButton onClick={handleSettingsClick} />
     </div>
   );
