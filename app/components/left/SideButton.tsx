@@ -1,6 +1,6 @@
 "use client";
+import { useTheme } from "@/app/page";
 import { ReactNode } from "react";
-import { IoSettingsOutline } from "react-icons/io5";
 
 interface SideButtonProps {
   onClick: () => void; // Define the type of onClick function
@@ -9,14 +9,18 @@ interface SideButtonProps {
 }
 
 export default function SideButton({ onClick, text, icon }: SideButtonProps) {
+  const currentTheme = useTheme();
   return (
     <button
       onClick={onClick}
-      className="flex items-center justify-center"
+      className="flex items-center justify-center mb-[25px] ml-[5px]"
       type="button"
     >
       {icon}
-      <h1 className="font-medium" style={{ fontSize: 24 }}>
+      <h1
+        className="font-normal text-[17px]"
+        style={{ color: currentTheme.onBackground }}
+      >
         {text}
       </h1>
     </button>
