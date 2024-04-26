@@ -13,12 +13,12 @@ export default function SideButton({ onClick, text, icon }: SideButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center justify-center mb-[25px] ml-[5px]"
+      className="flex items-center justify-center mb-[1.625em] ml-[0.3125em]"
       type="button"
     >
       {icon}
       <h1
-        className="font-normal text-[17px]"
+        className="font-normal text-[1.065rem] tracking-[0.02em]"
         style={{ color: currentTheme.onBackground }}
       >
         {text}

@@ -23,8 +23,8 @@ export default function Sidebar({
       text: "About",
       icon: (
         <LuHome
-          size={27}
-          style={{ marginRight: 27 }}
+          size={26}
+          className="mr-[1.625em]"
           color={currentTheme.onBackground}
         />
       ),
@@ -34,8 +34,8 @@ export default function Sidebar({
       text: "Projects",
       icon: (
         <LuFolderOpen
-          size={27}
-          style={{ marginRight: 27 }}
+          size={26}
+          className="mr-[1.625em]"
           color={currentTheme.onBackground}
         />
       ),
@@ -45,8 +45,8 @@ export default function Sidebar({
       text: "Resume",
       icon: (
         <LuUserCircle
-          size={27}
-          style={{ marginRight: 27 }}
+          size={26}
+          className="mr-[1.625em]"
           color={currentTheme.onBackground}
         />
       ),
@@ -56,8 +56,8 @@ export default function Sidebar({
       text: "Contact",
       icon: (
         <LuMessagesSquare
-          size={27}
-          style={{ marginRight: 27 }}
+          size={26}
+          className="mr-[1.625em]"
           color={currentTheme.onBackground}
         />
       ),
@@ -67,12 +67,9 @@ export default function Sidebar({
   // -------------------------------------------------------------------------
 
   return (
-    <div
-      className="h-screen items-baseline flex flex-col pb-[50px]"
-      style={{ width: 320 }}
-    >
+    <div className="h-screen items-baseline flex flex-col pb-[3.125em] w-[17%]">
       {/*Duck Logo*/}
-      <div className="mt-[50px] w-[50px] mb-[35px]">
+      <div className="mt-[3.125em] mb-[2.19em]">
         <img src="/duck-logo.png" alt="Duck Logo" width={32} />
       </div>
       {/* About-Projects-Resume-Contact Buttons*/}
