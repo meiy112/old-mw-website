@@ -17,21 +17,21 @@ export default function DisplayToggle({
       {currentTheme.mode == "dark" ? (
         <LuMoonStar
           size={27}
-          style={{ marginRight: 27 }}
+          className="mr-[1.625em]"
           color={currentTheme.onBackground}
         />
       ) : (
         <LuSun
           size={27}
-          style={{ marginRight: 27 }}
+          className="mr-[1.625em]"
           color={currentTheme.onBackground}
         />
       )}
       <div
         onClick={toggleTheme}
-        className={`flex h-[26px] w-[52px] cursor-pointer rounded-full ${
+        className={`flex h-[3.3vh] w-[6.9vh] cursor-pointer rounded-full ${
           currentTheme.mode == "dark" ? "justify-start" : "justify-end"
-        } p-[1px]`}
+        } p-[0.0625em]`}
         style={{ backgroundColor: currentTheme.primary, padding: 3 }}
       >
         <motion.div

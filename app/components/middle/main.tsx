@@ -4,11 +4,10 @@ export default function Main() {
   const currentTheme = useTheme();
   return (
     <div
-      className="h-screen"
+      className="h-screen w-[54.5%]"
       style={{
-        borderLeft: `0.5px solid ${currentTheme.border}`,
-        borderRight: `0.5px solid ${currentTheme.border}`,
-        width: "100%",
+        borderLeft: `1px solid ${currentTheme.border}`,
+        borderRight: `1px solid ${currentTheme.border}`,
       }}
     ></div>
   );

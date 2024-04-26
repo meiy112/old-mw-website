@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-row min-h-screen items-center justify-between pl-[60px] pr-[60px]"
+      className="flex flex-row min-h-screen items-center justify-between pl-[3.75em] pr-[3.75em]"
       style={{
         backgroundColor: currentTheme.background,
       }}
