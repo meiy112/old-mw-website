@@ -1,13 +1,13 @@
 "use client";
 import SideButton from "./SideButton";
 import {
-  LuMessagesSquare,
+  LuMessageSquare,
   LuHome,
   LuFolderOpen,
   LuUserCircle,
 } from "react-icons/lu";
 import DisplayToggle from "./DisplayToggle";
-import { useTheme } from "@/app/page";
+import { useTheme } from "@mui/material/styles";
 
 type ToggleThemeFunction = () => void;
 
@@ -16,49 +16,36 @@ export default function Sidebar({
 }: {
   toggleTheme: ToggleThemeFunction;
 }) {
-  const currentTheme = useTheme();
+  const theme = useTheme();
+  const onBackground = theme.palette.primary.contrastText;
   // ------------------------------ button data ------------------------------
   const buttonData = [
     {
       text: "About",
-      icon: (
-        <LuHome
-          size={26}
-          className="mr-[1.625em]"
-          color={currentTheme.onBackground}
-        />
-      ),
+      icon: <LuHome size={26} className="mr-[1.625em]" color={onBackground} />,
       onClick: () => console.log("About Button Clicked!"),
     },
     {
       text: "Projects",
       icon: (
-        <LuFolderOpen
-          size={26}
-          className="mr-[1.625em]"
-          color={currentTheme.onBackground}
-        />
+        <LuFolderOpen size={26} className="mr-[1.625em]" color={onBackground} />
       ),
       onClick: () => console.log("Project Button Clicked!"),
     },
     {
       text: "Resume",
       icon: (
-        <LuUserCircle
-          size={26}
-          className="mr-[1.625em]"
-          color={currentTheme.onBackground}
-        />
+        <LuUserCircle size={26} className="mr-[1.625em]" color={onBackground} />
       ),
       onClick: () => console.log("Resume Button Clicked!"),
     },
     {
       text: "Contact",
       icon: (
-        <LuMessagesSquare
+        <LuMessageSquare
           size={26}
           className="mr-[1.625em]"
-          color={currentTheme.onBackground}
+          color={onBackground}
         />
       ),
       onClick: () => console.log("Contact Button Clicked!"),
@@ -67,9 +54,9 @@ export default function Sidebar({
   // -------------------------------------------------------------------------
 
   return (
-    <div className="h-screen items-baseline flex flex-col pb-[3.125em] w-[17%]">
+    <div className="h-screen items-baseline flex flex-col pb-[3.125em] w-[17%] gap-y-[1.625em]">
       {/*Duck Logo*/}
-      <div className="mt-[3.125em] mb-[2.19em]">
+      <div className="mt-[3.125em] mb-[0.7em]">
         <img src="/duck-logo.png" alt="Duck Logo" width={32} />
       </div>
       {/* About-Projects-Resume-Contact Buttons*/}

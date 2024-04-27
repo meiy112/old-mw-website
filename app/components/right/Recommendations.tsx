@@ -1,21 +1,64 @@
-import { useTheme } from "@/app/page";
+import { useTheme } from "@mui/material/styles";
+import TwitterUser from "./TwitterUser";
+
+const profileData = [
+  {
+    pfp: "/github-pfp.jpg",
+    username: "My GitHub",
+    at: "@meiy112",
+    isVerified: false,
+    onClick: function () {
+      window.location.href = "https://github.com/meiy112";
+      console.log("hi");
+    },
+  },
+  {
+    pfp: "/linkedin-pfp.jpg",
+    username: "My Linkedin",
+    at: "@mylinkedinacc",
+    isVerified: false,
+    onClick: function () {
+      window.location.href =
+        "https://www.linkedin.com/in/maggie-weng-97a9a526b/";
+    },
+  },
+  {
+    pfp: "/dog-pfp.jpg",
+    username: "My Dog",
+    at: "@javathedog",
+    isVerified: true,
+    onClick: function () {
+      window.location.href = "https://github.com/meiy112";
+    },
+  },
+];
 
 // Container with "You Might Like" + Github, Linkedin
 export default function Recommendations() {
-  const currentTheme = useTheme();
+  const theme = useTheme();
   return (
     <div
-      className="h-300 rounded-2xl p-[1.6em] flex"
+      className="rounded-[19px] p-[1.75em] pb-[2em] flex flex-col w-screen gap-y-[1.15em]"
       style={{
-        border: `1px solid ${currentTheme.border}`,
+        border: `1px solid ${theme.palette.divider}`,
       }}
     >
       <p
-        style={{ color: currentTheme.onBackground }}
-        className="font-semibold tracking-[0.02em] text-[1.25rem]"
+        style={{ color: theme.palette.primary.contrastText }}
+        className="font-bold tracking-[0.32px] text-[1.235rem]"
       >
         You might like
       </p>
+      {profileData.map((profile, index) => (
+        <TwitterUser
+          pfp={profile.pfp}
+          username={profile.username}
+          at={profile.at}
+          isVerified={profile.isVerified}
+          onClick={profile.onClick}
+          key={profile.at}
+        />
+      ))}
     </div>
   );
 }
