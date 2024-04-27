@@ -2,11 +2,10 @@
 import Right from "./components/right/right";
 import Sidebar from "./components/left/Sidebar";
 import Main from "./components/middle/main";
-import { createContext, useState } from "react";
-import { lightTheme, darkTheme } from "./theme/colors";
+import { useState } from "react";
+import { ThemeProvider } from "@mui/material/styles";
 import React from "react";
-
-const ThemeContext = createContext(darkTheme);
+import { lightTheme, darkTheme } from "../app/theme/colors";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -18,23 +17,19 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-row min-h-screen items-center justify-between pl-[3.75em] pr-[3.75em]"
+      className="flex flex-row min-h-screen justify-between pl-[3.75em] pr-[3.75em]"
       style={{
-        backgroundColor: currentTheme.background,
+        backgroundColor: currentTheme.palette.background.default,
       }}
     >
-      <ThemeContext.Provider value={currentTheme}>
+      <ThemeProvider theme={currentTheme}>
         {/*Navbar + Logo*/}
         <Sidebar toggleTheme={toggleTheme} />
         {/*Main middle content*/}
         <Main />
         {/*You Might Like*/}
         <Right />
-      </ThemeContext.Provider>
+      </ThemeProvider>
     </main>
   );
-}
-
-export function useTheme() {
-  return React.useContext(ThemeContext);
 }

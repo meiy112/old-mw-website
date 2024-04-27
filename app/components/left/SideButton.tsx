@@ -1,5 +1,5 @@
 "use client";
-import { useTheme } from "@/app/page";
+import { useTheme } from "@mui/material/styles";
 import { ReactNode } from "react";
 
 interface SideButtonProps {
@@ -9,17 +9,17 @@ interface SideButtonProps {
 }
 
 export default function SideButton({ onClick, text, icon }: SideButtonProps) {
-  const currentTheme = useTheme();
+  const theme = useTheme();
   return (
     <button
       onClick={onClick}
-      className="flex items-center justify-center mb-[1.625em] ml-[0.3125em]"
+      className="flex items-center justify-center ml-[0.3125em]"
       type="button"
     >
       {icon}
       <h1
-        className="font-normal text-[1.065rem] tracking-[0.02em]"
-        style={{ color: currentTheme.onBackground }}
+        className="font-medium text-[1.065rem] tracking-[0.32px]"
+        style={{ color: theme.palette.primary.contrastText }}
       >
         {text}
       </h1>
