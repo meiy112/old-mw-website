@@ -27,7 +27,7 @@ export default function TwitterUser({
 }
 
 function ProfilePicture({ pfp }: { pfp: string }) {
-  return <img src={pfp} className="rounded-[50%] w-[3.05em] h-[3.05em]" />;
+  return <img src={pfp} className="rounded-[50%] w-[3.1vw] h-[3.1vw]" />;
 }
 
 function Username({ username, at }: { username: string; at: string }) {

@@ -79,7 +79,7 @@ function BioHeader() {
   return (
     <div className="flex flex-row items-center gap-x-[9px]">
       <h1 className="font-extrabold text-[2.25rem]">Hi, I'm Maggie Weng</h1>
-      <img src="/verified-check.png" className="w-[1.7em] h-[1.7em]" />
+      <img src="/verified-check.png" className="size-[1.5em]" />
     </div>
   );
 }
