@@ -54,12 +54,8 @@ export default function Sidebar({
   // -------------------------------------------------------------------------
 
   return (
-    <div className="h-screen items-baseline flex flex-col pb-[3.125em] w-[17%] gap-y-[1.625em]">
-      {/*Duck Logo*/}
-      <div className="mt-[3.125em] mb-[0.7em]">
-        <img src="/duck-logo.png" alt="Duck Logo" width={32} />
-      </div>
-      {/* About-Projects-Resume-Contact Buttons*/}
+    <div className="fixed pl-[3.75vw] h-screen items-baseline flex flex-col pb-[6vh] gap-y-[1.625em]">
+      <DuckLogo />
       {buttonData.map((button, index) => (
         <SideButton
           key={index}
@@ -69,6 +65,14 @@ export default function Sidebar({
         />
       ))}
       <DisplayToggle toggleTheme={toggleTheme} />
+    </div>
+  );
+}
+
+function DuckLogo() {
+  return (
+    <div className="mt-[3.125em] mb-[0.7em]">
+      <img src="/duck-logo.png" alt="Duck Logo" width={32} />
     </div>
   );
 }

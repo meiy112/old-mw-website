@@ -8,7 +8,6 @@ interface TwitterUserProps {
   onClick: () => void;
 }
 
-// Linkedin, Github, Dog
 export default function TwitterUser({
   pfp,
   username,

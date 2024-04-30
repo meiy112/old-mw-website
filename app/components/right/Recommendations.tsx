@@ -28,7 +28,7 @@ const profileData = [
     at: "@javathedog",
     isVerified: true,
     onClick: function () {
-      window.location.href = "https://github.com/meiy112";
+      console.log("teehee dog petted");
     },
   },
 ];
@@ -38,17 +38,12 @@ export default function Recommendations() {
   const theme = useTheme();
   return (
     <div
-      className="rounded-[19px] p-[1.75em] pb-[2em] flex flex-col w-screen gap-y-[1.15em]"
+      className=" ml-[2.4em] rounded-[19px] p-[1.75em] pb-[2em] flex flex-col w-screen gap-y-[1.15em]"
       style={{
         border: `1px solid ${theme.palette.divider}`,
       }}
     >
-      <p
-        style={{ color: theme.palette.primary.contrastText }}
-        className="font-bold tracking-[0.32px] text-[1.235rem]"
-      >
-        You might like
-      </p>
+      <Heading />
       {profileData.map((profile, index) => (
         <TwitterUser
           pfp={profile.pfp}
@@ -60,5 +55,17 @@ export default function Recommendations() {
         />
       ))}
     </div>
+  );
+}
+
+function Heading() {
+  const theme = useTheme();
+  return (
+    <p
+      style={{ color: theme.palette.primary.contrastText }}
+      className="font-bold tracking-[0.5px] text-[1.235rem]"
+    >
+      You might like
+    </p>
   );
 }

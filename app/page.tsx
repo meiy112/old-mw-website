@@ -2,33 +2,38 @@
 import Right from "./components/right/right";
 import Sidebar from "./components/left/Sidebar";
 import Main from "./components/middle/main";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import { lightTheme, darkTheme } from "../app/theme/colors";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const currentTheme = isDarkMode ? darkTheme : lightTheme;
+  const theme = isDarkMode ? darkTheme : lightTheme;
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.palette.background.default;
+  }, [theme]);
+
   return (
-    <main
-      className="flex flex-row min-h-screen justify-between pl-[3.75em] pr-[3.75em]"
-      style={{
-        backgroundColor: currentTheme.palette.background.default,
-      }}
-    >
-      <ThemeProvider theme={currentTheme}>
+    <main className="flex flex-row h-[100%] justify-between">
+      <ThemeProvider theme={theme}>
         {/*Navbar + Logo*/}
-        <Sidebar toggleTheme={toggleTheme} />
+        <div className="w-[20%]">
+          <Sidebar toggleTheme={toggleTheme} />
+        </div>
         {/*Main middle content*/}
-        <Main />
+        <div className="w-[51%]">
+          <Main />
+        </div>
         {/*You Might Like*/}
-        <Right />
+        <div className="w-[29%]">
+          <Right />
+        </div>
       </ThemeProvider>
     </main>
   );
