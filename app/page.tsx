@@ -20,7 +20,10 @@ export default function Home() {
   }, [theme]);
 
   return (
-    <main className="flex flex-row h-[100%] justify-between">
+    <main
+      className="flex flex-row h-[100%] justify-between"
+      style={{ color: theme.palette.primary.contrastText }}
+    >
       <ThemeProvider theme={theme}>
         {/*Navbar + Logo*/}
         <div className="w-[20%]">

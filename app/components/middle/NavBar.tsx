@@ -48,10 +48,7 @@ export default function NavBar({
   }, [currentPage]);
 
   return (
-    <nav
-      className="flex flex-row justify-between pr-[6.4vw] pl-[6.4vw] h-[4.9vh] items-start"
-      style={{ color: theme.palette.primary.contrastText }}
-    >
+    <nav className="flex flex-row justify-between pr-[6.4vw] pl-[6.4vw] h-[4.9vh] items-start">
       {buttonData.map((button, index) => (
         <NavButton
           key={index}

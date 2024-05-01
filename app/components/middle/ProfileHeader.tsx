@@ -51,7 +51,6 @@ function ContactButton() {
       onClick={onClick}
       className="flex flex-row font-bold w-[8.5em] h-[2.9em] items-center justify-center rounded-[10em] text-[0.97rem] tracking-[0.32px] gap-x-[4px] mt-[2.8vh]"
       style={{
-        color: theme.palette.primary.contrastText,
         backgroundColor: theme.palette.primary.main,
       }}
     >
@@ -62,11 +61,9 @@ function ContactButton() {
 }
 
 function Bio() {
-  const theme = useTheme();
   return (
     <div
       className={`flex flex-col pr-[4.3vw] pl-[4.3vw] pt-[1.5vh] ${raleway.className} gap-y-[13px]`}
-      style={{ color: theme.palette.primary.contrastText }}
     >
       <BioHeader />
       <BioDescription />

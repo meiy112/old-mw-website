@@ -1,17 +1,31 @@
 import { useTheme } from "@mui/material/styles";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
-import { LuPin } from "react-icons/lu";
+import {
+  LuPin,
+  LuHeart,
+  LuMessageCircle,
+  LuBarChart3,
+  LuLink,
+} from "react-icons/lu";
 
 export default function Post({
   isPinned,
   date,
   title,
   typeOf,
+  body,
+  image,
+  link,
+  anchor,
 }: {
   isPinned: boolean;
   date: string;
   title: string;
   typeOf: string;
+  body: string[];
+  image: string;
+  link: string;
+  anchor: string;
 }) {
   return (
     <div className="flex flex-col">
@@ -19,10 +33,10 @@ export default function Post({
       <Profile date={date} />
       <div className="pl-[0.75vw] pr-[0.75vw]">
         <Title title={title} typeOf={typeOf} />
-        <Content />
+        <Body body={body} />
       </div>
-      <Picture />
-      <Footer />
+      <Picture image={image} />
+      <Footer link={link} anchor={anchor} />
     </div>
   );
 }
@@ -43,7 +57,7 @@ function Profile({ date }: { date: string }) {
       <img src="/pfp.jpg" className="rounded-[50%] w-[3.1vw] h-[3.1vw]" />
       <div className="flex flex-col justify-between">
         <div className="flex flex-row items-center gap-x-[5px]">
-          <span className="text-[1rem] font-bold">MaggieW</span>
+          <span className="text-[1rem] font-bold">MWeng</span>
           <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
           <img src="verified-check.png" className="size-[1.5rem]" />
         </div>
@@ -54,39 +68,74 @@ function Profile({ date }: { date: string }) {
 }
 
 function Title({ title, typeOf }: { title: string; typeOf: string }) {
-  const theme = useTheme();
   const getTag = ({ typeOf }: { typeOf: string }) => {
     switch (typeOf) {
       case "About Me":
-        return (
-          <div
-            className="rounded-[30rem] w-[6.5vw] h-[3.2vh] justify-center items-center flex flex-row gap-x-[0.2vw]"
-            style={{ backgroundColor: theme.palette.primary.main }}
-          >
-            <span className="font-bold text-[0.73rem]">About Me</span>
-            <Emoji unified="1f9cb" size={17} emojiStyle={EmojiStyle.APPLE} />
-          </div>
-        );
+        return <Tag title="About Me" unicode="1f9cb" />;
       default:
         return null;
     }
   };
   return (
-    <div className="flex flex-row items-center pt-[1.9vh] gap-x-[0.9vw]">
-      <h1 className="font-bold text-[1.7rem] tracking-[0.32px]">{title}</h1>
+    <div className="flex flex-row items-center pt-[1.9vh] pb-[0.3vh] gap-x-[0.9vw]">
+      <h1 className="font-extrabold text-[1.6rem] tracking-[0.32px]">
+        {title}
+      </h1>
       {getTag({ typeOf })}
     </div>
   );
 }
 
-function Content() {
-  return <div>Stuff in the post</div>;
+function Tag({ title, unicode }: { title: string; unicode: string }) {
+  const theme = useTheme();
+  return (
+    <div
+      className="rounded-[30rem] px-[0.91vw] py-[0.5vh] justify-center items-center flex flex-row gap-x-[0.2vw]"
+      style={{ backgroundColor: theme.palette.primary.main }}
+    >
+      <span className="font-bold text-[0.73rem]">{title}</span>
+      <Emoji unified={unicode} size={17} emojiStyle={EmojiStyle.APPLE} />
+    </div>
+  );
 }
 
-function Picture() {
-  return <img src="" />;
+function Body({ body }: { body: string[] }) {
+  return (
+    <ul className="flex flex-col items-start gap-y-[2.5vh] pb-[2vh]">
+      {body.map((item, index) => (
+        <li key={index} className="text-[0.93rem] tracking-[0.32px]">
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
 }
 
-function Footer() {
-  return <div>Footer Section</div>;
+function Picture({ image }: { image: string }) {
+  return <img src={image} className="w-[100%] h-[53vh] rounded-[12px]" />;
+}
+
+function Footer({ link, anchor }: { link: string; anchor: string }) {
+  const theme = useTheme();
+  return (
+    <div className="flex flex-row justify-between py-[2vh] px-[0.1vw]">
+      <div className="flex flex-row gap-x-[1.9vw]">
+        <LuHeart size={24} />
+        <LuMessageCircle size={24} />
+        <LuBarChart3 size={24} />
+      </div>
+      {link ? (
+        <div className="flex flex-row gap-x-[0.5vw]">
+          <LuLink size={24} className="opacity-[0.5]" />
+          <a
+            href={link}
+            className="text-[0.9rem]"
+            style={{ color: theme.palette.primary.light }}
+          >
+            {anchor}
+          </a>
+        </div>
+      ) : null}
+    </div>
+  );
 }
