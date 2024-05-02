@@ -15,7 +15,7 @@ export const darkTheme = createTheme({
     background: {
       default: "#151518",
     },
-    divider: "#454545",
+    divider: "rgba(255, 255, 255, 0.15)",
   },
 });
 

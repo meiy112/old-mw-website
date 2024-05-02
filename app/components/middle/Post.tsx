@@ -29,7 +29,7 @@ export default function Post({
   anchor: string;
 }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col rounded-[20px] p-[2vw] hoverable">
       {isPinned ? <Pin /> : null}
       <Profile date={date} />
       <div className="px-[0.6vw]">
@@ -122,7 +122,7 @@ function Picture({ image }: { image: string }) {
 function Footer({ link, anchor }: { link: string; anchor: string }) {
   const theme = useTheme();
   return (
-    <div className="flex flex-row justify-between py-[2vh] px-[0.1vw]">
+    <div className="flex flex-row justify-between pt-[2vh] px-[0.1vw]">
       <div className="flex flex-row gap-x-[1.9vw]">
         <LuHeart size={24} />
         <LuMessageCircle size={24} />

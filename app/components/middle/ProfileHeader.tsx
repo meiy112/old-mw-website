@@ -8,7 +8,7 @@ const raleway = Raleway({ subsets: ["latin"] });
 
 export default function ProfileHeader() {
   return (
-    <div className="h-auto pb-[6vh] w-[100%]">
+    <div className="h-auto pb-[5vh] w-[100%]">
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1vh]">
         <ProfilePicture />
@@ -107,7 +107,7 @@ function BioDescription() {
 function BioDetails() {
   const theme = useTheme();
   return (
-    <div className="mt-[0.6vh] flex flex-row gap-x-[15px] font-regular text-[0.93rem]">
+    <div className="mt-[1vh] flex flex-row gap-x-[15px] font-regular text-[0.93rem]">
       <div className="flex items-center gap-x-[4px] opacity-[50%]">
         <LuMapPin className="size-[1.2rem]" />
         <span>U of British Columbia</span>

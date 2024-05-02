@@ -2,7 +2,7 @@ import Post from "../Post";
 
 export default function About() {
   return (
-    <div className="p-[3vw] mt-[1.5vh]">
+    <div className="p-[1vw] mt-[1.5vh]">
       <Post
         isPinned={true}
         date={"April 30 2024"}
