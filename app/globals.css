@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  transition: all 0.2s ease-in-out;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,16 +14,42 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 21, 21, 24;
     --background-end-rgb: 21, 21, 24;
+    transition: all 0.2s ease-in-out;
   }
 }
 
 body {
     color: rgb(var(--foreground-rgb));
-    background-color: rgb(var(--background-start-rgb)); /* Use a solid color for the background */
+    background-color: rgb(var(--background-start-rgb));
+    transition: all 0.2s ease-in-out;
   }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.nav-button {
+    transition: all 0.2s ease-in-out;
+    opacity: 0.5;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.active {
+    opacity: 1;
+}
+
+@layer components {
+	#gradient-canvas {
+		width: 100%;
+		height: 100%;
+		--gradient-color-1: #07f49e;
+--gradient-color-2: #1d1241;
+--gradient-color-3: #1d1241;
+--gradient-color-4: #1d1241;
+	}
 }

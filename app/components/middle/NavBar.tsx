@@ -1,24 +1,21 @@
 import { useTheme } from "@mui/material/styles";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePageContext } from "../context/PageProvider";
 
-export default function NavBar({
-  setPage,
-  currentPage,
-}: {
-  setPage: Dispatch<SetStateAction<string>>;
-  currentPage: string;
-}) {
+export default function NavBar() {
+  const { currentPage, setCurrentPage } = usePageContext();
+
   const theme = useTheme();
   const buttonData = [
-    { title: "About", onClick: () => setPage("About") },
+    { title: "About", onClick: () => setCurrentPage("About") },
     {
       title: "Projects",
-      onClick: () => setPage("Projects"),
+      onClick: () => setCurrentPage("Projects"),
     },
-    { title: "Resume", onClick: () => setPage("Resume") },
+    { title: "Resume", onClick: () => setCurrentPage("Resume") },
     {
       title: "Drawings",
-      onClick: () => setPage("Drawings"),
+      onClick: () => setCurrentPage("Drawings"),
     },
   ];
   const [linePosition, setLinePosition] = useState<number | null>(null);
@@ -48,7 +45,9 @@ export default function NavBar({
   }, [currentPage]);
 
   return (
-    <nav className="flex flex-row justify-between pr-[6.4vw] pl-[6.4vw] h-[4.9vh] items-start">
+    <nav
+      className={`flex flex-row justify-between pr-[6.4vw] pl-[6.4vw] h-[4.9vh] items-start`}
+    >
       {buttonData.map((button, index) => (
         <NavButton
           key={index}

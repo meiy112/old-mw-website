@@ -5,11 +5,12 @@ import { useState } from "react";
 import Resume from "./pages/Resume";
 import Drawings from "./pages/Drawings";
 import { Raleway } from "next/font/google";
+import { usePageContext } from "../context/PageProvider";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function PostsContent() {
-  const [currentPage, setCurrentPage] = useState("About");
+  const { currentPage } = usePageContext();
 
   const renderPage = () => {
     switch (currentPage) {
@@ -27,7 +28,7 @@ export default function PostsContent() {
   };
   return (
     <div className={`${raleway.className}`}>
-      <NavBar setPage={setCurrentPage} currentPage={currentPage} />
+      <NavBar />
       {renderPage()}
     </div>
   );

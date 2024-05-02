@@ -13,7 +13,7 @@ export default function DisplayToggle({
 }) {
   const theme = useTheme();
   return (
-    <div className="h-screen flex items-end">
+    <div className="h-screen flex items-end pl-[1.75vw]">
       {theme.palette.mode == "dark" ? (
         <LuMoonStar
           size={27}

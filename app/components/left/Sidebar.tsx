@@ -7,7 +7,7 @@ import {
   LuUserCircle,
 } from "react-icons/lu";
 import DisplayToggle from "./DisplayToggle";
-import { useTheme } from "@mui/material/styles";
+import { usePageContext } from "../context/PageProvider";
 
 type ToggleThemeFunction = () => void;
 
@@ -16,45 +16,34 @@ export default function Sidebar({
 }: {
   toggleTheme: ToggleThemeFunction;
 }) {
-  const theme = useTheme();
-  const onBackground = theme.palette.primary.contrastText;
+  const { setCurrentPage } = usePageContext();
   // ------------------------------ button data ------------------------------
   const buttonData = [
     {
       text: "About",
-      icon: <LuHome size={26} className="mr-[1.625em]" color={onBackground} />,
-      onClick: () => console.log("About Button Clicked!"),
+      icon: <LuHome size={26} className="mr-[1.625em]" />,
+      onClick: () => setCurrentPage("About"),
     },
     {
       text: "Projects",
-      icon: (
-        <LuFolderOpen size={26} className="mr-[1.625em]" color={onBackground} />
-      ),
-      onClick: () => console.log("Project Button Clicked!"),
+      icon: <LuFolderOpen size={26} className="mr-[1.625em]" />,
+      onClick: () => setCurrentPage("Projects"),
     },
     {
       text: "Resume",
-      icon: (
-        <LuUserCircle size={26} className="mr-[1.625em]" color={onBackground} />
-      ),
-      onClick: () => console.log("Resume Button Clicked!"),
+      icon: <LuUserCircle size={26} className="mr-[1.625em]" />,
+      onClick: () => setCurrentPage("Resume"),
     },
     {
       text: "Contact",
-      icon: (
-        <LuMessageSquare
-          size={26}
-          className="mr-[1.625em]"
-          color={onBackground}
-        />
-      ),
+      icon: <LuMessageSquare size={26} className="mr-[1.625em]" />,
       onClick: () => console.log("Contact Button Clicked!"),
     },
   ];
   // -------------------------------------------------------------------------
 
   return (
-    <div className="fixed pl-[3.75vw] h-screen items-baseline flex flex-col pb-[6vh] gap-y-[1.625em]">
+    <div className=" fixed ml-[2vw] h-screen items-baseline flex flex-col pb-[6vh] gap-y-[0.5em]">
       <DuckLogo />
       {buttonData.map((button, index) => (
         <SideButton
@@ -71,7 +60,7 @@ export default function Sidebar({
 
 function DuckLogo() {
   return (
-    <div className="mt-[3.125em] mb-[0.7em]">
+    <div className="mt-[3.125em] mb-[1em] px-[1.75vw]">
       <img src="/duck-logo.png" alt="Duck Logo" width={32} />
     </div>
   );

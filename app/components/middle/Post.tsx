@@ -6,6 +6,7 @@ import {
   LuMessageCircle,
   LuBarChart3,
   LuLink,
+  LuMoreHorizontal,
 } from "react-icons/lu";
 
 export default function Post({
@@ -31,7 +32,7 @@ export default function Post({
     <div className="flex flex-col">
       {isPinned ? <Pin /> : null}
       <Profile date={date} />
-      <div className="pl-[0.75vw] pr-[0.75vw]">
+      <div className="px-[0.6vw]">
         <Title title={title} typeOf={typeOf} />
         <Body body={body} />
       </div>
@@ -53,13 +54,16 @@ function Pin() {
 
 function Profile({ date }: { date: string }) {
   return (
-    <div className="flex flex-row gap-x-[1vw]">
+    <div className="flex flex-row gap-x-[1vw] w-[100%]">
       <img src="/pfp.jpg" className="rounded-[50%] w-[3.1vw] h-[3.1vw]" />
-      <div className="flex flex-col justify-between">
-        <div className="flex flex-row items-center gap-x-[5px]">
-          <span className="text-[1rem] font-bold">MWeng</span>
-          <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
-          <img src="verified-check.png" className="size-[1.5rem]" />
+      <div className="flex flex-col justify-between w-[100%]">
+        <div className="flex flex-row items-center justify-between w-[100%]">
+          <div className="flex flex-row gap-x-[5px] items-center">
+            <span className="text-[1rem] font-bold">MWeng</span>
+            <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
+            <img src="verified-check.png" className="size-[1.5rem]" />
+          </div>
+          <LuMoreHorizontal size={24} />
         </div>
         <div className="text-[0.9rem] opacity-[0.5]">{date}</div>
       </div>
@@ -71,7 +75,7 @@ function Title({ title, typeOf }: { title: string; typeOf: string }) {
   const getTag = ({ typeOf }: { typeOf: string }) => {
     switch (typeOf) {
       case "About Me":
-        return <Tag title="About Me" unicode="1f9cb" />;
+        return <Tag title="About Me" unicode="1f30c" />;
       default:
         return null;
     }
