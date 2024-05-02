@@ -10,7 +10,7 @@ export default function ProfileHeader() {
   return (
     <div className="h-auto pb-[6vh] w-[100%]">
       <Banner />
-      <div className="flex-row flex justify-between pr-[4.5vw] pl-[4.5vw]">
+      <div className="flex-row flex justify-between px-[4.5vw] pb-[1vh]">
         <ProfilePicture />
         <ContactButton />
       </div>
@@ -30,11 +30,19 @@ function Banner() {
 function ProfilePicture() {
   const theme = useTheme();
   return (
-    <img
-      src="/pfp.jpg"
-      className="rounded-[50%] w-[19.5vh] h-[19.5vh] mt-[-9.75vh]"
-      style={{ border: `4px solid ${theme.palette.background.default}` }}
-    />
+    <div className="mt-[-78px]">
+      <div
+        className="absolute w-[156px] h-[156px] rounded-[50%]"
+        style={{
+          backgroundColor: `${theme.palette.background.default}`,
+          clipPath: "polygon(0 0, 100% 0, 100% 50%, 0 50%)",
+        }}
+      ></div>
+      <img
+        src="/pfp.jpg"
+        className="relative rounded-[50%] w-[148px] h-[148px] ml-[4px] mt-[4px]"
+      />
+    </div>
   );
 }
 
@@ -63,7 +71,7 @@ function ContactButton() {
 function Bio() {
   return (
     <div
-      className={`flex flex-col pr-[4.3vw] pl-[4.3vw] pt-[1.5vh] ${raleway.className} gap-y-[13px]`}
+      className={`flex flex-col px-[4.3vw] pt-[1.5vh] ${raleway.className} gap-y-[13px]`}
     >
       <BioHeader />
       <BioDescription />

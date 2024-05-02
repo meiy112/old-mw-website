@@ -7,7 +7,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { lightTheme, darkTheme } from "../app/theme/colors";
 import React from "react";
 import { PageProvider } from "./components/context/PageProvider";
-import { Gradient } from "./assets/gradient";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -23,7 +22,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-row h-[100%] justify-between"
+      className="relative z-10 flex flex-row h-[100%] justify-between"
       style={{ color: theme.palette.primary.contrastText }}
     >
       <PageProvider>

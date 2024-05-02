@@ -1,7 +1,6 @@
 import NavBar from "./NavBar";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
-import { useState } from "react";
 import Resume from "./pages/Resume";
 import Drawings from "./pages/Drawings";
 import { Raleway } from "next/font/google";

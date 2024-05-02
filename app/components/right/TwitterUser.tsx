@@ -19,7 +19,7 @@ export default function TwitterUser({
     <div className="flex-row flex items-center justify-between">
       <div className="flex-row flex items-center gap-x-[1.05em]">
         <ProfilePicture pfp={pfp} />
-        <Username username={username} at={at} />
+        <Username username={username} at={at} isVerified={isVerified} />
       </div>
       <VisitButton isVerified={isVerified} onClick={onClick} />
     </div>
@@ -30,20 +30,26 @@ function ProfilePicture({ pfp }: { pfp: string }) {
   return <img src={pfp} className="rounded-[50%] w-[3.1vw] h-[3.1vw]" />;
 }
 
-function Username({ username, at }: { username: string; at: string }) {
-  const theme = useTheme();
+function Username({
+  username,
+  at,
+  isVerified,
+}: {
+  username: string;
+  at: string;
+  isVerified: boolean;
+}) {
   return (
     <div className="flex flex-col content-between">
-      <h1
-        style={{ color: theme.palette.primary.contrastText }}
-        className="tracking-[0.4px] font-bold text-[0.925rem] h-[1.5em]"
-      >
-        {username}
-      </h1>
-      <span
-        style={{ color: theme.palette.primary.contrastText }}
-        className="text-[0.86rem] opacity-50 font-regular tracking-[0.4px]"
-      >
+      <div className="flex flex-row gap-x-[0.3rem]">
+        <h1 className="tracking-[0.4px] font-bold text-[0.925rem] h-[1.5em]">
+          {username}
+        </h1>
+        {isVerified ? (
+          <img src="/verified-check.png" className="size-[1.5em]" />
+        ) : null}
+      </div>
+      <span className="text-[0.86rem] opacity-50 font-regular tracking-[0.4px]">
         {at}
       </span>
     </div>

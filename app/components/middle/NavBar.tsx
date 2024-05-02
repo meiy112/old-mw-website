@@ -46,7 +46,8 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`flex flex-row justify-between pr-[6.4vw] pl-[6.4vw] h-[4.9vh] items-start`}
+      className={`sticky top-0 z-20 py-[2vh] flex flex-row justify-between px-[4.3vw] h-[10vh] items-start`}
+      style={{ backdropFilter: "blur(10px)" }}
     >
       {buttonData.map((button, index) => (
         <NavButton
@@ -56,7 +57,7 @@ export default function NavBar() {
           currentPage={currentPage}
         />
       ))}
-      <div className="absolute left-0 h-[4.9vh]">
+      <div className="absolute left-0 h-[8vh]">
         <div
           ref={lineRef}
           className="absolute w-[72px] h-[4.8px] bottom-0"
@@ -83,7 +84,7 @@ function NavButton({
   return (
     <button
       onClick={onClick}
-      className="font-bold tracking-[0.32px] text-[1rem]"
+      className="font-bold tracking-[0.32px] text-[1rem] nav-button h-[100%] w-[130px] rounded-[10px]"
       style={currentPage === title ? { opacity: 1 } : { opacity: 0.5 }}
       aria-current={currentPage === title ? "page" : undefined}
     >
