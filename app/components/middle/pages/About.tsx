@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavLink from "../../misc/NavLink";
 import Post from "../Post";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
@@ -82,10 +82,13 @@ export default function About() {
             <motion.div
               key="overlay"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.1 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="bg-white opacity-[0.2] fixed top-0 right-0 bottom-0 left-0"
-              style={{ backdropFilter: "blur(10px)" }}
+              className="z-30 fixed top-0 right-0 bottom-0 left-0"
+              style={{
+                backdropFilter: "blur(5px)",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+              }}
             />
           )}
 
