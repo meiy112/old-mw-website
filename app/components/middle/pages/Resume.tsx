@@ -22,6 +22,21 @@ export default function Resume() {
       <div>Resume</div>
       <div>Resume</div>
       <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
+      <div>Resume</div>
     </div>
   );
 }

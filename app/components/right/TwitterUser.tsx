@@ -42,7 +42,7 @@ function Username({
   return (
     <div className="flex flex-col content-between">
       <div className="flex flex-row gap-x-[0.3rem]">
-        <h1 className="tracking-[0.4px] font-bold text-[0.925rem] h-[1.5em]">
+        <h1 className="tracking-[0.4px] font-bold text-[0.923rem] h-[1.5em]">
           {username}
         </h1>
         {isVerified ? (

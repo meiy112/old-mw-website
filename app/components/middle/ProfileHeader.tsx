@@ -98,7 +98,7 @@ function BioDescription() {
       </div>
       <div>
         UBC CompSci Student. Programmer. UI/UX Graphic Designer. Digital Artist.
-        Python Tutor. Casual Hiker. All-Nighter Puller. Duck Enthusiast.
+        Coding Tutor. Casual Hiker. All-Nighter Puller. Duck Enthusiast.
       </div>
     </div>
   );

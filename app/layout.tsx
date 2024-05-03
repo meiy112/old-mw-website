@@ -42,7 +42,7 @@ export default function RootLayout({
             <div className="g3" style={{ opacity: 0.3 }}></div>
             <div className="g4" style={{ opacity: 0.3 }}></div>
             <div className="g5" style={{ opacity: 0.3 }}></div>
-            <div className="interactive" style={{ opacity: 1 }}></div>
+            <div className="interactive" style={{ opacity: 0.3 }}></div>
           </div>
         </div>
         {children}

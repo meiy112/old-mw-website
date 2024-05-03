@@ -23,13 +23,13 @@ export default function Post({
   date: string;
   title: string;
   typeOf: string;
-  body: string[];
+  body: React.ReactNode[];
   image: string;
   link: string;
   anchor: string;
 }) {
   return (
-    <div className="flex flex-col rounded-[20px] p-[2vw] hoverable">
+    <div className="mb-[3vh] flex flex-col rounded-[20px] p-[2vw] hoverable">
       {isPinned ? <Pin /> : null}
       <Profile date={date} />
       <div className="px-[0.6vw]">
@@ -75,7 +75,9 @@ function Title({ title, typeOf }: { title: string; typeOf: string }) {
   const getTag = ({ typeOf }: { typeOf: string }) => {
     switch (typeOf) {
       case "About Me":
-        return <Tag title="About Me" unicode="1f30c" />;
+        return <Tag title="About Me" unicode="1f680" />;
+      case "Project":
+        return <Tag title="Mobile App" unicode="1f4f1" />;
       default:
         return null;
     }
@@ -97,19 +99,17 @@ function Tag({ title, unicode }: { title: string; unicode: string }) {
       className="rounded-[30rem] px-[0.91vw] py-[0.5vh] justify-center items-center flex flex-row gap-x-[0.2vw]"
       style={{ backgroundColor: theme.palette.primary.main }}
     >
-      <span className="font-bold text-[0.73rem]">{title}</span>
+      <span className="font-bold text-[0.75rem]">{title}</span>
       <Emoji unified={unicode} size={17} emojiStyle={EmojiStyle.APPLE} />
     </div>
   );
 }
 
-function Body({ body }: { body: string[] }) {
+function Body({ body }: { body: React.ReactNode[] }) {
   return (
-    <ul className="flex flex-col items-start gap-y-[2.5vh] pb-[2vh]">
+    <ul className="text-[0.925rem] tracking-[0.32px] flex flex-col items-start gap-y-[2.5vh] pb-[2vh] leading-[1.5em]">
       {body.map((item, index) => (
-        <li key={index} className="text-[0.93rem] tracking-[0.32px]">
-          {item}
-        </li>
+        <li key={index}>{item}</li>
       ))}
     </ul>
   );
