@@ -13,7 +13,7 @@ export default function Right() {
 function Ornament() {
   const theme = useTheme();
   return (
-    <div className="absolute bottom-12 right-0 size-[40vh]">
+    <div className=" absolute bottom-12 right-0 size-[40vh]">
       {theme.palette.mode === "dark" ? (
         <img src="/ornament-dark.png" />
       ) : (

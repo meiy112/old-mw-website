@@ -1,5 +1,8 @@
+import { useState } from "react";
 import NavLink from "../../misc/NavLink";
 import Post from "../Post";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import ModalPost from "../../misc/ModalPost";
 
 const postContent = [
   {
@@ -48,21 +51,55 @@ const postContent = [
 ];
 
 export default function About() {
+  const [modalIndex, setModalIndex] = useState<number | null>(null);
+
+  const closeModal = () => {
+    setModalIndex(null);
+  };
+
   return (
     <div className="p-[1vw] mt-[1.5vh]">
-      {postContent.map((post, index) => (
-        <Post
-          key={index}
-          isPinned={post.isPinned}
-          date={post.date}
-          title={post.title}
-          typeOf={post.typeOf}
-          body={post.body}
-          image={post.image}
-          anchor={post.anchor}
-          link={post.link}
-        />
-      ))}
+      <LayoutGroup>
+        {postContent.map((post, index) => (
+          <Post
+            key={index}
+            index={index}
+            isPinned={post.isPinned}
+            date={post.date}
+            title={post.title}
+            typeOf={post.typeOf}
+            body={post.body}
+            image={post.image}
+            anchor={post.anchor}
+            link={post.link}
+            onClick={() => setModalIndex(index)}
+          />
+        ))}
+
+        <AnimatePresence>
+          {/* Overlay */}
+          {modalIndex !== null && (
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.1 }}
+              exit={{ opacity: 0 }}
+              className="bg-white opacity-[0.2] fixed top-0 right-0 bottom-0 left-0"
+              style={{ backdropFilter: "blur(10px)" }}
+            />
+          )}
+
+          {/* Modal content */}
+          {modalIndex !== null && (
+            <ModalPost
+              key={modalIndex}
+              layoutId={`post-${modalIndex}`}
+              {...postContent[modalIndex]}
+              onClick={closeModal}
+            />
+          )}
+        </AnimatePresence>
+      </LayoutGroup>
     </div>
   );
 }

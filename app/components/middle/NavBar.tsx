@@ -6,18 +6,45 @@ export default function NavBar() {
   const { currentPage, setCurrentPage } = usePageContext();
 
   const theme = useTheme();
+
+  function scrollToNavbar() {
+    const navbarElement = document.getElementById("navbar");
+    if (navbarElement) {
+      navbarElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   const buttonData = [
-    { title: "About", onClick: () => setCurrentPage("About") },
+    {
+      title: "About",
+      onClick: () => {
+        setCurrentPage("About");
+        scrollToNavbar();
+      },
+    },
     {
       title: "Projects",
-      onClick: () => setCurrentPage("Projects"),
+      onClick: () => {
+        setCurrentPage("Projects");
+        scrollToNavbar();
+      },
     },
-    { title: "Resume", onClick: () => setCurrentPage("Resume") },
+    {
+      title: "Resume",
+      onClick: () => {
+        setCurrentPage("Resume");
+        scrollToNavbar();
+      },
+    },
     {
       title: "Drawings",
-      onClick: () => setCurrentPage("Drawings"),
+      onClick: () => {
+        setCurrentPage("Drawings");
+        scrollToNavbar();
+      },
     },
   ];
+
   const [linePosition, setLinePosition] = useState<number | null>(null);
   const lineRef = useRef<HTMLDivElement>(null);
 
@@ -45,30 +72,33 @@ export default function NavBar() {
   }, [currentPage]);
 
   return (
-    <nav
-      className={`sticky top-0 z-20 py-[2vh] flex flex-row justify-between px-[4.3vw] h-[10vh] items-start`}
-      style={{ backdropFilter: "blur(10px)" }}
-    >
-      {buttonData.map((button, index) => (
-        <NavButton
-          key={index}
-          title={button.title}
-          onClick={button.onClick}
-          currentPage={currentPage}
-        />
-      ))}
-      <div className="absolute left-0 h-[8vh]">
-        <div
-          ref={lineRef}
-          className="absolute w-[72px] h-[4.8px] bottom-0"
-          style={{
-            left: linePosition ?? "25.5vw",
-            backgroundColor: theme.palette.primary.main,
-            transition: "left 0.3s ease",
-          }}
-        />
-      </div>
-    </nav>
+    <>
+      <div className="absolute opacity-0 w-10 h-10" id="navbar"></div>
+      <nav
+        className={`sticky top-0 z-20 py-[2vh] flex flex-row justify-between px-[4.3vw] h-[10vh] items-start`}
+        style={{ backdropFilter: "blur(10px)" }}
+      >
+        {buttonData.map((button, index) => (
+          <NavButton
+            key={index}
+            title={button.title}
+            onClick={button.onClick}
+            currentPage={currentPage}
+          />
+        ))}
+        <div className="absolute left-0 h-[8vh]">
+          <div
+            ref={lineRef}
+            className="absolute w-[72px] h-[4.8px] bottom-0"
+            style={{
+              left: linePosition ?? "25.5vw",
+              backgroundColor: theme.palette.primary.main,
+              transition: "left 0.3s ease",
+            }}
+          />
+        </div>
+      </nav>
+    </>
   );
 }
 

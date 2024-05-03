@@ -18,26 +18,43 @@ export default function Sidebar({
 }) {
   const { setCurrentPage } = usePageContext();
   // ------------------------------ button data ------------------------------
+  function scrollToNavbar() {
+    const navbarElement = document.getElementById("navbar");
+    if (navbarElement) {
+      navbarElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
   const buttonData = [
     {
       text: "About",
       icon: <LuHome size={26} className="mr-[1.625em]" />,
-      onClick: () => setCurrentPage("About"),
+      onClick: () => {
+        setCurrentPage("About");
+        scrollToNavbar();
+      },
     },
     {
       text: "Projects",
       icon: <LuFolderOpen size={26} className="mr-[1.625em]" />,
-      onClick: () => setCurrentPage("Projects"),
+      onClick: () => {
+        setCurrentPage("Projects");
+        scrollToNavbar();
+      },
     },
     {
       text: "Resume",
       icon: <LuUserCircle size={26} className="mr-[1.625em]" />,
-      onClick: () => setCurrentPage("Resume"),
+      onClick: () => {
+        setCurrentPage("Resume");
+        scrollToNavbar();
+      },
     },
     {
       text: "Contact",
       icon: <LuMessageSquare size={26} className="mr-[1.625em]" />,
-      onClick: () => console.log("Contact Button Clicked!"),
+      onClick: () => {
+        setCurrentPage("Contact");
+      },
     },
   ];
   // -------------------------------------------------------------------------

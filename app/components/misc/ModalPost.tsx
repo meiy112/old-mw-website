@@ -11,7 +11,6 @@ import {
 } from "react-icons/lu";
 
 export default function Post({
-  index,
   isPinned,
   date,
   title,
@@ -21,8 +20,8 @@ export default function Post({
   link,
   anchor,
   onClick,
+  layoutId,
 }: {
-  index: number;
   isPinned: boolean;
   date: string;
   title: string;
@@ -32,22 +31,29 @@ export default function Post({
   link: string;
   anchor: string;
   onClick: () => void;
+  layoutId: string;
 }) {
+  const theme = useTheme();
   return (
-    <motion.div
-      onClick={onClick}
-      className="mb-[3vh] flex flex-col rounded-[20px] p-[2vw] hoverable"
-      layoutId={`post-${index}`}
-    >
-      {isPinned ? <Pin /> : null}
-      <Profile date={date} />
-      <div className="px-[0.6vw]">
-        <Title title={title} typeOf={typeOf} />
-        <Body body={body} />
+    <div className="z-40 absolute top-0 bottom-0 left-0 right-0 justify-center items-center flex">
+      <div className="p-[1vw] w-[51%]">
+        <motion.div
+          onClick={onClick}
+          className=" mb-[3vh] flex flex-col rounded-[20px] p-[2vw]"
+          style={{ backgroundColor: theme.palette.background.default }}
+          layoutId={layoutId}
+        >
+          {isPinned ? <Pin /> : null}
+          <Profile date={date} />
+          <div className="px-[0.6vw]">
+            <Title title={title} typeOf={typeOf} />
+            <Body body={body} />
+          </div>
+          <Picture image={image} />
+          <Footer link={link} anchor={anchor} />
+        </motion.div>
       </div>
-      <Picture image={image} />
-      <Footer link={link} anchor={anchor} />
-    </motion.div>
+    </div>
   );
 }
 
