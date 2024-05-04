@@ -3,6 +3,7 @@ import { PiEnvelopeSimpleBold } from "react-icons/pi";
 import { Raleway } from "next/font/google";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
+import ContactButton from "../misc/ContactButton";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -46,12 +47,12 @@ function ProfilePicture() {
   );
 }
 
-function ContactButton() {
-  const theme = useTheme();
-
+function OldContactButton() {
   const onClick = () => {
     console.log("contact button clicked TEEHEE TEEHEE");
   };
+
+  const theme = useTheme();
 
   return (
     <button

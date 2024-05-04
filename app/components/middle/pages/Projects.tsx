@@ -3,6 +3,7 @@ import Post from "../Post";
 import { LayoutGroup, AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import ModalPost from "../../misc/ModalPost";
+import { useTheme } from "@mui/material/styles";
 
 const postContent = [
   {
@@ -64,6 +65,7 @@ const postContent = [
 
 export default function Projects() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
+  const theme = useTheme();
 
   const closeModal = () => {
     setModalIndex(null);
@@ -117,7 +119,7 @@ export default function Projects() {
               className="block z-30 fixed inset-0"
               style={{
                 backdropFilter: "blur(10px)",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                backgroundColor: theme.palette.action.hover,
               }}
             />
           )}

@@ -16,6 +16,7 @@
   --color-interactive: 45, 33, 65;
   --circle-size: 80%;
   --blending: hard-light;
+  --reflection-color: hsla(48, 30%, 95%, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +34,7 @@
     --color-interactive: 152, 80, 110;
     --circle-size: 80%;
     --blending: hard-light;
+    --reflection-color: hsla(48, 30%, 95%, 0.3);
   }
 }
 
@@ -70,6 +72,208 @@ body {
 .active {
   opacity: 1;
 }
+
+/* Reflection shapes */
+.button__reflection-1,
+.button__reflection-2 {
+  width: 8px;
+  height: 120px;
+  background-color: var(--reflection-color);
+  rotate: 30deg;
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: -200%;
+  margin: auto;
+  transition: left 0.6s cubic-bezier(0.2, 0.5, 0.2, 1.2);
+}
+
+.button__reflection-1::after {
+  content: "";
+  width: 26px;
+  height: 100%;
+  background-color: var(--reflection-color);
+  position: absolute;
+  top: -1rem;
+  left: 1.25rem;
+}
+
+.button__reflection-2::after {
+  content: "";
+  width: 40px;
+  height: 100%;
+  background-color: var(--reflection-color);
+  position: absolute;
+  top: -1rem;
+  left: 0.8rem;
+}
+
+.contact-button img {
+  position: absolute;
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.button__star-1 {
+  width: 4em;
+  top: -14px;
+  left: -16px;
+  transform: rotate(10deg) scale(0.1);
+}
+
+.button__star-2 {
+  width: 3em;
+  right: -20px;
+  top: -4px;
+  transform: rotate(-48deg) scale(0.1);
+}
+
+.button__circle-1,
+.button__circle-2 {
+  width: 1em;
+}
+
+.button__circle-1 {
+  top: 8px;
+  left: 58px;
+  transform: scale(0.1);
+}
+
+.button__circle-2 {
+  right: 34px;
+  bottom: -8px;
+  transform: scale(0.1);
+}
+
+.button__diamond {
+  width: 2em;
+  top: -10px;
+  right: 62px;
+  transform: scale(0.1);
+}
+
+.button__triangle {
+  width: 2em;
+  left: 2px;
+  bottom: -16px;
+  transform: rotate(-48deg) scale(0.1);
+}
+
+.contact-button:hover .button__reflection-1 {
+  left: 120%;
+}
+
+.contact-button:hover .button__reflection-2 {
+  left: -70%;
+}
+
+.contact-button:hover {
+  transform: rotate(-4deg) scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.contact-button:hover img {
+  opacity: 1;
+}
+
+.contact-button:hover .button__star-1 {
+  transform: scale(0.3);
+  transition-delay: 0.1s;
+}
+
+.contact-button:hover .button__star-2 {
+  transform: scale(0.3);
+}
+
+.contact-button:hover .button__circle-1 {
+  transform: translateY(-8px) scale(0.3);
+  transition-delay: 0.1s;
+}
+
+.contact-button:hover .button__circle-2 {
+  transform: translate(10px, -4px) scale(0.3);
+}
+
+.contact-button:hover .button__diamond {
+  transform: translateY(7px) rotate(-24deg) scale(0.3);
+}
+
+.contact-button:hover .button__triangle {
+  transform: rotate(-12deg) scale(0.3);
+}
+
+/*.contact-button-container {
+  filter: url(#goo);
+}
+
+.contact-button {
+  background: none;
+  border: none;
+  padding: 0;
+  transition: 0.5s;
+  position: relative;
+}
+
+.contact-button span {
+  display: block;
+  width: 0.77em;
+  height: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+  position: absolute;
+  background-color: #5d956f;
+  transition: 0.7s cubic-bezier(0, 2, 0.7, 2);
+}
+
+.contact-button:hover span {
+  height: 120%;
+  transition: 0.4s;
+}
+
+.contact-button span:nth-child(1) {
+  transition-delay: 0.25s;
+  left: 0;
+}
+.contact-button span:nth-child(2) {
+  transition-delay: 0.2s;
+  left: 0.77em;
+}
+.contact-button span:nth-child(3) {
+  transition-delay: 0.15s;
+  left: 1.54em;
+}
+.contact-button span:nth-child(4) {
+  transition-delay: 0.1s;
+  left: 2.31em;
+}
+.contact-button span:nth-child(5) {
+  transition-delay: 0.05s;
+  left: 3.08em;
+}
+.contact-button span:nth-child(6) {
+  transition-delay: 0s;
+  left: 3.85em;
+}
+.contact-button span:nth-child(7) {
+  transition-delay: 0.05s;
+  left: 4.62em;
+}
+.contact-button span:nth-child(8) {
+  transition-delay: 0.1s;
+  left: 5.39em;
+}
+.contact-button span:nth-child(9) {
+  transition-delay: 0.15s;
+  left: 6.16em;
+}
+.contact-button span:nth-child(10) {
+  transition-delay: 0.2s;
+  left: 6.93em;
+}
+.contact-button span:nth-child(11) {
+  transition-delay: 0.25s;
+  left: 7.7em;
+}*/
 
 @keyframes moveInCircle {
   0% {

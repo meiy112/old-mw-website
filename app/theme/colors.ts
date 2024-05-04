@@ -15,6 +15,9 @@ export const darkTheme = createTheme({
     background: {
       default: "#151518",
     },
+    action: {
+      hover: "rgba(255, 255, 255, 0.1)",
+    },
     divider: "rgba(255, 255, 255, 0.15)",
   },
 });
@@ -33,6 +36,9 @@ export const lightTheme = createTheme({
     },
     background: {
       default: "#ffffff",
+    },
+    action: {
+      hover: "rgba(195, 209, 174, 0.1)",
     },
     divider: "#C3D1AE",
   },

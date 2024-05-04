@@ -38,8 +38,10 @@ export default function PostsContent() {
 
 function Footer() {
   return (
-    <div className="flex flex-row justify-center items-center mt-[7vh] mb-[5vh] gap-x-[5px] opacity-[0.5] text-[0.8rem] font-light">
-      mweng <LuCopyright /> 2024
+    <div className="flex flex-col">
+      <div className="flex flex-row justify-center items-center mt-[7vh] mb-[5vh] gap-x-[5px] opacity-[0.5] text-[0.8rem] font-light">
+        mweng <LuCopyright /> 2024
+      </div>
     </div>
   );
 }

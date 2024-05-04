@@ -3,6 +3,7 @@ import NavLink from "../../misc/NavLink";
 import Post from "../Post";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import ModalPost from "../../misc/ModalPost";
+import { useTheme } from "@mui/material/styles";
 
 const postContent = [
   {
@@ -52,6 +53,7 @@ const postContent = [
 
 export default function About() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
+  const theme = useTheme();
 
   const closeModal = () => {
     setModalIndex(null);
@@ -105,7 +107,7 @@ export default function About() {
               className="block z-30 fixed inset-0"
               style={{
                 backdropFilter: "blur(10px)",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                backgroundColor: theme.palette.action.hover,
               }}
             />
           )}
