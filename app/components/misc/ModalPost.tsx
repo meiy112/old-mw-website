@@ -35,16 +35,13 @@ export default function Post({
 }) {
   const theme = useTheme();
   return (
-    <div className="z-40 h-[200vh] absolute top-0 bottom-0 left-0 right-0 justify-center items-center flex">
-      <div className="relative p-[1vw] w-[51%]">
+    <div className="z-40 fixed overflow-y-scroll inset-0 justify-center items-start flex">
+      <div className="static p-[1vw] w-[51%]">
         <motion.div
           onClick={onClick}
-          className="mb-[3vh] flex flex-col rounded-[20px] p-[2vw]"
+          className="my-[3vh] flex flex-col rounded-[20px] p-[2vw]"
           style={{ backgroundColor: theme.palette.background.default }}
           layoutId={layoutId}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
         >
           {isPinned ? <Pin /> : null}
           <Profile date={date} />

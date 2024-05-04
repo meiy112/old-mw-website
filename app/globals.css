@@ -23,8 +23,8 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 21, 21, 24;
     --background-end-rgb: 21, 21, 24;
-    --color-bg1: rgb(11, 11, 17);
-    --color-bg2: rgb(11, 11, 17);
+    --color-bg1: rgb(21, 21, 24);
+    --color-bg2: rgb(21, 21, 24);
     --color1: 57, 48, 71;
     --color2: 48, 153, 143;
     --color3: 36, 45, 72;
@@ -39,7 +39,11 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color: rgb(var(--background-start-rgb));
-  transition: all 0.2s ease-in-out;
+}
+
+.noscroll {
+  overflow: hidden;
+  padding-right: 1.55vw;
 }
 
 @layer utilities {
@@ -108,7 +112,6 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
   top: 0;
   left: 0;
 

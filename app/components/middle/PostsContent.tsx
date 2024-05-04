@@ -6,6 +6,7 @@ import Drawings from "./pages/Drawings";
 import { Raleway } from "next/font/google";
 import { usePageContext } from "../context/PageProvider";
 import { LuCopyright } from "react-icons/lu";
+import { AnimatePresence } from "framer-motion";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export default function PostsContent() {
   return (
     <div className={`${raleway.className}`}>
       <NavBar />
-      {renderPage()}
+      <AnimatePresence mode="wait">{renderPage()}</AnimatePresence>
       <Footer />
     </div>
   );

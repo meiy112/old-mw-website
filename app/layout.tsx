@@ -37,12 +37,12 @@ export default function RootLayout({
             </defs>
           </svg>
           <div className="gradients-container">
-            <div className="g1" style={{ opacity: 0.3 }}></div>
-            <div className="g2" style={{ opacity: 0.3 }}></div>
+            {/*<div className="g1" style={{ opacity: 0.3 }}></div>
+            <div className="g2" style={{ opacity: 0.3 }}></div>*/}
             <div className="g3" style={{ opacity: 0.3 }}></div>
             <div className="g4" style={{ opacity: 0.3 }}></div>
             <div className="g5" style={{ opacity: 0.3 }}></div>
-            <div className="interactive" style={{ opacity: 0.3 }}></div>
+            {/*<div className="interactive" style={{ opacity: 0.3 }}></div>*/}
           </div>
         </div>
         {children}

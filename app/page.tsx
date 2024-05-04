@@ -28,15 +28,15 @@ export default function Home() {
       <PageProvider>
         <ThemeProvider theme={theme}>
           {/*Navbar + Logo*/}
-          <div className="w-[20%]">
+          <div className="w-[20vw]">
             <Sidebar toggleTheme={toggleTheme} />
           </div>
           {/*Main middle content*/}
-          <div className="w-[51%]">
+          <div className="w-[51vw]">
             <Main />
           </div>
           {/*You Might Like*/}
-          <div className="w-[29%]">
+          <div className="w-[29vw]">
             <Right />
           </div>
         </ThemeProvider>

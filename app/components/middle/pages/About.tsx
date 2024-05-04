@@ -57,13 +57,31 @@ export default function About() {
     setModalIndex(null);
   };
 
+  useEffect(() => {
+    if (modalIndex !== null) {
+      document.body.classList.add("noscroll");
+    } else {
+      document.body.classList.remove("noscroll");
+    }
+
+    return () => {
+      document.body.classList.remove("noscroll");
+    };
+  }, [modalIndex]);
+
   return (
-    <div className="p-[1vw] mt-[1.5vh]">
+    <motion.div
+      className="p-[1vw] mt-[1.5vh]"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -10, opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <LayoutGroup>
         {postContent.map((post, index) => (
           <Post
-            key={index}
-            index={index}
+            key={"about" + index}
+            postKey={"about" + index}
             isPinned={post.isPinned}
             date={post.date}
             title={post.title}
@@ -84,9 +102,9 @@ export default function About() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="z-30 fixed top-0 right-0 bottom-0 left-0"
+              className="block z-30 fixed inset-0"
               style={{
-                backdropFilter: "blur(5px)",
+                backdropFilter: "blur(10px)",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
               }}
             />
@@ -96,13 +114,13 @@ export default function About() {
           {modalIndex !== null && (
             <ModalPost
               key={modalIndex}
-              layoutId={`post-${modalIndex}`}
+              layoutId={`post-${"about" + modalIndex}`}
               {...postContent[modalIndex]}
               onClick={closeModal}
             />
           )}
         </AnimatePresence>
       </LayoutGroup>
-    </div>
+    </motion.div>
   );
 }

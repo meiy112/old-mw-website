@@ -11,7 +11,7 @@ import {
 } from "react-icons/lu";
 
 export default function Post({
-  index,
+  postKey,
   isPinned,
   date,
   title,
@@ -22,7 +22,7 @@ export default function Post({
   anchor,
   onClick,
 }: {
-  index: number;
+  postKey: string;
   isPinned: boolean;
   date: string;
   title: string;
@@ -37,7 +37,7 @@ export default function Post({
     <motion.div
       onClick={onClick}
       className="mb-[3vh] flex flex-col rounded-[20px] p-[2vw] hoverable"
-      layoutId={`post-${index}`}
+      layoutId={`post-${postKey}`}
     >
       {isPinned ? <Pin /> : null}
       <Profile date={date} />
