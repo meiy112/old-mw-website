@@ -9,8 +9,9 @@ import {
   LuLink,
   LuMoreHorizontal,
 } from "react-icons/lu";
+import ModalBar from "./ModalBar";
 
-export default function Post({
+export default function ModalPost({
   isPinned,
   date,
   title,
@@ -36,9 +37,9 @@ export default function Post({
   const theme = useTheme();
   return (
     <div className="z-40 fixed overflow-y-scroll inset-0 justify-center items-start flex">
+      <ModalBar onClick={onClick} />
       <div className="static p-[1vw] w-[51%]">
         <motion.div
-          onClick={onClick}
           className="my-[3vh] flex flex-col rounded-[20px] p-[2vw]"
           style={{ backgroundColor: theme.palette.background.default }}
           layoutId={layoutId}

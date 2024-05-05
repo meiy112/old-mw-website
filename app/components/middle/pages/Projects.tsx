@@ -131,6 +131,7 @@ export default function Projects() {
               layoutId={`post-${"projects" + modalIndex}`}
               {...postContent[modalIndex]}
               onClick={closeModal}
+              modalIndex={modalIndex}
             />
           )}
         </AnimatePresence>
