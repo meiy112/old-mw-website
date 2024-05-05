@@ -6,9 +6,9 @@ import Drawings from "./pages/Drawings";
 import { Raleway } from "next/font/google";
 import { usePageContext } from "../context/PageProvider";
 import { LuCopyright, LuContainer, LuCode2, LuMusic4 } from "react-icons/lu";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, useInView } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -50,45 +50,57 @@ function Footer() {
 }
 
 function WebsiteDescription() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <div className="flex flex-col my-[4vh] gap-y-[1.25rem]">
-      <Ornament />
-      <h1 className="font-regular px-[1em] text-[0.8rem] opacity-[0.5]">
-        This website was built with...
-      </h1>
-      <div className="px-[1em] flex flex-row gap-x-[5vw] opacity-[0.85]">
-        <List
-          listItems={[
-            "Typescript",
-            "+ Next.js",
-            "+ Tailwind.css",
-            "+ Framer motion",
-            "+ Node.js",
-          ]}
-          icon={<LuContainer />}
-        />
-        <List
-          listItems={[
-            "29 files",
-            "+ 420 lines of code",
-            "+ 69 hours of coding",
-            "+ 18 cups of coffee",
-            "+ 36 commits",
-          ]}
-          icon={<LuCode2 />}
-        />
-        <List
-          listItems={[
-            "Random Song",
-            "Song 2",
-            "Another Song",
-            "Basically Music",
-            "Yea Thats About It",
-          ]}
-          icon={<LuMusic4 />}
-        />
+    <section ref={ref}>
+      <div
+        className="flex flex-col mb-[4vh] gap-y-[1.25rem]"
+        style={{
+          transform: isInView ? "none" : "translateX(-50px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        }}
+      >
+        <Ornament />
+        <h1 className="font-regular px-[1em] text-[0.8rem] opacity-[0.5]">
+          This website was built with...
+        </h1>
+        <div className="px-[1em] flex flex-row gap-x-[5vw] opacity-[0.85]">
+          <List
+            listItems={[
+              "Typescript",
+              "+ Next.js",
+              "+ Tailwind.css",
+              "+ Framer motion",
+              "+ Node.js",
+            ]}
+            icon={<LuContainer />}
+          />
+          <List
+            listItems={[
+              "29 files",
+              "+ 420 lines of code",
+              "+ 69 hours of coding",
+              "+ 18 cups of coffee",
+              "+ 36 commits",
+            ]}
+            icon={<LuCode2 />}
+          />
+          <List
+            listItems={[
+              "Random Song",
+              "Song 2",
+              "Another Song",
+              "Basically Music",
+              "Yea Thats About It",
+            ]}
+            icon={<LuMusic4 />}
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
