@@ -100,7 +100,7 @@ function Title({ title, typeOf }: { title: string; typeOf: string }) {
     }
   };
   return (
-    <div className="flex flex-row items-center pt-[1.9vh] pb-[0.3vh] gap-x-[0.9vw]">
+    <div className="flex flex-row items-center pt-[1.9vh] pb-[1vh] gap-x-[0.9vw]">
       <h1 className="font-extrabold text-[1.6rem] tracking-[0.32px]">
         {title}
       </h1>
