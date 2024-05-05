@@ -13,7 +13,7 @@ const itemVariants: Variants = {
   closed: {
     opacity: 0,
     scale: 0.3,
-    transition: { duration: 0.4 },
+    transition: { duration: 0.1 },
   },
 };
 
@@ -31,7 +31,7 @@ export default function ModalBar({ onClick }: { onClick: () => void }) {
 
   return (
     <div className="relative mt-[5vh] w-[55px]">
-      <motion.div className="flex flex-col gap-y-[16px] absolute top-0 left-0">
+      <motion.div className="flex flex-col gap-y-[16px] fixed">
         <CloseButton onClick={onCloseButtonClick} />
         <ReactionBar isModalOpen={isModalOpen} />
       </motion.div>
@@ -47,9 +47,9 @@ function CloseButton({ onClick }: { onClick: () => void }) {
       className="size-[55px] flex items-center justify-center rounded-[23px]"
       onClick={onClick}
       style={{ backgroundColor: theme.palette.background.default }}
-      initial={{ x: -50, opacity: 0 }}
+      initial={{ x: -40, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -50, opacity: 0 }}
+      exit={{ x: -40, opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
       <LuX size={22} />
@@ -74,18 +74,21 @@ function ReactionBar({ isModalOpen }: { isModalOpen: boolean }) {
             transition: {
               type: "spring",
               bounce: 0,
-              duration: 0.8,
+              duration: 0.7,
               delayChildren: 0.5,
               staggerChildren: 0.1,
             },
           },
           closed: {
             clipPath: "inset(10% 50% 90% 50% round 10px)",
-            x: -50,
+            x: -40,
             transition: {
               type: "spring",
               bounce: 0,
               duration: 0.4,
+              //  when: "afterChildren",
+              staggerDirection: -1,
+              //  staggerChildren: 0.06,
             },
           },
         }}

@@ -4,13 +4,14 @@ import Post from "../Post";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import ModalPost from "../../misc/ModalPost";
 import { useTheme } from "@mui/material/styles";
+import { PostData } from "@/app/interfaces/Thread";
 
-const postContent = [
+const postContent: PostData[] = [
   {
     isPinned: true,
     date: "April 30 2024",
     title: "Hello World!",
-    typeOf: "About Me",
+    typeOf: ["About Me"],
     body: [
       <p key={0}>
         Welcome to my corner of the web! This is where I'll be sharing updates
@@ -41,7 +42,7 @@ const postContent = [
     isPinned: false,
     date: "May 2 2024",
     title: "Want to Learn Code?",
-    typeOf: "About Me",
+    typeOf: ["About Me"],
     body: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     ],
@@ -93,6 +94,7 @@ export default function About() {
             anchor={post.anchor}
             link={post.link}
             onClick={() => setModalIndex(index)}
+            {...(post.thread ? { thread: post.thread } : {})}
           />
         ))}
 
@@ -119,6 +121,9 @@ export default function About() {
               layoutId={`post-${"about" + modalIndex}`}
               {...postContent[modalIndex]}
               onClick={closeModal}
+              {...(postContent[modalIndex].thread
+                ? { thread: postContent[modalIndex].thread }
+                : {})}
             />
           )}
         </AnimatePresence>
