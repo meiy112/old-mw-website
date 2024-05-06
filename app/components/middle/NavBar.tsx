@@ -75,8 +75,7 @@ export default function NavBar() {
     <>
       <div className="absolute opacity-0 w-10 h-10" id="navbar"></div>
       <nav
-        className={`sticky top-0 z-20 py-[2vh] flex flex-row justify-between px-[4.3vw] h-[10vh] items-start`}
-        style={{ backdropFilter: "blur(10px)" }}
+        className={`backgroundblur-10 sticky top-0 z-20 py-[2vh] flex flex-row justify-between px-[4.3vw] h-[10vh] items-start`}
       >
         {buttonData.map((button, index) => (
           <NavButton

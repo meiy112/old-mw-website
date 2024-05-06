@@ -42,8 +42,10 @@ function Footer() {
   return (
     <div className="flex flex-col px-[2vw]">
       <WebsiteDescription />
-      <div className="flex flex-row justify-center items-center mt-[7vh] mb-[5vh] gap-x-[5px] opacity-[0.5] text-[0.8rem] font-light">
-        mweng <LuCopyright /> 2024
+      <div className=" flex justify-center mt-[7vh] mb-[5vh] opacity-[0.7] text-[0.75rem] font-light">
+        <div className="px-[1em] flex flex-row items-center gap-x-[5px] rounded-[10em] py-[0.2em] glass-container-2">
+          mweng <LuCopyright /> 2024
+        </div>
       </div>
     </div>
   );
@@ -99,6 +101,9 @@ function WebsiteDescription() {
             icon={<LuMusic4 />}
           />
         </div>
+        {/*<h1 className="mt-[4em] self-end font-regular px-[1em] text-[0.8rem] opacity-[0.5]">
+          ...thanks again for stopping by!
+        </h1>*/}
       </div>
     </section>
   );

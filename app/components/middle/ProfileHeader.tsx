@@ -4,18 +4,31 @@ import { Raleway } from "next/font/google";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
 import ContactButton from "../misc/ContactButton";
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import ContactModal from "../misc/ContactModal/ContactModal";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function ProfileHeader() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="h-auto pb-[5vh] w-[100%]">
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1vh]">
         <ProfilePicture />
-        <ContactButton />
+        <ContactButton onClick={setIsModalOpen} />
       </div>
       <Bio />
+      <AnimatePresence>
+        {isModalOpen && (
+          <ContactModal
+            isModalOpen={isModalOpen}
+            handleClose={setIsModalOpen}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

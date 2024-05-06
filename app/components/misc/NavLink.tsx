@@ -10,7 +10,7 @@ export default function NavLink({ name, tab }: { name: string; tab: string }) {
   return (
     <button
       onClick={onClick}
-      className="font-bold mx-[0.1em] px-[0.5em] py-[0.2em] rounded-[5px]"
+      className="navlink font-bold mx-[0.1em] px-[0.5em] py-[0.2em] rounded-[5px]"
       style={{
         color: theme.palette.primary.light,
         backgroundColor: "rgba(255, 255, 255, 0.1)",

@@ -1,19 +1,20 @@
 import { useTheme } from "@mui/material/styles";
+import { Dispatch, SetStateAction } from "react";
 import { PiEnvelopeSimpleBold } from "react-icons/pi";
 
-export default function ContactButton() {
-  const onClick = () => {
-    console.log("contact button clicked TEEHEE TEEHEE");
-  };
-
+export default function ContactButton({
+  onClick,
+}: {
+  onClick: Dispatch<SetStateAction<boolean>>;
+}) {
   const theme = useTheme();
 
   return (
     <div className="relative contact-button">
       <button
         type="button"
-        onClick={onClick}
-        className="overflow-hidden relative flex flex-row font-bold w-[8.5em] h-[2.9em] items-center justify-center rounded-[10em] text-[0.97rem] tracking-[0.32px] mt-[2.8vh]"
+        onClick={() => onClick(true)}
+        className=" overflow-hidden relative flex flex-row font-bold w-[8.5em] h-[2.9em] items-center justify-center rounded-[10em] text-[0.97rem] tracking-[0.32px] mt-[2.8vh]"
         style={{
           backgroundColor: theme.palette.primary.main,
           transition: "transform 0.4s",
