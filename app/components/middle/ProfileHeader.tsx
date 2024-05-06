@@ -60,28 +60,6 @@ function ProfilePicture() {
   );
 }
 
-function OldContactButton() {
-  const onClick = () => {
-    console.log("contact button clicked TEEHEE TEEHEE");
-  };
-
-  const theme = useTheme();
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex flex-row font-bold w-[8.5em] h-[2.9em] items-center justify-center rounded-[10em] text-[0.97rem] tracking-[0.32px] gap-x-[4px] mt-[2.8vh]"
-      style={{
-        backgroundColor: theme.palette.primary.main,
-      }}
-    >
-      Contact
-      <PiEnvelopeSimpleBold className="size-[1.3rem]" />
-    </button>
-  );
-}
-
 function Bio() {
   return (
     <div
@@ -111,8 +89,8 @@ function BioDescription() {
         <Emoji unified="1f609" size={24} emojiStyle={EmojiStyle.APPLE} />
       </div>
       <div>
-        UBC CompSci Student. Programmer. UI/UX Graphic Designer. Digital Artist.
-        Coding Tutor. Casual Hiker. All-Nighter Puller. Duck Enthusiast.
+        UBC CompSci Student. Aspiring Full-Stack Developer. Designer. Digital
+        Artist. Coding Tutor. Casual Hiker. All-Nighter Puller. Duck Enthusiast.
       </div>
     </div>
   );
