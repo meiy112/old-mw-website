@@ -16,7 +16,7 @@
   --color-interactive: 45, 33, 65;
   --circle-size: 80%;
   --blending: hard-light;
-  --reflection-color: hsla(48, 30%, 95%, 0.3);
+  --reflection-color: hsla(48, 30%, 95%, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,7 +34,7 @@
     --color-interactive: 152, 80, 110;
     --circle-size: 80%;
     --blending: hard-light;
-    --reflection-color: hsla(48, 30%, 95%, 0.3);
+    --reflection-color: hsla(48, 30%, 95%, 0.2);
   }
 }
 

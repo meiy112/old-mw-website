@@ -26,12 +26,25 @@ export default function ContactButton() {
           <div className="button__reflection-2"></div>
         </div>
       </button>
-      <img src="/star.png" className="button__star-1" />
-      <img src="/star.png" className="button__star-2" />
-      <img src="/circle.png" className="button__circle-1" />
-      <img src="/circle.png" className="button__circle-2" />
-      <img src="/diamond.png" className="button__diamond" />
-      <img src="/triangle.png" className="button__triangle" />
+      {theme.palette.mode === "dark" ? (
+        <>
+          <img src="/star-dark.png" className="button__star-1" />
+          <img src="/star-dark.png" className="button__star-2" />
+          <img src="/circle-dark.png" className="button__circle-1" />
+          <img src="/circle-dark.png" className="button__circle-2" />
+          <img src="/diamond-dark.png" className="button__diamond" />
+          <img src="/triangle-dark.png" className="button__triangle" />
+        </>
+      ) : (
+        <>
+          <img src="/star.png" className="button__star-1" />
+          <img src="/star.png" className="button__star-2" />
+          <img src="/circle.png" className="button__circle-1" />
+          <img src="/circle.png" className="button__circle-2" />
+          <img src="/diamond.png" className="button__diamond" />
+          <img src="/triangle.png" className="button__triangle" />
+        </>
+      )}
     </div>
   );
 }
