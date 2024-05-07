@@ -25,7 +25,7 @@ function Forms() {
       <div className="flex flex-col gap-y-[0.2em]">
         <p className="font-bold text-[0.83rem]">Your Name</p>
         <input
-          className="glass-input rounded-[25px] p-[10px] text-[0.9rem] w-[100%]"
+          className="placeholderColor glass-input rounded-[25px] p-[10px] text-[0.9rem] w-[100%]"
           type="text"
           placeholder="What should I call you?"
         />
@@ -33,7 +33,7 @@ function Forms() {
       <div className="flex flex-col gap-y-[0.2em]">
         <p className="font-bold text-[0.83rem]">Your Email</p>
         <input
-          className="glass-input rounded-[25px] p-[10px] text-[0.9rem] w-[100%]"
+          className="placeholderColor glass-input rounded-[25px] p-[10px] text-[0.9rem] w-[100%]"
           type="email"
           placeholder="Where should I reply back?"
         />
