@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState, useRef, useEffect, SetStateAction } from "react";
 import { LuPartyPopper, LuSend, LuSmilePlus } from "react-icons/lu";
 import { MessageFromMe, MessageFromUser } from "./Messages";
-import EmojiPicker, { Theme } from "emoji-picker-react";
+import EmojiPicker, { EmojiClickData, Theme } from "emoji-picker-react";
 
 interface Message {
   message: any;
@@ -34,6 +34,12 @@ export default function ChatModal() {
       } else if (normalizeString(newMessage.message) == "lets go") {
         userMessage = {
           message: "We can't",
+          fromMe: true,
+          date: getCurrentTimeString(),
+        };
+      } else if (normalizeString(newMessage.message) == "") {
+        userMessage = {
+          message: "I think you forgot to write something :0 wanna try again?",
           fromMe: true,
           date: getCurrentTimeString(),
         };
@@ -172,17 +178,21 @@ export default function ChatModal() {
     const [text, setText] = useState<string>("");
     const [showPicker, setShowPicker] = useState(false);
 
-    const onEmojiClick = (event: any, emojiObject: any) => {
+    const onEmojiClick: (
+      emojiData: EmojiClickData,
+      event: MouseEvent
+    ) => void = (emojiObject: EmojiClickData, event: MouseEvent) => {
       setText((prevInput) => prevInput + emojiObject.emoji);
       setShowPicker(false);
+      if (textareaRef.current) {
+        textareaRef.current.focus();
+      }
     };
 
     // This function adjusts the height of the textarea to fit the content
     const adjustTextareaHeight = () => {
       if (textareaRef.current) {
-        // Reset the height to allow expansion
         textareaRef.current.style.height = "auto";
-        // Set the height based on the scroll height
         textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
       }
     };
@@ -205,8 +215,6 @@ export default function ChatModal() {
       };
       add(newMessage);
     };
-
-    const theme = useTheme();
 
     return (
       <div className="px-[24px] py-[13px]">

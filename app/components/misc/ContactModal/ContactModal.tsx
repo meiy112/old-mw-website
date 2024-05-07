@@ -4,6 +4,8 @@ import { Dispatch, SetStateAction } from "react";
 import ChatModal from "./ChatModal";
 import FormModal from "./FormModal";
 import { LuX } from "react-icons/lu";
+import AnimatedGradient from "@/app/assets/AnimatedGradient";
+import SmallGradient from "@/app/assets/SmallGradient";
 
 export default function ContactModal({
   isModalOpen,
@@ -47,7 +49,7 @@ export default function ContactModal({
         >
           <motion.li
             className="rounded-[25px] backgroundblur-25"
-            key={1}
+            key={0}
             variants={item}
             exit={{ scale: 0, opacity: 0 }}
           >
@@ -55,14 +57,14 @@ export default function ContactModal({
           </motion.li>
           <motion.li
             className="rounded-[25px] backgroundblur-25"
-            key={0}
+            key={1}
             variants={item}
             exit={{ scale: 0, opacity: 0 }}
           >
             <ChatModal />
           </motion.li>
           <motion.li
-            key={0}
+            key={2}
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeInOut" }}
@@ -125,20 +127,7 @@ function ModalBackDrop() {
           "linear-gradient(to bottom, rgba(241, 244, 249, 0.1), rgba(223, 241, 255, 0.1)))",
       }}
     >
-      <section style={{ filter: "blur(150px)" }}>
-        <div
-          className="absolute w-[700px] h-[400px] left-[300px] top-[100px]"
-          style={{ background: "rgba(255, 53, 155, 0.15)" }}
-        ></div>
-        <div
-          className="absolute bottom-[-700px] w-[600px] h-[400px] left-[300px]"
-          style={{ background: "rgba(255, 253, 135, 0.2)" }}
-        ></div>
-        <div
-          className="absolute bottom-[-800px] right-[300px] w-[600px] h-[400px]"
-          style={{ background: "rgba(0, 210, 255, 0.2)" }}
-        ></div>
-      </section>
+      <SmallGradient />
     </motion.div>
   );
 }

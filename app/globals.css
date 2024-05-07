@@ -8,11 +8,11 @@
   --background-end-rgb: 21, 21, 24;
   --color-bg1: rgb(21, 21, 24);
   --color-bg2: rgb(21, 21, 24);
-  --color1: 156, 125, 95;
-  --color2: 55, 95, 108;
-  --color3: 93, 149, 111;
-  --color4: 44, 113, 104;
-  --color5: 33, 65, 46;
+  --color1: 255, 53, 155;
+  --color2: 255, 253, 135;
+  --color3: 0, 210, 255;
+  --color4: 93, 149, 111;
+  --color5: 255, 225, 191;
   --color-interactive: 45, 33, 65;
   --circle-size: 80%;
   --blending: hard-light;
@@ -26,11 +26,11 @@
     --background-end-rgb: 21, 21, 24;
     --color-bg1: rgb(21, 21, 24);
     --color-bg2: rgb(21, 21, 24);
-    --color1: 57, 48, 71;
-    --color2: 48, 153, 143;
-    --color3: 36, 45, 72;
-    --color4: 27, 94, 89;
-    --color5: 25, 92, 113;
+    --color1: 255, 53, 155;
+    --color2: 255, 253, 135;
+    --color3: 0, 210, 255;
+    --color4: 93, 149, 111;
+    --color5: 255, 225, 191;
     --color-interactive: 152, 80, 110;
     --circle-size: 80%;
     --blending: hard-light;
@@ -346,7 +346,7 @@ body {
   left: 7.7em;
 }*/
 
-/*@keyframes moveInCircle {
+@keyframes moveInCircle {
   0% {
     transform: rotate(0deg);
   }
@@ -510,4 +510,4 @@ body {
     top: -50%;
     left: -50%;
   }
-}*/
+}
