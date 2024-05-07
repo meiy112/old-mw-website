@@ -7,7 +7,7 @@ export const postContent: PostData[] = [
     title: "Study Shark",
     typeOf: ["Mobile App"],
     body: [
-      <p>
+      <p key="body0">
         Study app that extracts key concepts from scanned notes and converts
         them into interactive quiz material.
       </p>,

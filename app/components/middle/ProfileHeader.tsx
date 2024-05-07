@@ -75,7 +75,7 @@ function Bio() {
 function BioHeader() {
   return (
     <div className="flex flex-row items-center gap-x-[9px]">
-      <h1 className="font-extrabold text-[2.25rem]">Hi, I'm Maggie Weng</h1>
+      <h1 className="font-extrabold text-[2.25rem]">Hi, I&#39;m Maggie Weng</h1>
       <img src="/verified-check.png" className="size-[1.5em]" />
     </div>
   );
@@ -85,7 +85,7 @@ function BioDescription() {
   return (
     <div className="font-medium tracking-[0.32px] text-[0.91rem] gap-y-[15px] flex flex-col">
       <div className="flex gap-x-[5px] items-center">
-        <span>... and this isn't X/Twitter.</span>
+        <span>... and this isn&#39;t X/Twitter.</span>
         <Emoji unified="1f609" size={24} emojiStyle={EmojiStyle.APPLE} />
       </div>
       <div>

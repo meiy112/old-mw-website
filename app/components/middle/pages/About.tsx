@@ -16,24 +16,25 @@ const postContent: PostData[] = [
     typeOf: ["About Me"],
     body: [
       <p key={0}>
-        Welcome to my corner of the web! This is where I'll be sharing updates
-        on my latest projects, creative endeavors, and insights into my personal
-        journey.
+        Welcome to my corner of the web! This is where I&#39;ll be sharing
+        updates on my latest projects, creative endeavors, and insights into my
+        personal journey.
       </p>,
       <p key={1}>
-        If you're curious about my work, check out{" "}
-        <NavLink name="Projects" tab="Projects" /> to see what I've been up to
-        or explore my <NavLink name="Resume" tab="Resume" /> to learn more about
-        my experience. Feel free to get in touch via{" "}
+        If you&#39;re curious about my work, check out{" "}
+        <NavLink name="Projects" tab="Projects" /> to see what I&#39;ve been up
+        to or explore my <NavLink name="Resume" tab="Resume" /> to learn more
+        about my experience. Feel free to get in touch via{" "}
         <NavLink name="Contact" tab="Contact" /> if you have any questions or
         want to connect!
       </p>,
       <p key={2}>
-        I’ll leave this post off with a passage from one of my all-time
+        I&#39;ll leave this post off with a passage from one of my all-time
         favourite plays:
       </p>,
       <p key={3}>
-        “Let's go.” “We can't.” “Why not?” “We're waiting for Godot.”
+        “Let&#39;s go.” “We can&#39;t.” “Why not?” “We&#39;re waiting for
+        Godot.”
       </p>,
     ],
     image: "/images/pinned-post.jpg",
