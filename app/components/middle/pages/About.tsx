@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import NavLink from "../../misc/NavLink";
 import Post from "../Post";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-import ModalPost from "../../misc/ModalPost";
+import ModalPost from "../../misc/ModalPost/ModalPost";
 import { useTheme } from "@mui/material/styles";
 import { PostData } from "@/app/interfaces/Thread";
 import AnimatedGradient from "@/app/assets/AnimatedGradient";

@@ -1,5 +1,6 @@
 import { useTheme } from "@mui/material/styles";
 import TwitterUser from "./TwitterUser";
+import SmallGradient from "@/app/assets/SmallGradient";
 
 const profileData = [
   {
@@ -35,9 +36,8 @@ const profileData = [
 
 // Container with "You Might Like" + Github, Linkedin
 export default function Recommendations() {
-  const theme = useTheme();
   return (
-    <div className="glass-container-2 ml-[2.4em] rounded-[19px] p-[1.75em] pb-[2em] flex flex-col w-screen gap-y-[1.15em]">
+    <div className="overflow-hidden glass-container-2 ml-[2.4em] rounded-[19px] p-[1.75em] pb-[2em] flex flex-col w-screen gap-y-[1.15em]">
       <Heading />
       {profileData.map((profile, index) => (
         <TwitterUser
@@ -49,18 +49,22 @@ export default function Recommendations() {
           key={profile.at}
         />
       ))}
+      <section className="absolute" style={{ filter: "blur(80px)" }}>
+        <div
+          className="absolute w-[60px] h-[100px] top-[10px] left-[-30px]"
+          style={{ background: "rgba(255, 53, 155, 0.6)" }}
+        ></div>
+        <div
+          className="absolute top-[200px] left-[70px] w-[100px] h-[60px]"
+          style={{ background: "rgba(0, 210, 255, 0.5)" }}
+        ></div>
+      </section>
     </div>
   );
 }
 
 function Heading() {
-  const theme = useTheme();
   return (
-    <p
-      style={{ color: theme.palette.primary.contrastText }}
-      className="font-bold tracking-[0.5px] text-[1.235rem]"
-    >
-      You might like
-    </p>
+    <p className="font-bold tracking-[0.5px] text-[1.235rem]">You might like</p>
   );
 }
