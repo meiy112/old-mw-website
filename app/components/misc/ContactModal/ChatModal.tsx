@@ -12,7 +12,11 @@ import { MessageFromMe, MessageFromUser } from "./Messages";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 import { useEmailForm } from "../../context/EmailFormContext";
 import { EmailForm, sendEmail } from "@/app/utility/sendEmail";
-import { Message, getReactionMessage } from "@/app/utility/MessageService";
+import {
+  Message,
+  getReactionMessage,
+  setEmojiString,
+} from "@/app/utility/MessageService";
 
 export default function ChatModal() {
   const handleSubmit = (email: EmailForm) => {
@@ -25,7 +29,14 @@ export default function ChatModal() {
 
   function add(newMessage: Message) {
     // add reaction string (eg. #Cool) to message
-    const newMessages = [...messages, newMessage];
+    const messageWithReaction = {
+      message: newMessage.fromMe
+        ? newMessage.message
+        : setEmojiString(newMessage.message, emailForm),
+      fromMe: newMessage.fromMe,
+      date: getCurrentTimeString(),
+    };
+    const newMessages = [...messages, messageWithReaction];
 
     const isGodot1 = normalizeString(newMessage.message) == "why not";
     const isGodot2 = normalizeString(newMessage.message) == "lets go";
@@ -78,7 +89,7 @@ export default function ChatModal() {
           };
           setTimeout(() => {
             setMessages((prevMessages) => [...prevMessages, followUp]);
-          }, 3500);
+          }, 2500);
         } else if (!isValidEmail(emailForm.getEmail)) {
           userMessage = {
             message: "Thanks for the..",
@@ -92,7 +103,7 @@ export default function ChatModal() {
           };
           setTimeout(() => {
             setMessages((prevMessages) => [...prevMessages, followUp1]);
-          }, 3500);
+          }, 2500);
           const followUp2 = {
             message: "That's not a valid email address sorry-",
             fromMe: true,
@@ -100,28 +111,27 @@ export default function ChatModal() {
           };
           setTimeout(() => {
             setMessages((prevMessages) => [...prevMessages, followUp2]);
-          }, 5000);
+          }, 4000);
         }
+
+        //// dont send if godot easter egg is triggered
+        //if (!(isGodot1 || isGodot2)) {
+        //  const ReactionMessage = getReactionMessage(emailForm);
+        //  // send reaction hashtag
+        //  setTimeout(() => {
+        //    setMessages((prevMessages) => [...prevMessages, ReactionMessage]);
+        //  }, 1000);
+        //}
 
         // send  message from me
         setTimeout(() => {
           setMessages((prevMessages) => [...prevMessages, userMessage]);
-        }, 2000);
+        }, 1000);
 
         emailForm.setMessage = newMessage.message;
 
-        // dont send if godot easter egg is triggered
-        if (!(isGodot1 || isGodot2)) {
-          const ReactionMessage = getReactionMessage(emailForm);
-          // send reaction hashtag
-          setTimeout(() => {
-            setMessages((prevMessages) => [...prevMessages, ReactionMessage]);
-          }, 1000);
-        }
-
         if (emailFormIsValid(emailForm)) {
           handleSubmit(emailForm);
-          console.log(emailForm);
         }
       }
 

@@ -60,3 +60,23 @@ export function getReactionMessage(emailForm: EmailForm) {
 
   return emojiMessage;
 }
+
+export function setEmojiString(message: string, emailForm: EmailForm) {
+  let reactionString = "hi";
+  if (emailForm.getReaction == "Nerdy") {
+    reactionString = "#UmAckshually🤓";
+  } else if (emailForm.getReaction == "Friendly") {
+    reactionString = "#HeyThere🤗";
+  } else if (emailForm.getReaction == "Funny") {
+    reactionString = "#LOL😂";
+  } else if (emailForm.getReaction == "Inquiring") {
+    reactionString = "#Hmm...🤔";
+  } else if (emailForm.getReaction == "Indifferent") {
+    reactionString = "#Meh🫤";
+  } else if (emailForm.getReaction == "Cowboy") {
+    reactionString = "#Yeehaw🤠";
+  } else if (emailForm.getReaction == "Cool") {
+    reactionString = "#Cool😎";
+  }
+  return message + " " + reactionString;
+}
