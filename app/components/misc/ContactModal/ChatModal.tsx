@@ -12,11 +12,7 @@ import { MessageFromMe, MessageFromUser } from "./Messages";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 import { useEmailForm } from "../../context/EmailFormContext";
 import { EmailForm, sendEmail } from "@/app/utility/sendEmail";
-import {
-  Message,
-  getReactionMessage,
-  setEmojiString,
-} from "@/app/utility/MessageService";
+import { Message, setEmojiString } from "@/app/utility/MessageService";
 
 export default function ChatModal() {
   const handleSubmit = (email: EmailForm) => {
@@ -25,8 +21,24 @@ export default function ChatModal() {
 
   const [messages, setMessages] = useState<Message[]>([]);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const divRef = useRef<HTMLDivElement | null>(null);
   const emailForm: EmailForm = useEmailForm();
 
+  // make chat scroll to top
+  const scrollToTop = () => {
+    if (divRef.current) {
+      divRef.current.scrollTop = divRef.current.scrollHeight;
+    }
+  };
+
+  // focus on search bar when messages are updated
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.focus();
+    }
+  }, [messages]);
+
+  // FUNCTION: Adds messages to the chat
   function add(newMessage: Message) {
     // add reaction string (eg. #Cool) to message
     const messageWithReaction = {
@@ -38,8 +50,6 @@ export default function ChatModal() {
     };
     const newMessages = [...messages, messageWithReaction];
 
-    const isGodot1 = normalizeString(newMessage.message) == "why not";
-    const isGodot2 = normalizeString(newMessage.message) == "lets go";
     // ---------------------------------------------- Message Handling ----------------------------------------------
     try {
       if (!newMessage.fromMe) {
@@ -48,13 +58,13 @@ export default function ChatModal() {
           fromMe: true,
           date: getCurrentTimeString(),
         };
-        if (isGodot1) {
+        if (normalizeString(newMessage.message) == "why not") {
           userMessage = {
             message: "We're waiting for godot 🕴🌳🕴",
             fromMe: true,
             date: getCurrentTimeString(),
           };
-        } else if (isGodot2) {
+        } else if (normalizeString(newMessage.message) == "lets go") {
           userMessage = {
             message: "We can't",
             fromMe: true,
@@ -76,56 +86,23 @@ export default function ChatModal() {
           };
         } else if (emailForm.getEmail === "") {
           userMessage = {
-            message: "Oh a new message!",
-            fromMe: true,
-            date: getCurrentTimeString(),
-          };
-
-          const followUp = {
             message:
-              "...aww but you forgot to include your email so I couldn't recieve it :(",
+              "Awww you forgot to include your email so I couldn't recieve your message :(",
             fromMe: true,
             date: getCurrentTimeString(),
           };
-          setTimeout(() => {
-            setMessages((prevMessages) => [...prevMessages, followUp]);
-          }, 2500);
         } else if (!isValidEmail(emailForm.getEmail)) {
           userMessage = {
-            message: "Thanks for the..",
+            message:
+              "Thanks for the.. uhhh... sorry that's not a valid email :(",
             fromMe: true,
             date: getCurrentTimeString(),
           };
-          const followUp1 = {
-            message: "Uhhhh",
-            fromMe: true,
-            date: getCurrentTimeString(),
-          };
-          setTimeout(() => {
-            setMessages((prevMessages) => [...prevMessages, followUp1]);
-          }, 2500);
-          const followUp2 = {
-            message: "That's not a valid email address sorry-",
-            fromMe: true,
-            date: getCurrentTimeString(),
-          };
-          setTimeout(() => {
-            setMessages((prevMessages) => [...prevMessages, followUp2]);
-          }, 4000);
         }
-
-        //// dont send if godot easter egg is triggered
-        //if (!(isGodot1 || isGodot2)) {
-        //  const ReactionMessage = getReactionMessage(emailForm);
-        //  // send reaction hashtag
-        //  setTimeout(() => {
-        //    setMessages((prevMessages) => [...prevMessages, ReactionMessage]);
-        //  }, 1000);
-        //}
-
         // send  message from me
         setTimeout(() => {
           setMessages((prevMessages) => [...prevMessages, userMessage]);
+          scrollToTop();
         }, 1000);
 
         emailForm.setMessage = newMessage.message;
@@ -146,6 +123,7 @@ export default function ChatModal() {
         };
         setTimeout(() => {
           setMessages((prevMessages) => [...prevMessages, followUp]);
+          scrollToTop();
         }, 1000);
       } else {
         const followUp = {
@@ -156,6 +134,7 @@ export default function ChatModal() {
         };
         setTimeout(() => {
           setMessages((prevMessages) => [...prevMessages, followUp]);
+          scrollToTop();
         }, 1000);
       }
     }
@@ -198,8 +177,6 @@ export default function ChatModal() {
   }
 
   function Chat({ messages }: { messages: Message[] }) {
-    const divRef = useRef<HTMLDivElement | null>(null);
-
     useEffect(() => {
       if (divRef.current) {
         // Scrolls to the bottom of the div when a new message is added
