@@ -35,9 +35,11 @@ const ReactionSlider = () => {
         setCurrentEmoji("Cowboy");
         break;
     }
+  }, [positionIndexes, currentEmoji]);
 
+  useEffect(() => {
     emailForm.setReaction = currentEmoji;
-  }, [positionIndexes]);
+  }, [currentEmoji]);
 
   const handleNext = () => {
     setPositionIndexes((prevIndexes) => {

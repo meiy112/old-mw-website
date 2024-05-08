@@ -9,15 +9,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState, useRef, useEffect, SetStateAction } from "react";
 import { LuPartyPopper, LuSend, LuSmilePlus } from "react-icons/lu";
 import { MessageFromMe, MessageFromUser } from "./Messages";
-import EmojiPicker, { EmojiClickData, Theme } from "emoji-picker-react";
+import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 import { useEmailForm } from "../../context/EmailFormContext";
 import { EmailForm, sendEmail } from "@/app/utility/sendEmail";
-
-interface Message {
-  message: any;
-  date: string;
-  fromMe: boolean;
-}
+import { Message, getReactionMessage } from "@/app/utility/MessageService";
 
 export default function ChatModal() {
   const handleSubmit = (email: EmailForm) => {
@@ -29,9 +24,11 @@ export default function ChatModal() {
   const emailForm: EmailForm = useEmailForm();
 
   function add(newMessage: Message) {
-    console.log(newMessage);
+    // add reaction string (eg. #Cool) to message
     const newMessages = [...messages, newMessage];
 
+    const isGodot1 = normalizeString(newMessage.message) == "why not";
+    const isGodot2 = normalizeString(newMessage.message) == "lets go";
     // ---------------------------------------------- Message Handling ----------------------------------------------
     try {
       if (!newMessage.fromMe) {
@@ -40,13 +37,13 @@ export default function ChatModal() {
           fromMe: true,
           date: getCurrentTimeString(),
         };
-        if (normalizeString(newMessage.message) == "why not") {
+        if (isGodot1) {
           userMessage = {
             message: "We're waiting for godot 🕴🌳🕴",
             fromMe: true,
             date: getCurrentTimeString(),
           };
-        } else if (normalizeString(newMessage.message) == "lets go") {
+        } else if (isGodot2) {
           userMessage = {
             message: "We can't",
             fromMe: true,
@@ -81,7 +78,7 @@ export default function ChatModal() {
           };
           setTimeout(() => {
             setMessages((prevMessages) => [...prevMessages, followUp]);
-          }, 2500);
+          }, 3500);
         } else if (!isValidEmail(emailForm.getEmail)) {
           userMessage = {
             message: "Thanks for the..",
@@ -95,7 +92,7 @@ export default function ChatModal() {
           };
           setTimeout(() => {
             setMessages((prevMessages) => [...prevMessages, followUp1]);
-          }, 2500);
+          }, 3500);
           const followUp2 = {
             message: "That's not a valid email address sorry-",
             fromMe: true,
@@ -103,19 +100,32 @@ export default function ChatModal() {
           };
           setTimeout(() => {
             setMessages((prevMessages) => [...prevMessages, followUp2]);
-          }, 4000);
+          }, 5000);
         }
+
+        // send  message from me
         setTimeout(() => {
           setMessages((prevMessages) => [...prevMessages, userMessage]);
-        }, 1000);
+        }, 2000);
 
         emailForm.setMessage = newMessage.message;
 
+        // dont send if godot easter egg is triggered
+        if (!(isGodot1 || isGodot2)) {
+          const ReactionMessage = getReactionMessage(emailForm);
+          // send reaction hashtag
+          setTimeout(() => {
+            setMessages((prevMessages) => [...prevMessages, ReactionMessage]);
+          }, 1000);
+        }
+
         if (emailFormIsValid(emailForm)) {
           handleSubmit(emailForm);
+          console.log(emailForm);
         }
       }
 
+      // send message from user
       setMessages(newMessages);
     } catch (e: any) {
       if (e.message == "Network error while sending email") {
