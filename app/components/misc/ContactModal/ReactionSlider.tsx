@@ -1,11 +1,14 @@
 import { Emoji } from "emoji-picker-react";
 import { motion } from "framer-motion";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
+import { useEmailForm } from "../../context/EmailFormContext";
 
 const ReactionSlider = () => {
   const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4, 5, 6]);
-  const [currentEmoji, setCurrentEmoji] = useState("cool");
+  const [currentEmoji, setCurrentEmoji] = useState("Cool");
+
+  const emailForm = useEmailForm();
 
   useEffect(() => {
     const currentIndex = positionIndexes[3];
@@ -32,6 +35,8 @@ const ReactionSlider = () => {
         setCurrentEmoji("Cowboy");
         break;
     }
+
+    emailForm.setReaction = currentEmoji;
   }, [positionIndexes]);
 
   const handleNext = () => {

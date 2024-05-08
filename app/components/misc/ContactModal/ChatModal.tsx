@@ -1,10 +1,17 @@
-import { getCurrentTimeString, normalizeString } from "@/app/utility/utility";
+import {
+  emailFormIsValid,
+  getCurrentTimeString,
+  isValidEmail,
+  normalizeString,
+} from "@/app/utility/utility";
 import { useTheme } from "@mui/material/styles";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useRef, useEffect, SetStateAction } from "react";
 import { LuPartyPopper, LuSend, LuSmilePlus } from "react-icons/lu";
 import { MessageFromMe, MessageFromUser } from "./Messages";
 import EmojiPicker, { EmojiClickData, Theme } from "emoji-picker-react";
+import { useEmailForm } from "../../context/EmailFormContext";
+import { EmailForm, sendEmail } from "@/app/utility/sendEmail";
 
 interface Message {
   message: any;
@@ -13,44 +20,127 @@ interface Message {
 }
 
 export default function ChatModal() {
+  const handleSubmit = (email: EmailForm) => {
+    sendEmail(email); // Send email using the EmailForm object
+  };
+
   const [messages, setMessages] = useState<Message[]>([]);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const emailForm: EmailForm = useEmailForm();
 
-  const add = (newMessage: Message) => {
+  function add(newMessage: Message) {
+    console.log(newMessage);
     const newMessages = [...messages, newMessage];
 
-    if (!newMessage.fromMe) {
-      let userMessage: Message = {
-        message: "Thanks for the message, I'll talk to you soon :)",
-        fromMe: true,
-        date: getCurrentTimeString(),
-      };
-      if (normalizeString(newMessage.message) == "why not") {
-        userMessage = {
-          message: "We're waiting for godot 🕴🌳🕴",
+    // ---------------------------------------------- Message Handling ----------------------------------------------
+    try {
+      if (!newMessage.fromMe) {
+        let userMessage: Message = {
+          message: "Thanks! I got your message, I'll talk to you soon :)",
           fromMe: true,
           date: getCurrentTimeString(),
         };
-      } else if (normalizeString(newMessage.message) == "lets go") {
-        userMessage = {
-          message: "We can't",
-          fromMe: true,
-          date: getCurrentTimeString(),
-        };
-      } else if (newMessage.message === "") {
-        userMessage = {
-          message: "I think you forgot to write something :0 wanna try again?",
-          fromMe: true,
-          date: getCurrentTimeString(),
-        };
-      }
-      setTimeout(() => {
-        setMessages((prevMessages) => [...prevMessages, userMessage]);
-      }, 1000);
-    }
+        if (normalizeString(newMessage.message) == "why not") {
+          userMessage = {
+            message: "We're waiting for godot 🕴🌳🕴",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
+        } else if (normalizeString(newMessage.message) == "lets go") {
+          userMessage = {
+            message: "We can't",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
+        } else if (newMessage.message === "") {
+          userMessage = {
+            message:
+              "I think you forgot to write something :0 wanna try again?",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
+        } else if (emailForm.getName === "") {
+          userMessage = {
+            message:
+              "Fill in your name and try again so I know what to call you, pretty please?",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
+        } else if (emailForm.getEmail === "") {
+          userMessage = {
+            message: "Oh a new message!",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
 
-    setMessages(newMessages);
-  };
+          const followUp = {
+            message:
+              "...aww but you forgot to include your email so I couldn't recieve it :(",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
+          setTimeout(() => {
+            setMessages((prevMessages) => [...prevMessages, followUp]);
+          }, 2500);
+        } else if (!isValidEmail(emailForm.getEmail)) {
+          userMessage = {
+            message: "Thanks for the..",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
+          const followUp1 = {
+            message: "Uhhhh",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
+          setTimeout(() => {
+            setMessages((prevMessages) => [...prevMessages, followUp1]);
+          }, 2500);
+          const followUp2 = {
+            message: "That's not a valid email address sorry-",
+            fromMe: true,
+            date: getCurrentTimeString(),
+          };
+          setTimeout(() => {
+            setMessages((prevMessages) => [...prevMessages, followUp2]);
+          }, 4000);
+        }
+        setTimeout(() => {
+          setMessages((prevMessages) => [...prevMessages, userMessage]);
+        }, 1000);
+
+        emailForm.setMessage = newMessage.message;
+
+        if (emailFormIsValid(emailForm)) {
+          handleSubmit(emailForm);
+        }
+      }
+
+      setMessages(newMessages);
+    } catch (e: any) {
+      if (e.message == "Network error while sending email") {
+        const followUp = {
+          message: "Check your network, there was an error :(",
+          fromMe: true,
+          date: getCurrentTimeString(),
+        };
+        setTimeout(() => {
+          setMessages((prevMessages) => [...prevMessages, followUp]);
+        }, 1000);
+      } else {
+        const followUp = {
+          message:
+            "Oh no! There was an unknown error while sending your message... ",
+          fromMe: true,
+          date: getCurrentTimeString(),
+        };
+        setTimeout(() => {
+          setMessages((prevMessages) => [...prevMessages, followUp]);
+        }, 1000);
+      }
+    }
+  }
+  // ---------------------------------------------- Message Handling: END ----------------------------------------------
 
   useEffect(() => {
     const initialMessage: Message = {
@@ -165,8 +255,8 @@ export default function ChatModal() {
   }
 
   function ChatMessage({ add }: { add: (newMessage: Message) => void }) {
-    const [text, setText] = useState<string>("");
     const [showPicker, setShowPicker] = useState(false);
+    const [text, setText] = useState<string>("");
 
     const onEmojiClick: (
       emojiData: EmojiClickData,

@@ -4,6 +4,7 @@ import ChatModal from "./ChatModal";
 import FormModal from "./FormModal";
 import { LuX } from "react-icons/lu";
 import SmallGradient from "@/app/assets/SmallGradient";
+import { EmailFormProvider } from "../../context/EmailFormContext";
 
 export default function ContactModal({
   isModalOpen,
@@ -36,57 +37,54 @@ export default function ContactModal({
   };
 
   return (
-    <div className="absolute">
-      <ModalBackDrop />
-      <div className="flex z-50 fixed inset-0 justify-center items-center">
-        <motion.ul
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          className="items-end gap-x-[14px] flex flex-row"
-        >
-          <motion.li
-            className="rounded-[25px] backgroundblur-25"
-            key={0}
-            variants={item}
-            exit={{ scale: 0, opacity: 0 }}
+    <EmailFormProvider>
+      <div className="absolute">
+        <ModalBackDrop />
+        <div className="flex z-50 fixed inset-0 justify-center items-center">
+          <motion.ul
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            className="items-end gap-x-[14px] flex flex-row"
           >
-            <FormModal />
-          </motion.li>
-          <motion.li
-            className="rounded-[25px] backgroundblur-25"
-            key={1}
-            variants={item}
-            exit={{ scale: 0, opacity: 0 }}
-          >
-            <ChatModal />
-          </motion.li>
-          <motion.li
-            key={2}
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-            exit={{
-              opacity: 0,
-              transition: {
-                duration: 0.2,
-              },
-            }}
-            className="relative backgroundblur-25"
-          >
-            <CloseButton />
-          </motion.li>
-        </motion.ul>
+            <motion.li
+              className="rounded-[25px] backgroundblur-25"
+              key={0}
+              variants={item}
+              exit={{ scale: 0, opacity: 0 }}
+            >
+              <FormModal />
+            </motion.li>
+            <motion.li
+              className="rounded-[25px] backgroundblur-25"
+              key={1}
+              variants={item}
+              exit={{ scale: 0, opacity: 0 }}
+            >
+              <ChatModal />
+            </motion.li>
+            <motion.li
+              key={2}
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              exit={{
+                opacity: 0,
+                transition: {
+                  duration: 0.2,
+                },
+              }}
+              className="relative backgroundblur-25"
+            >
+              <CloseButton />
+            </motion.li>
+          </motion.ul>
+        </div>
       </div>
-    </div>
+    </EmailFormProvider>
   );
 
   function CloseButton() {
-    const [isInitialRender, setIsInitialRender] = useState(true);
-    useEffect(() => {
-      setIsInitialRender(false);
-    }, []);
-
     return (
       <div className="top-[-32em] left-[-41em] absolute">
         <motion.button

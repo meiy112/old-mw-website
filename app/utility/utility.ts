@@ -1,3 +1,5 @@
+import { EmailForm } from "./sendEmail";
+
 // Returns current time (12 hour clock) in string form
 export const getCurrentTimeString = (): string => {
   const now: Date = new Date();
@@ -20,3 +22,25 @@ export const normalizeString = (inputString: string): string => {
 
   return cleanedString;
 };
+
+export const emailFormIsValid = (email: EmailForm) => {
+  return (
+    isValidEmail(email.getEmail) &&
+    email.getEmail != "" &&
+    email.getMessage != "" &&
+    email.getName != ""
+  );
+};
+
+export function isValidEmail(email: string): boolean {
+  // Regular expression for email validation
+  // This regex follows the general syntax of an email address:
+  // - Local part: One or more characters (letters, digits, special characters)
+  // - Domain part: Domain followed by a top-level domain
+  // - The domain part must contain at least one dot (`.`)
+  // The regex pattern also allows underscores, dots, and hyphens in the local part
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Test the email against the regex pattern
+  return emailRegex.test(email);
+}

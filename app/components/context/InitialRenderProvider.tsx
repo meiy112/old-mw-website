@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 const InitialRenderContext = createContext(true);
 
+// so far not in use
 export function useInitialRender() {
   return useContext(InitialRenderContext);
 }

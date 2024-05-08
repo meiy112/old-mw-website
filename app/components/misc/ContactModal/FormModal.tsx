@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction } from "react";
 import ReactionSlider from "./ReactionSlider";
+import { useEmailForm } from "../../context/EmailFormContext";
 
 export default function FormModal() {
   return (
@@ -23,6 +23,8 @@ function Profile() {
 }
 
 function Forms() {
+  const emailForm = useEmailForm();
+
   return (
     <div className="mt-[20px] gap-y-[1.5em] flex flex-col">
       <div className="flex flex-col gap-y-[0.2em]">
@@ -31,6 +33,7 @@ function Forms() {
           className="placeholderColor glass-input rounded-[25px] p-[10px] text-[0.9rem] w-[100%]"
           type="text"
           placeholder="What should I call you?"
+          onChange={(e) => (emailForm.setName = e.target.value)}
         />
       </div>
       <div className="flex flex-col gap-y-[0.2em]">
@@ -39,6 +42,7 @@ function Forms() {
           className="placeholderColor glass-input rounded-[25px] p-[10px] text-[0.9rem] w-[100%]"
           type="email"
           placeholder="Where should I reply back?"
+          onChange={(e) => (emailForm.setEmail = e.target.value)}
         />
       </div>
       <div>
