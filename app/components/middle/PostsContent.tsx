@@ -136,9 +136,9 @@ function Ornament() {
     <div className="relative w-[10vw] h-[10vh]">
       <div className="absolute top-4 size-[18vh]">
         {theme.palette.mode === "dark" ? (
-          <img src="/footer-ornament.png" />
+          <img alt="" src="/footer-ornament.png" />
         ) : (
-          <img src="/footer-ornament.png" />
+          <img alt="" src="/footer-ornament.png" />
         )}
       </div>
     </div>

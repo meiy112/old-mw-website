@@ -7,6 +7,7 @@ import ContactButton from "../misc/ContactButton";
 import { Dispatch, SetStateAction, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../misc/ContactModal/ContactModal";
+import Image from "next/image";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -40,7 +41,7 @@ export default function ProfileHeader({
 function Banner() {
   return (
     <div className="overflow-hidden w-[100%] h-[28vh]">
-      <img src="/banner.jpg" className="w-[100%] mt-[-46vh]" />
+      <img alt="" src="/banner.jpg" className="w-[100%] mt-[-46vh]" />
     </div>
   );
 }
@@ -56,9 +57,12 @@ function ProfilePicture() {
           clipPath: "polygon(0 0, 100% 0, 100% 50%, 0 50%)",
         }}
       ></div>
-      <img
+      <Image
+        alt=""
+        height={148}
+        width={148}
         src="/pfp.jpg"
-        className="relative rounded-[50%] w-[148px] h-[148px] ml-[4px] mt-[4px]"
+        className="relative rounded-[50%] ml-[4px] mt-[4px]"
       />
     </div>
   );
@@ -80,7 +84,7 @@ function BioHeader() {
   return (
     <div className="flex flex-row items-center gap-x-[9px]">
       <h1 className="font-extrabold text-[2.25rem]">Hi, I&#39;m Maggie Weng</h1>
-      <img src="/verified-check.png" className="size-[1.5em]" />
+      <Image height={24} width={24} alt="" src="/verified-check.png" />
     </div>
   );
 }

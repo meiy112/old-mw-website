@@ -1,4 +1,5 @@
 import { useTheme } from "@mui/material/styles";
+import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 import { PiEnvelopeSimpleBold } from "react-icons/pi";
 
@@ -29,21 +30,21 @@ export default function ContactButton({
       </button>
       {theme.palette.mode === "dark" ? (
         <>
-          <img src="/star-dark.png" className="button__star-1" />
-          <img src="/star-dark.png" className="button__star-2" />
-          <img src="/circle-dark.png" className="button__circle-1" />
-          <img src="/circle-dark.png" className="button__circle-2" />
-          <img src="/diamond-dark.png" className="button__diamond" />
-          <img src="/triangle-dark.png" className="button__triangle" />
+          <img alt="" src="/star-dark.png" className="button__star-1" />
+          <img alt="" src="/star-dark.png" className="button__star-2" />
+          <img alt="" src="/circle-dark.png" className="button__circle-1" />
+          <img alt="" src="/circle-dark.png" className="button__circle-2" />
+          <img alt="" src="/diamond-dark.png" className="button__diamond" />
+          <img alt="" src="/triangle-dark.png" className="button__triangle" />
         </>
       ) : (
         <>
-          <img src="/star.png" className="button__star-1" />
-          <img src="/star.png" className="button__star-2" />
-          <img src="/circle.png" className="button__circle-1" />
-          <img src="/circle.png" className="button__circle-2" />
-          <img src="/diamond.png" className="button__diamond" />
-          <img src="/triangle.png" className="button__triangle" />
+          <img alt="" src="/star.png" className="button__star-1" />
+          <img alt="" src="/star.png" className="button__star-2" />
+          <img alt="" src="/circle.png" className="button__circle-1" />
+          <img alt="" src="/circle.png" className="button__circle-2" />
+          <img alt="" src="/diamond.png" className="button__diamond" />
+          <img alt="" src="/triangle.png" className="button__triangle" />
         </>
       )}
     </div>

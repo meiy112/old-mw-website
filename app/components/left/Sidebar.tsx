@@ -9,6 +9,7 @@ import {
 import DisplayToggle from "./DisplayToggle";
 import { usePageContext } from "../context/PageProvider";
 import { Dispatch, SetStateAction } from "react";
+import Image from "next/image";
 
 type ToggleThemeFunction = () => void;
 
@@ -81,7 +82,7 @@ export default function Sidebar({
 function DuckLogo() {
   return (
     <div className="mt-[3.125em] mb-[1em] px-[1.75vw]">
-      <img src="/duck-logo.png" alt="Duck Logo" width={32} />
+      <Image src="/duck-logo.png" alt="Duck Logo" width={32} height={32} />
     </div>
   );
 }
