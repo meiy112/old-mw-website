@@ -27,7 +27,7 @@ export default function PostsContent({
         return <Projects />;
       case "Resume":
         return <Resume />;
-      case "Drawings":
+      case "Blog":
         return <Drawings />;
       default:
         return <About setIsModalOpen={setIsModalOpen} />;

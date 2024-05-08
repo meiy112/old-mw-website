@@ -37,9 +37,9 @@ export default function NavBar() {
       },
     },
     {
-      title: "Drawings",
+      title: "Blog",
       onClick: () => {
-        setCurrentPage("Drawings");
+        setCurrentPage("Blog");
         scrollToNavbar();
       },
     },

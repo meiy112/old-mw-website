@@ -102,6 +102,8 @@ function Title({ title, typeOf }: { title: string; typeOf: string[] }) {
         return <Tag title="Mobile App" unicode="1f4f1" key={index} />;
       case "Web App":
         return <Tag title="Web App" unicode="1f4bb" key={index} />;
+      case "WIP":
+        return <Tag title="WIP" unicode="1f6a7" key={index} />;
       default:
         return null;
     }

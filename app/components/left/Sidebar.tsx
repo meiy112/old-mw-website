@@ -5,6 +5,7 @@ import {
   LuHome,
   LuFolderOpen,
   LuUserCircle,
+  LuPencilLine,
 } from "react-icons/lu";
 import DisplayToggle from "./DisplayToggle";
 import { usePageContext } from "../context/PageProvider";
@@ -50,6 +51,14 @@ export default function Sidebar({
       icon: <LuUserCircle size={26} className="mr-[1.625em]" />,
       onClick: () => {
         setCurrentPage("Resume");
+        scrollToNavbar();
+      },
+    },
+    {
+      text: "Blog",
+      icon: <LuPencilLine size={26} className="mr-[1.625em]" />,
+      onClick: () => {
+        setCurrentPage("Blog");
         scrollToNavbar();
       },
     },
