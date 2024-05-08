@@ -44,7 +44,9 @@ export const postContent: PostData[] = [
     date: "January 2024",
     title: "Pantry Planner",
     typeOf: ["Web App"],
-    body: ["hi"],
+    body: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    ],
     image: "/images/pinned-post.jpg",
     anchor: "github/pantry-planner",
     link: "https://github.com/andyh031/pantry-planner",
@@ -54,7 +56,9 @@ export const postContent: PostData[] = [
     date: "December 2023",
     title: "AgileMind",
     typeOf: ["Web App"],
-    body: ["hi"],
+    body: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    ],
     image: "/images/pinned-post.jpg",
     anchor: "github/agilemind",
     link: "https://github.com/emmah47/AgileMind",
@@ -64,7 +68,9 @@ export const postContent: PostData[] = [
     date: "March 2024",
     title: "InsightUBC API & CampusExplorer",
     typeOf: ["Web App"],
-    body: ["hi"],
+    body: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    ],
     image: "/images/pinned-post.jpg",
     anchor: "github/insightubc",
     link: ".",
@@ -74,7 +80,9 @@ export const postContent: PostData[] = [
     date: "July 2023",
     title: "FinStatPro",
     typeOf: ["Web App"],
-    body: ["hi"],
+    body: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    ],
     image: "/images/pinned-post.jpg",
     anchor: "github/finstatpro",
     link: "https://github.com/andyh031/pantry-planner",
