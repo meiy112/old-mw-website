@@ -1,5 +1,4 @@
 import { useTheme } from "@mui/material/styles";
-import { PiEnvelopeSimpleBold } from "react-icons/pi";
 import { Raleway } from "next/font/google";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";

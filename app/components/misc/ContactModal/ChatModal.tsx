@@ -37,7 +37,7 @@ export default function ChatModal() {
           fromMe: true,
           date: getCurrentTimeString(),
         };
-      } else if (normalizeString(newMessage.message) == "") {
+      } else if (newMessage.message === "") {
         userMessage = {
           message: "I think you forgot to write something :0 wanna try again?",
           fromMe: true,
@@ -116,23 +116,13 @@ export default function ChatModal() {
               const isNewItem = index + 1 == messages.length;
 
               return item.fromMe ? (
-                <motion.li
-                  initial={
-                    isNewItem
-                      ? { opacity: 0, y: 50, x: -150, scale: 0.3 }
-                      : false
-                  }
-                  animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-                  exit={{
-                    opacity: 0,
-                    scale: 0.5,
-                    transition: { duration: 0.2 },
-                  }}
-                  layout
+                <MessageFromMe
+                  message={item.message}
+                  date={item.date}
+                  isNewItem={isNewItem}
+                  index={index}
                   key={index}
-                >
-                  <MessageFromMe message={item.message} date={item.date} />
-                </motion.li>
+                />
               ) : (
                 <motion.li
                   initial={

@@ -1,6 +1,9 @@
+import { Dispatch, SetStateAction } from "react";
+import ReactionSlider from "./ReactionSlider";
+
 export default function FormModal() {
   return (
-    <div className="rounded-[25px] w-[16em] h-[26em] p-[24px] glass-container">
+    <div className="rounded-[25px] w-[16em] h-[27em] p-[24px] glass-container">
       <Profile />
       <Forms />
     </div>
@@ -40,6 +43,7 @@ function Forms() {
       </div>
       <div>
         <p className="font-bold text-[0.83rem]">Your Reaction</p>
+        <ReactionSlider />
       </div>
     </div>
   );

@@ -1,10 +1,8 @@
-import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ChatModal from "./ChatModal";
 import FormModal from "./FormModal";
 import { LuX } from "react-icons/lu";
-import AnimatedGradient from "@/app/assets/AnimatedGradient";
 import SmallGradient from "@/app/assets/SmallGradient";
 
 export default function ContactModal({
@@ -84,6 +82,11 @@ export default function ContactModal({
   );
 
   function CloseButton() {
+    const [isInitialRender, setIsInitialRender] = useState(true);
+    useEffect(() => {
+      setIsInitialRender(false);
+    }, []);
+
     return (
       <div className="top-[-32em] left-[-41em] absolute">
         <motion.button
