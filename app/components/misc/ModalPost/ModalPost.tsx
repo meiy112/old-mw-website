@@ -140,7 +140,11 @@ function Body({ body }: { body: React.ReactNode[] }) {
 }
 
 function Picture({ image }: { image: string }) {
-  return <img src={image} className="w-[100%] h-[420px] rounded-[12px]" />;
+  return (
+    <div className="w-[100%] h-[420px] rounded-[12px] flex justify-center items-center overflow-hidden">
+      <img src={image} className="w-[100%]" />
+    </div>
+  );
 }
 
 function Footer({ link, anchor }: { link: string; anchor: string }) {
