@@ -93,7 +93,7 @@ const ReactionSlider = () => {
       {emojis.map((emoji, index) => (
         <motion.div
           key={index}
-          initial="center"
+          initial={false}
           animate={positions[positionIndexes[index]]}
           variants={emojiVariants}
           transition={{ duration: 0.5 }}
