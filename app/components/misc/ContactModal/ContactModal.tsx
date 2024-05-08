@@ -40,7 +40,7 @@ export default function ContactModal({
   return (
     <div className="absolute">
       <ModalBackDrop />
-      <div className="flex z-40 fixed inset-0 justify-center items-center">
+      <div className="flex z-50 fixed inset-0 justify-center items-center">
         <motion.ul
           variants={container}
           initial="hidden"

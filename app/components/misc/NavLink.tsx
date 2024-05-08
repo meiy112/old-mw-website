@@ -1,10 +1,24 @@
 import { useTheme } from "@mui/material/styles";
 import { usePageContext } from "../context/PageProvider";
+import { Dispatch, SetStateAction } from "react";
 
-export default function NavLink({ name, tab }: { name: string; tab: string }) {
+export default function NavLink({
+  name,
+  tab,
+  setIsModalOpen,
+}: {
+  name: string;
+  tab: string;
+  setIsModalOpen?: Dispatch<SetStateAction<boolean>>;
+}) {
   const { setCurrentPage } = usePageContext();
-  const onClick = () => {
-    setCurrentPage(tab);
+  const onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (tab === "Contact" && setIsModalOpen) {
+      setIsModalOpen(true);
+      e.stopPropagation();
+    } else {
+      setCurrentPage(tab);
+    }
   };
   const theme = useTheme();
   return (

@@ -9,6 +9,8 @@ import React from "react";
 import { PageProvider } from "./components/context/PageProvider";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [isDarkMode, setIsDarkMode] = useState(true);
   const theme = isDarkMode ? darkTheme : lightTheme;
 
@@ -29,11 +31,14 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           {/*Navbar + Logo*/}
           <div className="w-[20vw]">
-            <Sidebar toggleTheme={toggleTheme} />
+            <Sidebar
+              toggleTheme={toggleTheme}
+              setIsModalOpen={setIsModalOpen}
+            />
           </div>
           {/*Main middle content*/}
           <div className="w-[51vw]">
-            <Main />
+            <Main isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
           </div>
           {/*You Might Like*/}
           <div className="w-[29vw]">

@@ -8,17 +8,21 @@ import { usePageContext } from "../context/PageProvider";
 import { LuCopyright, LuContainer, LuCode2, LuMusic4 } from "react-icons/lu";
 import { AnimatePresence, useInView } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
-import { ReactNode, useRef } from "react";
+import { Dispatch, ReactNode, SetStateAction, useRef } from "react";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
-export default function PostsContent() {
+export default function PostsContent({
+  setIsModalOpen,
+}: {
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   const { currentPage } = usePageContext();
 
   const renderPage = () => {
     switch (currentPage) {
       case "About":
-        return <About />;
+        return <About setIsModalOpen={setIsModalOpen} />;
       case "Projects":
         return <Projects />;
       case "Resume":
@@ -26,7 +30,7 @@ export default function PostsContent() {
       case "Drawings":
         return <Drawings />;
       default:
-        return <About />;
+        return <About setIsModalOpen={setIsModalOpen} />;
     }
   };
   return (

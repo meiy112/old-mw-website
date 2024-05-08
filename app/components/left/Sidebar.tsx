@@ -8,13 +8,16 @@ import {
 } from "react-icons/lu";
 import DisplayToggle from "./DisplayToggle";
 import { usePageContext } from "../context/PageProvider";
+import { Dispatch, SetStateAction } from "react";
 
 type ToggleThemeFunction = () => void;
 
 export default function Sidebar({
   toggleTheme,
+  setIsModalOpen,
 }: {
   toggleTheme: ToggleThemeFunction;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const { setCurrentPage } = usePageContext();
   // ------------------------------ button data ------------------------------
@@ -53,7 +56,7 @@ export default function Sidebar({
       text: "Contact",
       icon: <LuMessageSquare size={26} className="mr-[1.625em]" />,
       onClick: () => {
-        setCurrentPage("Contact");
+        setIsModalOpen(true);
       },
     },
   ];
