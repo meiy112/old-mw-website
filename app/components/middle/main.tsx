@@ -1,8 +1,15 @@
 import { useTheme } from "@mui/material/styles";
 import ProfileHeader from "./ProfileHeader";
 import PostsContent from "./PostsContent";
+import { Dispatch, SetStateAction } from "react";
 
-export default function Main() {
+export default function Main({
+  isModalOpen,
+  setIsModalOpen,
+}: {
+  isModalOpen: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   const theme = useTheme();
   return (
     <div
@@ -12,8 +19,11 @@ export default function Main() {
         borderRight: `1px solid ${theme.palette.divider}`,
       }}
     >
-      <ProfileHeader />
-      <PostsContent />
+      <ProfileHeader
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
+      <PostsContent setIsModalOpen={setIsModalOpen} />
     </div>
   );
 }
