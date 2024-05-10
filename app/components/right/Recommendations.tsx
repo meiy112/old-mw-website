@@ -4,7 +4,7 @@ import SmallGradient from "@/app/assets/SmallGradient";
 
 const profileData = [
   {
-    pfp: "/github-pfp.jpg",
+    pfp: "/github-pfp.png",
     username: "My GitHub",
     at: "@meiy112",
     isVerified: false,
@@ -14,7 +14,7 @@ const profileData = [
     },
   },
   {
-    pfp: "/linkedin-pfp.jpg",
+    pfp: "/linkedin-pfp.png",
     username: "My Linkedin",
     at: "@mylinkedinacc",
     isVerified: false,

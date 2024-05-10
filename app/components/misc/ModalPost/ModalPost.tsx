@@ -77,13 +77,21 @@ function Pin() {
 function Profile({ date }: { date: string }) {
   return (
     <div className="flex flex-row gap-x-[1vw] w-[100%]">
-      <img src="/pfp.jpg" className="rounded-[50%] w-[50px] h-[50px]" />
+      <img
+        alt="pfp"
+        src="/pfp.jpg"
+        className="rounded-[50%] w-[50px] h-[50px]"
+      />
       <div className="flex flex-col justify-between w-[100%]">
         <div className="flex flex-row items-center justify-between w-[100%]">
           <div className="flex flex-row gap-x-[5px] items-center">
             <span className="text-[1rem] font-bold">MWeng</span>
             <Emoji unified="1f4ab" size={17} emojiStyle={EmojiStyle.APPLE} />
-            <img src="verified-check.png" className="size-[1.5rem]" />
+            <img
+              alt="check"
+              src="verified-check.png"
+              className="size-[1.5rem]"
+            />
           </div>
           <LuMoreHorizontal size={24} />
         </div>
@@ -144,7 +152,7 @@ function Body({ body }: { body: React.ReactNode[] }) {
 function Picture({ image }: { image: string }) {
   return (
     <div className="w-[100%] h-[420px] rounded-[12px] flex justify-center items-center overflow-hidden">
-      <img src={image} className="w-[100%]" />
+      <img alt="picture" src={image} className="w-[100%]" />
     </div>
   );
 }

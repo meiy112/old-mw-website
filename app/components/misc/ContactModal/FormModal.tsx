@@ -13,7 +13,11 @@ export default function FormModal() {
 function Profile() {
   return (
     <div className="flex flex-row gap-x-[1rem]">
-      <img src="/guest-pfp.jpg" className="size-[45px] rounded-[50%]" />
+      <img
+        alt="userpfp"
+        src="/guest-pfp.jpg"
+        className="size-[45px] rounded-[50%]"
+      />
       <div className="flex flex-col justify-between">
         <p className="font-bold text-[0.97rem]">You</p>
         <p className="font-light text-[0.8rem] opacity-[0.8]">@YesYou</p>

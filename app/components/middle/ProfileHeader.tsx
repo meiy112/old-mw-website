@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import { Raleway } from "next/font/google";
+import { Inter, Raleway } from "next/font/google";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { LuMapPin, LuCalendarDays, LuUsers2, LuLink } from "react-icons/lu";
 import ContactButton from "../misc/ContactButton";
@@ -7,8 +7,10 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import ContactModal from "../misc/ContactModal/ContactModal";
 import Image from "next/image";
+import Carousel from "./Carousel";
 
 const raleway = Raleway({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function ProfileHeader({
   isModalOpen,
@@ -18,7 +20,7 @@ export default function ProfileHeader({
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
-    <div className="h-auto pb-[5vh] w-[100%]">
+    <div className="h-auto pb-[4vh] w-[100%]">
       <Banner />
       <div className="flex-row flex justify-between px-[4.5vw] pb-[1vh]">
         <ProfilePicture />
@@ -40,7 +42,7 @@ export default function ProfileHeader({
 function Banner() {
   return (
     <div className="overflow-hidden w-[100%] h-[28vh]">
-      <img alt="" src="/banner.jpg" className="w-[100%] mt-[-46vh]" />
+      <img alt="banner" src="/banner.jpg" className="w-[100%] mt-[-46vh]" />
     </div>
   );
 }
@@ -75,6 +77,8 @@ function Bio() {
       <BioHeader />
       <BioDescription />
       <BioDetails />
+      <BioFollowers />
+      {/*<Carousel />*/}
     </div>
   );
 }
@@ -122,6 +126,27 @@ function BioDetails() {
         <span style={{ color: theme.palette.primary.light }}>
           maggie.weng112@gmail.com
         </span>
+      </div>
+    </div>
+  );
+}
+
+function BioFollowers() {
+  const numberStyle = "font-extrabold text-[0.95rem]";
+  const wordStyle = "text-[0.85rem] opacity-[0.5]";
+  const container = "flex items-center flex-row gap-x-[0.3em]";
+
+  return (
+    <div
+      className={`mt-[0.3em] flex items-center flex-row gap-x-[2em] ${inter.className}`}
+    >
+      <div className={container}>
+        <span className={numberStyle}>8</span>
+        <span className={wordStyle}>Languages</span>
+      </div>
+      <div className={container}>
+        <span className={numberStyle}>18</span>
+        <span className={wordStyle}>Tools/Frameworks</span>
       </div>
     </div>
   );
