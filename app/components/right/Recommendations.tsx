@@ -24,7 +24,7 @@ const profileData = [
     },
   },
   {
-    pfp: "/dog-pfp.jpg",
+    pfp: "/dog-pfp.png",
     username: "My Dog",
     at: "@javathedog",
     isVerified: true,
