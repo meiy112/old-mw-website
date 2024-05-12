@@ -15,9 +15,9 @@ function Ornament() {
   return (
     <div className=" absolute bottom-12 right-0 size-[40vh]">
       {theme.palette.mode === "dark" ? (
-        <img src="/ornament-dark.png" />
+        <img src="/ornament-dark.png" alt="" />
       ) : (
-        <img src="/ornament-light.png" />
+        <img src="/ornament-light.png" alt="" />
       )}
     </div>
   );

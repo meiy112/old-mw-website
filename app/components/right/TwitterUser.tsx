@@ -48,7 +48,7 @@ function Username({
           {username}
         </h1>
         {isVerified ? (
-          <img src="/verified-check.png" className="size-[1.5em]" />
+          <img alt="user" src="/verified-check.png" className="size-[1.5em]" />
         ) : null}
       </div>
       <span className="text-[0.86rem] opacity-50 font-regular tracking-[0.4px]">
