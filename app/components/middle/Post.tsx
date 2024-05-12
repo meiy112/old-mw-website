@@ -65,13 +65,7 @@ function Pin() {
 function Profile({ date }: { date: string }) {
   return (
     <div className="flex flex-row gap-x-[1vw] w-[100%]">
-      <Image
-        width={50}
-        height={50}
-        alt=""
-        src="/pfp.jpg"
-        className="rounded-[50%]"
-      />
+      <img src="/pfp-small.png" className="rounded-[50%] w-[50px] h-[50px]" />
       <div className="flex flex-col justify-between w-[100%]">
         <div className="flex flex-row items-center justify-between w-[100%]">
           <div className="flex flex-row gap-x-[5px] items-center">

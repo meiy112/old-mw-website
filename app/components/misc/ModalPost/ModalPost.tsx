@@ -79,7 +79,7 @@ function Profile({ date }: { date: string }) {
     <div className="flex flex-row gap-x-[1vw] w-[100%]">
       <img
         alt="pfp"
-        src="/pfp.jpg"
+        src="/pfp-small.png"
         className="rounded-[50%] w-[50px] h-[50px]"
       />
       <div className="flex flex-col justify-between w-[100%]">

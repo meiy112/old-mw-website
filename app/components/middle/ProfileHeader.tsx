@@ -58,11 +58,11 @@ function ProfilePicture() {
           clipPath: "polygon(0 0, 100% 0, 100% 50%, 0 50%)",
         }}
       ></div>
-      <Image
+      <img
         alt=""
         height={148}
         width={148}
-        src="/pfp.jpg"
+        src="/pfp.png"
         className="relative rounded-[50%] ml-[4px] mt-[4px]"
       />
     </div>
