@@ -104,7 +104,7 @@ function BioDescription() {
 function BioDetails() {
   const theme = useTheme();
   return (
-    <div className="mt-[1vh] flex flex-row gap-x-[15px] font-regular text-[0.93rem]">
+    <div className="mt-[1vh] flex flex-wrap gap-x-[0.9375rem] font-regular text-[0.93rem] gap-y-[0.5rem]">
       <div className="flex items-center gap-x-[4px] opacity-[50%]">
         <LuMapPin className="size-[1.2rem]" />
         <span>U of British Columbia</span>
