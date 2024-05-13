@@ -50,20 +50,14 @@ function Banner() {
 function ProfilePicture() {
   const theme = useTheme();
   return (
-    <div className="mt-[-78px]">
-      <div
-        className="absolute w-[156px] h-[156px] rounded-[50%]"
-        style={{
-          backgroundColor: `${theme.palette.background.default}`,
-          clipPath: "polygon(0 0, 100% 0, 100% 50%, 0 50%)",
-        }}
-      ></div>
+    <div className="mt-[-76px]">
       <img
         alt=""
-        height={148}
-        width={148}
+        height={150}
+        width={150}
         src="/pfp.png"
         className="relative rounded-[50%] ml-[4px] mt-[4px]"
+        style={{ border: `4px solid ${theme.palette.background.default}` }}
       />
     </div>
   );

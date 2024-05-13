@@ -37,7 +37,7 @@ const profileData = [
 // Container with "You Might Like" + Github, Linkedin
 export default function Recommendations() {
   return (
-    <div className="overflow-hidden glass-container-2 ml-[2.4em] rounded-[19px] p-[1.75em] pb-[2em] flex flex-col w-screen gap-y-[1.15em]">
+    <div className="w-[400px] overflow-hidden glass-container-2 ml-[2.4em] rounded-[19px] p-[1.75em] pb-[2em] flex flex-col gap-y-[1.15em]">
       <Heading />
       {profileData.map((profile, index) => (
         <TwitterUser
