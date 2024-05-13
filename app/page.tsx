@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <main
-      className=" relative z-10 flex flex-row h-[100%] justify-between"
+      className="relative w-screen z-10 flex flex-row h-[100%] justify-between"
       style={{ color: theme.palette.primary.contrastText }}
     >
       <PageProvider>
