@@ -25,13 +25,16 @@ export default function Home() {
   }, [theme]);
 
   // for screen size responsiveness
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1100);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1100);
     };
 
+    handleResize(); // Initial check
+
+    // Add event listener on client-side only
     window.addEventListener("resize", handleResize);
 
     // Cleanup function to remove the event listener when the component unmounts
