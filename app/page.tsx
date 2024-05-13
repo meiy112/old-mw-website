@@ -51,7 +51,7 @@ export default function Home() {
       <PageProvider>
         <ThemeProvider theme={theme}>
           {/*Navbar + Logo*/}
-          <div className="right">
+          <div className="left-container">
             {isSmallScreen ? null : (
               <Sidebar
                 toggleTheme={toggleTheme}
@@ -60,11 +60,11 @@ export default function Home() {
             )}
           </div>
           {/*Main middle content*/}
-          <div className="main">
+          <div className="main-container">
             <Main isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
           </div>
           {/*You Might Like*/}
-          <div className="left">
+          <div className="right-container">
             <Right />
           </div>
         </ThemeProvider>

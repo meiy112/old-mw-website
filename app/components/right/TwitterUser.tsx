@@ -28,7 +28,7 @@ export default function TwitterUser({
 
 function ProfilePicture({ pfp }: { pfp: string }) {
   return (
-    <img src={pfp} alt="pfp" className="rounded-[50%] w-[3.1vw] h-[3.1vw]" />
+    <img src={pfp} alt="pfp" className="rounded-[50%] w-[49.6px] h-[49.6px]" />
   );
 }
 
@@ -42,7 +42,7 @@ function Username({
   isVerified: boolean;
 }) {
   return (
-    <div className="flex flex-col content-between">
+    <div className="flex flex-col justify-between">
       <div className="flex flex-row gap-x-[0.3rem]">
         <h1 className="tracking-[0.4px] font-bold text-[0.923rem] h-[1.5em]">
           {username}

@@ -20,29 +20,32 @@
 }
 
 @media (min-width: 1376px) {
-  .right {
-    width: 20vw;
+  .left-container {
+    width: 20%;
   }
-  .main {
-    width: 51vw;
+  .main-container {
+    width: 51%;
   }
-  .left {
-    width: 29vw;
+  .right-container {
+    width: 29%;
   }
   .side-button {
     padding-left: 1.75vw;
   }
+  .recommendations {
+    width: 25%;
+  }
 }
 
 @media (max-width: 1375px) {
-  .right {
-    width: 18vw;
+  .left-container {
+    width: 18%;
   }
-  .main {
-    width: 51vw;
+  .main-container {
+    width: 51%;
   }
-  .left {
-    width: 31vw;
+  .right-container {
+    width: 31%;
   }
   .side-button {
     padding-left: 1.55vw;
@@ -50,14 +53,14 @@
 }
 
 @media (max-width: 1100px) {
-  .right {
-    width: 6vw;
+  .left-container {
+    width: 6%;
   }
-  .main {
-    width: 60vw;
+  .main-container {
+    width: 60%;
   }
-  .left {
-    width: 34vw;
+  .right-container {
+    width: 34%;
   }
 }
 
