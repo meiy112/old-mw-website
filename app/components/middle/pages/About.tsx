@@ -58,18 +58,18 @@ export default function About({
       anchor: "wiki.com/Waiting_for_Godot",
       link: "https://en.wikipedia.org/wiki/Waiting_for_Godot",
     },
-    {
-      isPinned: false,
-      date: "May 2 2024",
-      title: "Want to Learn Code?",
-      typeOf: ["About Me"],
-      body: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      ],
-      image: "/images/tutor-post.jpg",
-      anchor: "/thecodeiniative.ca",
-      link: "https://www.thecodeinitiative.ca/",
-    },
+    //{
+    //  isPinned: false,
+    //  date: "May 2 2024",
+    //  title: "Want to Learn Code?",
+    //  typeOf: ["About Me"],
+    //  body: [
+    //    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //  ],
+    //  image: "/images/tutor-post.jpg",
+    //  anchor: "/thecodeiniative.ca",
+    //  link: "https://www.thecodeinitiative.ca/",
+    //},
   ];
 
   useEffect(() => {

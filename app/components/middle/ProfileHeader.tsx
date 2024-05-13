@@ -42,7 +42,7 @@ export default function ProfileHeader({
 function Banner() {
   return (
     <div className="overflow-hidden w-[100%] h-[28vh]">
-      <img alt="banner" src="/banner.jpg" className="w-[100%] mt-[-46vh]" />
+      <img alt="banner" src="/banner-1.jpg" className="w-[100%] mt-[-46vh]" />
     </div>
   );
 }
