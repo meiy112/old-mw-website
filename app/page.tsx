@@ -9,8 +9,10 @@ import React from "react";
 import { PageProvider } from "./components/context/PageProvider";
 
 export default function Home() {
+  // for contact modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // for theme
   const [isDarkMode, setIsDarkMode] = useState(true);
   const theme = isDarkMode ? darkTheme : lightTheme;
 
@@ -22,6 +24,22 @@ export default function Home() {
     document.body.style.backgroundColor = theme.palette.background.default;
   }, [theme]);
 
+  // for screen size responsiveness
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1100);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1100);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function to remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <main
       className=" relative z-10 flex flex-row h-[100%] justify-between"
@@ -31,10 +49,12 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           {/*Navbar + Logo*/}
           <div className="right">
-            <Sidebar
-              toggleTheme={toggleTheme}
-              setIsModalOpen={setIsModalOpen}
-            />
+            {isSmallScreen ? null : (
+              <Sidebar
+                toggleTheme={toggleTheme}
+                setIsModalOpen={setIsModalOpen}
+              />
+            )}
           </div>
           {/*Main middle content*/}
           <div className="main">
