@@ -68,7 +68,7 @@ function VisitButton({
   const theme = useTheme();
   return (
     <button
-      className="flex items-center justify-center rounded-[2em] w-[5.5em] h-[2.2em] font-bold text-[0.87rem] tracking-[0.32px]"
+      className="ml-[1.2vw] flex items-center justify-center rounded-[2em] w-[5.5vw] h-[2.2em] font-bold text-[0.87rem] tracking-[0.32px]"
       style={{
         backgroundColor: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,

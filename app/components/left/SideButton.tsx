@@ -13,7 +13,7 @@ export default function SideButton({ onClick, text, icon }: SideButtonProps) {
   return (
     <button
       onClick={onClick}
-      className={`rounded-[30px] justify-start w-[13em] pl-[1.75vw] py-[15px] flex items-center ml-[0.3125em] nav-button ${
+      className={`side-button rounded-[30px] justify-start w-[13vw] py-[15px] flex items-center ml-[0.3125vw] nav-button ${
         currentPage === text ? "active glass-container-3" : ""
       }`}
       type="button"

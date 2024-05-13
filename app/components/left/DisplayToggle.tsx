@@ -17,25 +17,25 @@ export default function DisplayToggle({
       {theme.palette.mode == "dark" ? (
         <LuMoonStar
           size={27}
-          className="mr-[1.625em]"
+          className="mr-[1.625vw]"
           color={theme.palette.primary.contrastText}
         />
       ) : (
         <LuSun
           size={27}
-          className="mr-[1.625em]"
+          className="mr-[1.625vw]"
           color={theme.palette.primary.contrastText}
         />
       )}
       <div
         onClick={toggleTheme}
-        className={`flex h-[3.3vh] w-[6.9vh] cursor-pointer rounded-full ${
+        className={`flex h-[29px] w-[56px] cursor-pointer rounded-full ${
           theme.palette.mode == "dark" ? "justify-start" : "justify-end"
-        } p-[0.4vh]`}
+        } p-[3px]`}
         style={{ backgroundColor: theme.palette.primary.main }}
       >
         <motion.div
-          className="h-5 w-5 rounded-full"
+          className="h-[23px] w-[23px] rounded-full"
           style={{ backgroundColor: theme.palette.secondary.main }}
           layout
           transition={{ type: "spring", stiffness: 700, damping: 30 }}

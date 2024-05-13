@@ -32,7 +32,7 @@ export default function Sidebar({
   const buttonData = [
     {
       text: "About",
-      icon: <LuHome size={26} className="mr-[1.625em]" />,
+      icon: <LuHome size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setCurrentPage("About");
         scrollToNavbar();
@@ -40,7 +40,7 @@ export default function Sidebar({
     },
     {
       text: "Projects",
-      icon: <LuFolderOpen size={26} className="mr-[1.625em]" />,
+      icon: <LuFolderOpen size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setCurrentPage("Projects");
         scrollToNavbar();
@@ -48,7 +48,7 @@ export default function Sidebar({
     },
     {
       text: "Resume",
-      icon: <LuUserCircle size={26} className="mr-[1.625em]" />,
+      icon: <LuUserCircle size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setCurrentPage("Resume");
         scrollToNavbar();
@@ -56,7 +56,7 @@ export default function Sidebar({
     },
     {
       text: "Blog",
-      icon: <LuPencilLine size={26} className="mr-[1.625em]" />,
+      icon: <LuPencilLine size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setCurrentPage("Blog");
         scrollToNavbar();
@@ -64,7 +64,7 @@ export default function Sidebar({
     },
     {
       text: "Contact",
-      icon: <LuMessageSquare size={26} className="mr-[1.625em]" />,
+      icon: <LuMessageSquare size={26} className="mr-[1.625vw]" />,
       onClick: () => {
         setIsModalOpen(true);
       },

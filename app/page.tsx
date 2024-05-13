@@ -24,24 +24,24 @@ export default function Home() {
 
   return (
     <main
-      className="relative z-10 flex flex-row h-[100%] justify-between"
+      className=" relative z-10 flex flex-row h-[100%] justify-between"
       style={{ color: theme.palette.primary.contrastText }}
     >
       <PageProvider>
         <ThemeProvider theme={theme}>
           {/*Navbar + Logo*/}
-          <div className="w-[20vw]">
+          <div className="right">
             <Sidebar
               toggleTheme={toggleTheme}
               setIsModalOpen={setIsModalOpen}
             />
           </div>
           {/*Main middle content*/}
-          <div className="w-[51vw]">
+          <div className="main">
             <Main isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
           </div>
           {/*You Might Like*/}
-          <div className="w-[29vw]">
+          <div className="left">
             <Right />
           </div>
         </ThemeProvider>

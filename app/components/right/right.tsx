@@ -3,7 +3,7 @@ import Recommendations from "./Recommendations";
 
 export default function Right() {
   return (
-    <div className="pr-[3vw] w-[28%] h-[100%] fixed flex items-start justify-start pt-[3.125em]">
+    <div className="pr-[3vw] h-[100%] fixed flex items-start justify-start pt-[3.125em]">
       <Recommendations />
       <Ornament />
     </div>

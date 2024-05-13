@@ -19,6 +19,41 @@
   --reflection-color: hsla(48, 30%, 95%, 0.2);
 }
 
+@media (min-width: 1376px) {
+  .right {
+    width: 20vw;
+  }
+  .main {
+    width: 51vw;
+  }
+  .left {
+    width: 29vw;
+  }
+  .side-button {
+    padding-left: 1.75vw;
+  }
+}
+
+@media (max-width: 1375px) {
+  .right {
+    width: 18vw;
+  }
+  .main {
+    width: 51vw;
+  }
+  .left {
+    width: 31vw;
+  }
+  .side-button {
+    padding-left: 1.55vw;
+  }
+}
+
+@media (max-width: 1145px) {
+  .right {
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
