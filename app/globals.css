@@ -70,6 +70,7 @@
   }
 }
 
+/*Before right container disappears */
 @media (max-width: 1100px) {
   .left-container {
     width: 60px;
@@ -88,6 +89,7 @@
   }
 }
 
+/*Right container disappears*/
 @media (max-width: 962px) {
   .left-container {
     width: 60px;

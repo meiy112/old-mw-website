@@ -8,7 +8,16 @@ import { usePageContext } from "../context/PageProvider";
 import { LuCopyright, LuContainer, LuCode2, LuMusic4 } from "react-icons/lu";
 import { AnimatePresence, useInView } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
-import { Dispatch, ReactNode, SetStateAction, useRef } from "react";
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import Recommendations from "../right/Recommendations";
+import StaticRecommendations from "./StaticRecommendations/StaticRecommendations";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -43,9 +52,33 @@ export default function PostsContent({
 }
 
 function Footer() {
+  // for screen size responsiveness
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1100);
+    };
+
+    handleResize(); // Initial check
+
+    // Add event listener on client-side only
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function to remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col px-[2vw]">
       <WebsiteDescription />
+      {isSmallScreen ? (
+        <div className="flex justify-center">
+          <StaticRecommendations />
+        </div>
+      ) : null}
       <div className=" flex justify-center mt-[7vh] mb-[5vh] opacity-[0.7] text-[0.75rem] font-light">
         <div className="px-[1em] flex flex-row items-center gap-x-[5px] rounded-[10em] py-[0.2em] glass-container-2">
           mweng <LuCopyright /> 2024

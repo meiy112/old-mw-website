@@ -8,7 +8,7 @@ interface TwitterUserProps {
   onClick: () => void;
 }
 
-export default function TwitterUser({
+export default function StaticTwitterUser({
   pfp,
   username,
   at,
@@ -68,7 +68,7 @@ function VisitButton({
   const theme = useTheme();
   return (
     <button
-      className="ml-[1.2vw] flex items-center justify-center rounded-[2em] w-[5.5vw] max-w-[75px] h-[2.2em] font-bold text-[0.87rem] tracking-[0.32px]"
+      className="ml-[1.2vw] flex items-center justify-center rounded-[2em] w-[30%] max-w-[75px] h-[2.2em] font-bold text-[0.87rem] tracking-[0.32px]"
       style={{
         backgroundColor: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,
