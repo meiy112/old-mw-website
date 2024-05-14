@@ -40,9 +40,9 @@ export default function ModalPost({
 }) {
   const theme = useTheme();
   return (
-    <div className="z-40 fixed overflow-y-scroll inset-0 justify-center items-start flex">
+    <div className="modal-post-container z-40 fixed overflow-y-scroll inset-0 justify-center items-start flex">
       <ModalBar onClick={onClick} />
-      <div className="static py-[5vh] px-[1vw] w-[51%]">
+      <div className="static py-[5vh] px-[1vw] modal-post">
         <motion.div
           className="flex flex-col rounded-[20px] p-[2vw]"
           style={{ backgroundColor: theme.palette.background.default }}
