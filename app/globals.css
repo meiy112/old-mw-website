@@ -35,6 +35,9 @@
   .recommendations {
     width: 25%;
   }
+  .sidebar {
+    margin-left: 2vw;
+  }
 }
 
 @media (max-width: 1375px) {
@@ -49,6 +52,9 @@
   }
   .side-button {
     padding-left: 1.55vw;
+  }
+  .sidebar {
+    margin-left: 1.6vw;
   }
 }
 

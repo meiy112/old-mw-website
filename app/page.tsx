@@ -3,7 +3,7 @@ import Right from "./components/right/right";
 import Sidebar from "./components/left/Sidebar";
 import Main from "./components/middle/main";
 import { useEffect, useState } from "react";
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider, useTheme } from "@mui/material/styles";
 import { lightTheme, darkTheme } from "../app/theme/colors";
 import React from "react";
 import { PageProvider } from "./components/context/PageProvider";
@@ -67,8 +67,22 @@ export default function Home() {
           <div className="right-container">
             <Right />
           </div>
+          <Ornament />
         </ThemeProvider>
       </PageProvider>
     </main>
+  );
+}
+
+function Ornament() {
+  const theme = useTheme();
+  return (
+    <div className="right-0 fixed bottom-12 size-[40vh]">
+      {theme.palette.mode === "dark" ? (
+        <img src="/ornament-dark.png" alt="" />
+      ) : (
+        <img src="/ornament-light.png" alt="" />
+      )}
+    </div>
   );
 }

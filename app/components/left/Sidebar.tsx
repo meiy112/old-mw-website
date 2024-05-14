@@ -73,7 +73,7 @@ export default function Sidebar({
   // -------------------------------------------------------------------------
 
   return (
-    <div className=" fixed ml-[2vw] h-screen items-baseline flex flex-col pb-[6vh] gap-y-[0.5em]">
+    <div className="sidebar fixed h-screen items-baseline flex flex-col pb-[6vh] gap-y-[0.5em]">
       <DuckLogo />
       {buttonData.map((button, index) => (
         <SideButton
