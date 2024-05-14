@@ -7,6 +7,7 @@ import { ThemeProvider, useTheme } from "@mui/material/styles";
 import { lightTheme, darkTheme } from "../app/theme/colors";
 import React from "react";
 import { PageProvider } from "./components/context/PageProvider";
+import InteractiveSidebar from "./components/left/InteractiveSidebar";
 
 export default function Home() {
   // for contact modal
@@ -26,10 +27,12 @@ export default function Home() {
 
   // for screen size responsiveness
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isSmallerScreen, setIsSmallerScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1100);
+      setIsSmallerScreen(window.innerWidth <= 962);
     };
 
     handleResize(); // Initial check
@@ -52,7 +55,12 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           {/*Navbar + Logo*/}
           <div className="left-container">
-            {isSmallScreen ? null : (
+            {isSmallScreen ? (
+              <InteractiveSidebar
+                toggleTheme={toggleTheme}
+                setIsModalOpen={setIsModalOpen}
+              />
+            ) : (
               <Sidebar
                 toggleTheme={toggleTheme}
                 setIsModalOpen={setIsModalOpen}
@@ -67,7 +75,7 @@ export default function Home() {
           <div className="right-container">
             <Right />
           </div>
-          <Ornament />
+          {isSmallerScreen ? null : <Ornament />}
         </ThemeProvider>
       </PageProvider>
     </main>

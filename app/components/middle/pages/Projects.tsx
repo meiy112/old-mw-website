@@ -3,7 +3,7 @@ import { LayoutGroup, AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import ModalPost from "../../misc/ModalPost/ModalPost";
 import { useTheme } from "@mui/material/styles";
-import { postContent } from "../data/ProjectData";
+import { postContent } from "../../data/ProjectData";
 
 export default function Projects() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
