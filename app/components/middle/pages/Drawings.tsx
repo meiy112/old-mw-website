@@ -2,22 +2,7 @@ import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import ModalPost from "../../misc/ModalPost/ModalPost";
 import Post from "../Post";
-import { PostData } from "@/app/interfaces/Thread";
-
-const postData: PostData[] = [
-  {
-    isPinned: true,
-    date: "May 7 2024",
-    title: "Under Maintenance...",
-    typeOf: ["WIP"],
-    body: [
-      "This page is still in development... check back later, I'm constantly updating this website!",
-    ],
-    image: "/images/under-maintenance.jpg",
-    anchor: "/maggieweng.dev",
-    link: "https://www.maggieweng.dev/",
-  },
-];
+import { MaintenanceData } from "../../data/UnderMaintenance";
 
 export default function Drawings() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
@@ -47,7 +32,7 @@ export default function Drawings() {
       transition={{ duration: 0.3 }}
     >
       <LayoutGroup>
-        {postData.map((post, index) => (
+        {MaintenanceData.map((post, index) => (
           <Post
             key={"drawings" + index}
             postKey={"drawings" + index}
@@ -99,10 +84,10 @@ export default function Drawings() {
             <ModalPost
               key={modalIndex}
               layoutId={`post-${"drawings" + modalIndex}`}
-              {...postData[modalIndex]}
+              {...MaintenanceData[modalIndex]}
               onClick={closeModal}
-              {...(postData[modalIndex].thread
-                ? { thread: postData[modalIndex].thread }
+              {...(MaintenanceData[modalIndex].thread
+                ? { thread: MaintenanceData[modalIndex].thread }
                 : {})}
             />
           )}

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import ModalPost from "../../misc/ModalPost/ModalPost";
 import { useTheme } from "@mui/material/styles";
 import { postContent } from "../../data/ProjectData";
+import { MaintenanceData } from "../../data/UnderMaintenance";
 
 export default function Projects() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
@@ -34,7 +35,7 @@ export default function Projects() {
       transition={{ duration: 0.3 }}
     >
       <LayoutGroup>
-        {postContent.map((post, index) => (
+        {MaintenanceData.map((post, index) => (
           <Post
             key={"projects" + index}
             postKey={"projects" + index}
@@ -86,10 +87,10 @@ export default function Projects() {
             <ModalPost
               key={modalIndex}
               layoutId={`post-${"projects" + modalIndex}`}
-              {...postContent[modalIndex]}
+              {...MaintenanceData[modalIndex]}
               onClick={closeModal}
-              {...(postContent[modalIndex].thread
-                ? { thread: postContent[modalIndex].thread }
+              {...(MaintenanceData[modalIndex].thread
+                ? { thread: MaintenanceData[modalIndex].thread }
                 : {})}
             />
           )}
