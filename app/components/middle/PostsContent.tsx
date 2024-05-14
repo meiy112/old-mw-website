@@ -53,11 +53,11 @@ export default function PostsContent({
 
 function Footer() {
   // for screen size responsiveness
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isSmallerScreen, setIsSmallerScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 1100);
+      setIsSmallerScreen(window.innerWidth <= 962);
     };
 
     handleResize(); // Initial check
@@ -74,7 +74,7 @@ function Footer() {
   return (
     <div className="flex flex-col px-[2vw]">
       <WebsiteDescription />
-      {isSmallScreen ? (
+      {isSmallerScreen ? (
         <div className="flex justify-center">
           <StaticRecommendations />
         </div>

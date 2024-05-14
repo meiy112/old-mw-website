@@ -70,7 +70,7 @@
   }
 }
 
-/*Before right container disappears */
+/* Left container resizes */
 @media (max-width: 1100px) {
   .left-container {
     width: 60px;
