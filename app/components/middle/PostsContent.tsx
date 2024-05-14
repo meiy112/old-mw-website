@@ -119,21 +119,21 @@ function WebsiteDescription() {
           />
           <List
             listItems={[
-              "29 files",
-              "+ 420 lines of code",
-              "+ 69 hours of coding",
+              "39 tsx files",
+              "+ 75 commits",
               "+ 18 cups of coffee",
-              "+ 36 commits",
+              "+ ?? hours of coding",
+              "+ and counting...",
             ]}
             icon={<LuCode2 />}
           />
           <List
             listItems={[
-              "Random Song",
-              "Song 2",
-              "Another Song",
-              "Basically Music",
-              "Yea Thats About It",
+              "Reminder",
+              "Green Green Green",
+              "Etude Op.25 No.11 (Chopin)",
+              "Swimming Pools Instrumental",
+              "ACNH 2am ost",
             ]}
             icon={<LuMusic4 />}
           />
@@ -171,7 +171,7 @@ function Ornament() {
         {theme.palette.mode === "dark" ? (
           <img alt="" src="/footer-ornament.png" />
         ) : (
-          <img alt="" src="/footer-ornament.png" />
+          <img alt="" src="/footer-ornament-light.png" />
         )}
       </div>
     </div>
