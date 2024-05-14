@@ -146,6 +146,33 @@
   }
 }
 
+/*Left container completely disappears*/
+@media (max-width: 450px) {
+  .left-container {
+    width: 0;
+    overflow: hidden;
+  }
+  .interactive-sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+  .main-container {
+    display: flex;
+    flex: 1;
+    margin-left: 0;
+  }
+  .right-container {
+    width: 0;
+  }
+  .modal-post {
+    display: flex;
+    flex: 1;
+  }
+  .modal-post-container {
+    margin-left: 0;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

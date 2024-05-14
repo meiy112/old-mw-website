@@ -10,7 +10,13 @@ import {
   LuMoonStar,
 } from "react-icons/lu";
 import { usePageContext } from "../context/PageProvider";
-import { Dispatch, ReactNode, SetStateAction, useState } from "react";
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import VerticalDisplayToggle from "./VerticalDisplayToggle";
@@ -100,6 +106,7 @@ export default function InteractiveSidebar({
           ? "items-baseline w-[250px] glass-container-4 px-[20px]"
           : "items-center w-[60px]"
       }`}
+      style={isOpen ? {} : { background: theme.palette.background.default }}
     >
       <Header />
       {buttonData.map((button, index) => (
