@@ -27,8 +27,8 @@ const StaticCard = ({
   position: "upper" | "lower";
   unit: number | string;
 }) => {
+  const theme = useTheme();
   if (position === "upper") {
-    const theme = useTheme();
     return (
       <Flex
         pos="relative"
@@ -65,8 +65,6 @@ const StaticCard = ({
       </Flex>
     );
   }
-
-  const theme = useTheme();
 
   return (
     <Flex
