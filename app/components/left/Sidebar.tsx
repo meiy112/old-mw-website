@@ -73,32 +73,50 @@ export default function Sidebar({
   ];
   // -------------------------------------------------------------------------
 
-  const [days, setDays] = useState(15);
-  const [months, setMonths] = useState(6);
-  const [years, setYears] = useState(2025);
+  const [days, setDays] = useState(19);
+  const [months, setMonths] = useState(7);
+  const [years, setYears] = useState(2027);
 
   useEffect(() => {
     setTimeout(() => {
-      decrementMonths();
-    }, 1000);
-    setTimeout(() => {
-      decrementDays();
+      decrementMonths(6);
     }, 1500);
     setTimeout(() => {
-      decrementYears();
-    }, 2500);
+      decrementDays(18);
+    }, 2000);
+    setTimeout(() => {
+      decrementDays(17);
+    }, 2700);
+    setTimeout(() => {
+      decrementDays(16);
+    }, 3600);
+    setTimeout(() => {
+      decrementYears(2026);
+    }, 3000);
+    setTimeout(() => {
+      decrementYears(2025);
+    }, 3700);
+    setTimeout(() => {
+      decrementMonths(5);
+    }, 5000);
+    setTimeout(() => {
+      decrementDays(15);
+    }, 5700);
+    setTimeout(() => {
+      decrementYears(2024);
+    }, 6400);
   }, []);
 
-  const decrementDays = () => {
-    setDays(14);
+  const decrementDays = (num: number) => {
+    setDays(num);
   };
 
-  const decrementMonths = () => {
-    setMonths(5);
+  const decrementMonths = (num: number) => {
+    setMonths(num);
   };
 
-  const decrementYears = () => {
-    setYears(2024);
+  const decrementYears = (num: number) => {
+    setYears(num);
   };
 
   return (

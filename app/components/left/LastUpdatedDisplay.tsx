@@ -96,7 +96,7 @@ const AnimatedCard = memo(
     useEffect(() => {
       controls.start({
         rotateX: [0, -180],
-        transition: { duration: 0.6, ease: "easeInOut" },
+        transition: { duration: 0.5, ease: "easeInOut" },
       });
       setDisplayUnit(previous);
     }, [previous]);
@@ -153,7 +153,7 @@ const AnimatedCardBottom = ({ unit }: { unit: number | string }) => {
   useEffect(() => {
     controls.start({
       rotateX: [180, 0],
-      transition: { duration: 0.6, ease: "easeInOut" },
+      transition: { duration: 0.5, ease: "easeInOut" },
     });
     setDisplayUnit(unit);
   }, [unit]);
@@ -275,7 +275,7 @@ export const LastUpdatedDisplay = ({
   years: number;
 }) => {
   return (
-    <div className="mb-[3vh] h-[100%] w-[15vw] flex flex-col justify-end items-start">
+    <div className="mb-[4vh] h-[100%] w-[15vw] flex flex-col justify-end items-start">
       <span className="ml-[0.5vw] mb-[0.5rem] opacity-[0.5] text-[0.6rem] font-extralight">
         LAST UPDATED:
       </span>
