@@ -119,8 +119,8 @@ function WebsiteDescription() {
           />
           <List
             listItems={[
-              "39 tsx files",
-              "+ 75 commits",
+              "40 tsx files",
+              "+ 77 commits",
               "+ 18 cups of coffee",
               "+ ?? hours of coding",
               "+ and counting...",

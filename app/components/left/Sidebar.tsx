@@ -9,8 +9,9 @@ import {
 } from "react-icons/lu";
 import DisplayToggle from "./DisplayToggle";
 import { usePageContext } from "../context/PageProvider";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Image from "next/image";
+import { LastUpdatedDisplay } from "./LastUpdatedDisplay";
 
 type ToggleThemeFunction = () => void;
 
@@ -72,6 +73,34 @@ export default function Sidebar({
   ];
   // -------------------------------------------------------------------------
 
+  const [days, setDays] = useState(15);
+  const [months, setMonths] = useState(6);
+  const [years, setYears] = useState(2025);
+
+  useEffect(() => {
+    setTimeout(() => {
+      decrementMonths();
+    }, 1000);
+    setTimeout(() => {
+      decrementDays();
+    }, 1500);
+    setTimeout(() => {
+      decrementYears();
+    }, 2500);
+  }, []);
+
+  const decrementDays = () => {
+    setDays(14);
+  };
+
+  const decrementMonths = () => {
+    setMonths(5);
+  };
+
+  const decrementYears = () => {
+    setYears(2024);
+  };
+
   return (
     <div className="sidebar fixed h-screen items-baseline flex flex-col pb-[6vh] gap-y-[0.5em]">
       <DuckLogo />
@@ -83,6 +112,7 @@ export default function Sidebar({
           icon={button.icon}
         />
       ))}
+      <LastUpdatedDisplay days={days} months={months} years={years} />
       <DisplayToggle toggleTheme={toggleTheme} />
     </div>
   );
