@@ -1,4 +1,5 @@
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import { useTheme } from "@mui/material/styles";
 import { motion, useAnimationControls } from "framer-motion";
 import { memo, useEffect, useMemo, useState } from "react";
 
@@ -10,6 +11,14 @@ const colors = {
   borderDark: "1px solid rgba(255, 255, 255, 0.05)",
   borderBlack: "1px solid rgba(0, 0, 0, 1)",
 };
+const lightcolors = {
+  dark: "#94B083",
+  medium: "#AAC599",
+  light: "#C3D1AE",
+  borderLight: "1px solid rgba(255, 255, 255, 0.1)",
+  borderDark: "1px solid rgba(255, 255, 255, 0.05)",
+  borderBlack: "1px solid #5D956F",
+};
 
 const StaticCard = ({
   position,
@@ -19,6 +28,7 @@ const StaticCard = ({
   unit: number | string;
 }) => {
   if (position === "upper") {
+    const theme = useTheme();
     return (
       <Flex
         pos="relative"
@@ -27,11 +37,27 @@ const StaticCard = ({
         h="50%"
         overflow="hidden"
         alignItems="flex-end"
-        borderTopRadius={6}
-        borderTop={colors.borderLight}
-        borderLeft={colors.borderLight}
-        borderRight={colors.borderDark}
-        borderBottom={colors.borderDark}
+        borderTopRadius={10}
+        borderTop={
+          theme.palette.mode == "dark"
+            ? colors.borderLight
+            : lightcolors.borderLight
+        }
+        borderLeft={
+          theme.palette.mode == "dark"
+            ? colors.borderLight
+            : lightcolors.borderLight
+        }
+        borderRight={
+          theme.palette.mode == "dark"
+            ? colors.borderDark
+            : lightcolors.borderDark
+        }
+        borderBottom={
+          theme.palette.mode == "dark"
+            ? colors.borderDark
+            : lightcolors.borderDark
+        }
       >
         <Text className="font-bold" fontSize="6xl" transform="translateY(50%)">
           {unit}
@@ -40,11 +66,14 @@ const StaticCard = ({
     );
   }
 
+  const theme = useTheme();
+
   return (
     <Flex
       className="relative justify-center w-[100%] h-[50%] items-start overflow-hidden"
-      bgColor={colors.medium}
-      borderTop="1px solid #0E1116"
+      bgColor={
+        theme.palette.mode == "dark" ? colors.medium : lightcolors.medium
+      }
     >
       <Text className="font-bold" fontSize="6xl" transform="translateY(-50%)">
         {unit}
@@ -74,6 +103,8 @@ const AnimatedCard = memo(
       setDisplayUnit(previous);
     }, [previous]);
 
+    const theme = useTheme();
+
     return (
       <MotionFlex
         className="rounded-t-[10px] items-end w-[100%] h-[50%] overflow-hidden top-0 left-0 absolute justify-center"
@@ -81,11 +112,27 @@ const AnimatedCard = memo(
         sx={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
         transformOrigin="50% 100%"
         transform="rotateX(0deg)"
-        bgColor={colors.dark}
-        borderBottom={colors.borderBlack}
-        borderRight={colors.borderDark}
-        borderLeft={colors.borderLight}
-        borderTop={colors.borderLight}
+        bgColor={theme.palette.mode == "dark" ? colors.dark : lightcolors.dark}
+        borderBottom={
+          theme.palette.mode == "dark"
+            ? colors.borderBlack
+            : lightcolors.borderBlack
+        }
+        borderRight={
+          theme.palette.mode == "dark"
+            ? colors.borderDark
+            : lightcolors.borderDark
+        }
+        borderLeft={
+          theme.palette.mode == "dark"
+            ? colors.borderLight
+            : lightcolors.borderLight
+        }
+        borderTop={
+          theme.palette.mode == "dark"
+            ? colors.borderLight
+            : lightcolors.borderLight
+        }
         onAnimationComplete={() => {
           setDisplayUnit(current);
           controls.set({ rotateX: 0 });
@@ -113,6 +160,8 @@ const AnimatedCardBottom = ({ unit }: { unit: number | string }) => {
     setDisplayUnit(unit);
   }, [unit]);
 
+  const theme = useTheme();
+
   return (
     <MotionFlex
       className="rounded-b-[10px] items-start absolute justify-center left-0 overflow-hidden w-[100%] h-[50%] top-[50%]"
@@ -120,11 +169,29 @@ const AnimatedCardBottom = ({ unit }: { unit: number | string }) => {
       sx={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
       transformOrigin="50% 0%"
       transform="rotateX(180deg)"
-      bgColor={colors.medium}
-      borderTop={colors.borderBlack}
-      borderLeft={colors.borderLight}
-      borderRight={colors.borderDark}
-      borderBottom={colors.borderDark}
+      bgColor={
+        theme.palette.mode == "dark" ? colors.medium : lightcolors.medium
+      }
+      borderTop={
+        theme.palette.mode == "dark"
+          ? colors.borderBlack
+          : lightcolors.borderBlack
+      }
+      borderLeft={
+        theme.palette.mode == "dark"
+          ? colors.borderLight
+          : lightcolors.borderLight
+      }
+      borderRight={
+        theme.palette.mode == "dark"
+          ? colors.borderDark
+          : lightcolors.borderDark
+      }
+      borderBottom={
+        theme.palette.mode == "dark"
+          ? colors.borderDark
+          : lightcolors.borderDark
+      }
     >
       <Text className="font-bold" fontSize="6xl" transform="translateY(-50%)">
         {displayUnit}
@@ -150,15 +217,16 @@ const FlipContainer = ({
     return { current, previous };
   }, [number]);
 
+  const theme = useTheme();
+
   return (
     <Box
       className={`${title == "year" ? "w-[40%]" : "w-[30%]"}`}
-      shadow="0px 10px 10px -10px black"
       borderBottomRadius={6}
     >
       <Box
         className={`overflow-hidden block relative rounded-[10px] h-[50px] w-[100%]`}
-        bgColor={colors.dark}
+        bgColor={theme.palette.mode == "dark" ? colors.dark : lightcolors.dark}
         sx={{ perspective: "300px", perspectiveOrigin: "50% 50%" }}
       >
         <StaticCard position="upper" unit={current} />
@@ -168,11 +236,25 @@ const FlipContainer = ({
       </Box>
       <Center
         py={2}
-        bgColor={colors.light}
+        bgColor={
+          theme.palette.mode == "dark" ? colors.light : lightcolors.light
+        }
         className="rounded-[5px]"
-        borderLeft={colors.borderLight}
-        borderRight={colors.borderDark}
-        borderBottom={colors.borderDark}
+        borderLeft={
+          theme.palette.mode == "dark"
+            ? colors.borderLight
+            : lightcolors.borderLight
+        }
+        borderRight={
+          theme.palette.mode == "dark"
+            ? colors.borderDark
+            : lightcolors.borderDark
+        }
+        borderBottom={
+          theme.palette.mode == "dark"
+            ? colors.borderDark
+            : lightcolors.borderDark
+        }
       >
         <Text
           className="opacity-[0.5] font-extralight text-[0.5rem]"
