@@ -33,7 +33,7 @@ const profileData = [
   },
 ];
 
-// Shows up before footer if screen is small
+// Shows up before footer if screen is small (and does not resize unlike the dynamic one)
 export default function StaticRecommendations() {
   return (
     <div className="mt-[50px] w-[100%] max-w-[350px] glass-container-2 rounded-[19px] p-[1.75em] pb-[2em] flex flex-col gap-y-[1.15em]">

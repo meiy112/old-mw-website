@@ -97,6 +97,10 @@ function BioDescription() {
         UBC CompSci Student. Aspiring Full-Stack Developer. Designer. Digital
         Artist. Coding Tutor. Casual Hiker. All-Nighter Puller. Duck Enthusiast.
       </div>
+      <div className="flex gap-x-[5px] items-center">
+        <span>Based in Vancouver </span>
+        <Emoji unified="1f303" size={24} emojiStyle={EmojiStyle.APPLE} />
+      </div>
     </div>
   );
 }
