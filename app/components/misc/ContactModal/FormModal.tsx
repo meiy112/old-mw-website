@@ -15,7 +15,7 @@ function Profile() {
     <div className="flex flex-row gap-x-[1rem]">
       <img
         alt="userpfp"
-        src="/guest-pfp.jpg"
+        src="/guest-pfp.png"
         className="size-[45px] rounded-[50%]"
       />
       <div className="flex flex-col justify-between">
