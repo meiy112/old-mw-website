@@ -10,6 +10,7 @@ import {
   LuLink,
   LuMoreHorizontal,
 } from "react-icons/lu";
+import ParallaxCard from "../misc/ParallaxCard/ParallaxCard";
 
 export default function Post({
   postKey,
@@ -22,6 +23,7 @@ export default function Post({
   link,
   anchor,
   onClick,
+  post,
 }: {
   postKey: string;
   isPinned: boolean;
@@ -33,6 +35,7 @@ export default function Post({
   link: string;
   anchor: string;
   onClick: () => void;
+  post: string;
 }) {
   return (
     <motion.div
@@ -46,7 +49,13 @@ export default function Post({
         <Title title={title} typeOf={typeOf} />
         <Body body={body} />
       </div>
-      <Picture image={image} />
+      <div className="flex items-center justify-center">
+        <ParallaxCard post={post} />
+      </div>
+      <span className="my-[0.4rem] ml-[3%] opacity-[0.5] text-[0.7rem]">
+        Home sweet home
+      </span>
+      {/*<Picture image={image}/>*/}
       <Footer link={link} anchor={anchor} />
     </motion.div>
   );

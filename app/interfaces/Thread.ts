@@ -32,4 +32,5 @@ export interface PostData {
   anchor: string;
   link: string;
   thread?: Thread[];
+  post: "about" | "maintenance";
 }

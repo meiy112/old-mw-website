@@ -12,5 +12,6 @@ export const MaintenanceData: PostData[] = [
     image: "/images/under-maintenance.jpg",
     anchor: "/maggieweng.dev",
     link: "https://www.maggieweng.dev/",
+    post: "maintenance",
   },
 ];

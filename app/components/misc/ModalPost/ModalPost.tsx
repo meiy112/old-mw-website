@@ -12,6 +12,7 @@ import {
 import ModalBar from "./ModalBar";
 import { Thread } from "@/app/interfaces/Thread";
 import ThreadPost from "./ThreadPost";
+import ParallaxCard from "../ParallaxCard/ParallaxCard";
 
 export default function ModalPost({
   isPinned,
@@ -25,6 +26,7 @@ export default function ModalPost({
   onClick,
   layoutId,
   thread,
+  post,
 }: {
   isPinned: boolean;
   date: string;
@@ -37,6 +39,7 @@ export default function ModalPost({
   onClick: () => void;
   layoutId: string;
   thread?: Thread[];
+  post: string;
 }) {
   const theme = useTheme();
   return (
@@ -54,7 +57,9 @@ export default function ModalPost({
             <Title title={title} typeOf={typeOf} />
             <Body body={body} />
           </div>
-          <Picture image={image} />
+          <div className="flex items-center justify-center">
+            <ParallaxCard post={post} />
+          </div>
           <Footer link={link} anchor={anchor} />
         </motion.div>
         {thread &&

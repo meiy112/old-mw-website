@@ -48,6 +48,7 @@ export default function Projects() {
             anchor={post.anchor}
             link={post.link}
             onClick={() => setModalIndex(index)}
+            post={post.post}
           />
         ))}
 
