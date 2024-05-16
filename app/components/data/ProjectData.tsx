@@ -15,6 +15,7 @@ export const postContent: PostData[] = [
     image: "/images/pinned-post.jpg",
     anchor: "github/study-shark",
     link: "https://github.com/meiy112/study-shark",
+    post: "study shark",
     thread: [
       {
         title: "Lorem Ipsum is kinda boring.",
@@ -50,6 +51,7 @@ export const postContent: PostData[] = [
     image: "/images/pinned-post.jpg",
     anchor: "github/pantry-planner",
     link: "https://github.com/andyh031/pantry-planner",
+    post: "pantry planner",
   },
   {
     isPinned: false,
@@ -62,6 +64,7 @@ export const postContent: PostData[] = [
     image: "/images/pinned-post.jpg",
     anchor: "github/agilemind",
     link: "https://github.com/emmah47/AgileMind",
+    post: "agilemind",
   },
   {
     isPinned: false,
@@ -74,6 +77,7 @@ export const postContent: PostData[] = [
     image: "/images/pinned-post.jpg",
     anchor: "github/insightubc",
     link: "https://github.com/meiy112/InsightUBC-CampusExplorer",
+    post: "insightubc",
   },
   {
     isPinned: false,
@@ -86,5 +90,6 @@ export const postContent: PostData[] = [
     image: "/images/pinned-post.jpg",
     anchor: "github/finstatpro",
     link: "https://github.com/meiy112/FinStatPro",
+    post: "finstatpro",
   },
 ];
