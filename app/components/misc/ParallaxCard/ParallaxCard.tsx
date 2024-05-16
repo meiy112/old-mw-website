@@ -1,4 +1,6 @@
+import { motion, useInView } from "framer-motion";
 import { Inter, Raleway } from "next/font/google";
+import { useEffect, useRef, useState } from "react";
 import { LuBadgeAlert, LuMapPin } from "react-icons/lu";
 import {
   MouseParallaxChild,
@@ -102,10 +104,7 @@ export default function ParallaxCard({ post }: { post: string }) {
             </span>
           </div>
           <div className="absolute top-3 left-3">
-            <div className="gap-x-[5px] flex flex-row items-center font-bold text-[0.8rem] text-white glass-container-2 rounded-[60px] py-[2px] px-[10px]">
-              <LuBadgeAlert size={18} />
-              <span>Hover me!</span>
-            </div>
+            <HoverMeComponent />
           </div>
         </MouseParallaxContainer>
       </div>
@@ -121,4 +120,47 @@ export default function ParallaxCard({ post }: { post: string }) {
       </div>
     );
   }
+}
+
+function HoverMeComponent() {
+  const [isClosing, setIsClosing] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+
+  setTimeout(() => {
+    setIsClosing(true);
+  }, 5000);
+
+  return (
+    <motion.div
+      ref={ref}
+      className="gap-x-[5px] flex flex-row items-center font-bold text-[0.8rem] text-white glass-container-5 rounded-[60px] py-[2px] px-[10px]"
+      variants={{
+        open: {
+          clipPath: "inset(0% 0% 0% 0% round 60px)",
+          x: 0,
+          transition: {
+            type: "spring",
+            bounce: 0,
+            duration: 0.7,
+          },
+        },
+        closed: {
+          clipPath: "inset(0% 69% 0% 6% round 60px)",
+          x: 0,
+          transition: {
+            type: "spring",
+            bounce: 0,
+            duration: 0.4,
+            staggerDirection: -1,
+          },
+        },
+      }}
+      animate={isInView ? (isClosing ? "closed" : "open") : "closed"}
+      initial="closed"
+    >
+      <LuBadgeAlert size={18} />
+      <span>Hover me!</span>
+    </motion.div>
+  );
 }
