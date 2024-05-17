@@ -129,10 +129,10 @@ function WebsiteDescription() {
           />
           <List
             listItems={[
-              "Reminder",
-              "Green Green Green",
-              "Etude Op.25 No.11 (Chopin)",
-              "Swimming Pools Instrumental",
+              "Etude No.6 - Liszt",
+              "Un Sospiro - Liszt",
+              "Etude Op.25 No.11 - Chopin",
+              "Fantaisie-Impromptu, Op. 66 - Chopin",
               "ACNH 2am ost",
             ]}
             icon={<LuMusic4 />}

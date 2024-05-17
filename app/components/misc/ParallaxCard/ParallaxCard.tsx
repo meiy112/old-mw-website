@@ -165,7 +165,7 @@ function HoverMeComponent() {
       initial="closed"
     >
       <LuBadgeAlert size={18} />
-      <span>Hover me!</span>
+      <span>Hover over or tap me!</span>
     </motion.div>
   );
 }
