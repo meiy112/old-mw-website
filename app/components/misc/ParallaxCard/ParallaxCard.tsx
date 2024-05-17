@@ -127,9 +127,13 @@ function HoverMeComponent() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
 
-  setTimeout(() => {
-    setIsClosing(true);
-  }, 5000);
+  useEffect(() => {
+    if (isInView == true) {
+      setTimeout(() => {
+        setIsClosing(true);
+      }, 10000);
+    }
+  }, [isInView]);
 
   return (
     <motion.div
@@ -143,6 +147,7 @@ function HoverMeComponent() {
             type: "spring",
             bounce: 0,
             duration: 0.7,
+            delay: 1,
           },
         },
         closed: {
