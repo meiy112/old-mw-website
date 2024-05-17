@@ -151,7 +151,7 @@ function HoverMeComponent() {
           },
         },
         closed: {
-          clipPath: "inset(0% 69% 0% 6% round 60px)",
+          clipPath: "inset(0% 81% 0% 3.5% round 60px)",
           x: 0,
           transition: {
             type: "spring",
