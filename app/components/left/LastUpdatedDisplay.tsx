@@ -12,12 +12,12 @@ const colors = {
   borderBlack: "1px solid rgba(0, 0, 0, 1)",
 };
 const lightcolors = {
-  dark: "#94B083",
-  medium: "#AAC599",
-  light: "#C3D1AE",
+  dark: "#D3D3C7",
+  medium: "#DADACF",
+  light: "#ECECE2",
   borderLight: "1px solid rgba(255, 255, 255, 0.1)",
   borderDark: "1px solid rgba(255, 255, 255, 0.05)",
-  borderBlack: "1px solid #5D956F",
+  borderBlack: "1px solid rgba(0, 0, 0, 0.2)",
 };
 
 const StaticCard = ({
