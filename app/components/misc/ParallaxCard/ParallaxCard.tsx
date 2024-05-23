@@ -35,7 +35,7 @@ export default function ParallaxCard({ post }: { post: string }) {
             }}
           >
             <div
-              className={`${inter.className} font-black text-white flex flex-col text-[4.3rem]`}
+              className={`${inter.className} font-black text-white flex flex-col text-[4.3rem] about-text`}
             >
               <span className="pl-[45%]">WORLD</span>
               <span className="mt-[-16%]">HELLO</span>
@@ -46,11 +46,15 @@ export default function ParallaxCard({ post }: { post: string }) {
             factorY={0.02}
             style={{
               position: "absolute",
-              bottom: "-5%",
-              left: "-4.5%",
+              bottom: "17%",
+              left: "35.5%",
             }}
           >
-            <img src="/images/About/van.png" alt="van" />
+            <img
+              src="/images/About/van.png"
+              alt="van"
+              className="scale-[2.25]"
+            />
           </MouseParallaxChild>
           <MouseParallaxChild
             factorX={-0.5}
@@ -74,14 +78,14 @@ export default function ParallaxCard({ post }: { post: string }) {
             factorY={0.5}
             style={{
               position: "absolute",
-              bottom: "-50%",
-              right: "-117%",
+              right: "-18vw",
+              bottom: "-38%",
             }}
           >
             <img
               src="/images/About/sailboat.png"
               alt="boat"
-              className="size-[70%]"
+              className="size-[42vw]"
             />
           </MouseParallaxChild>
           <div className="h-[25%] w-[100%] absolute bottom-0 flex items-end">

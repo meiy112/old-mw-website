@@ -68,6 +68,9 @@
   .modal-post {
     width: 51%;
   }
+  .about-text {
+    font-size: 3.7rem;
+  }
 }
 
 /* Left container resizes */
@@ -102,6 +105,9 @@
   }
   .modal-post {
     width: 640px;
+  }
+  .about-text {
+    font-size: 4.3rem;
   }
 }
 
@@ -143,6 +149,9 @@
   }
   .modal-post-container {
     margin-left: 60px;
+  }
+  .about-text {
+    font-size: 3.6rem;
   }
 }
 
