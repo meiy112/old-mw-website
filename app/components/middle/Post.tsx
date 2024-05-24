@@ -24,6 +24,7 @@ export default function Post({
   anchor,
   onClick,
   post,
+  imageDescription,
 }: {
   postKey: string;
   isPinned: boolean;
@@ -36,6 +37,7 @@ export default function Post({
   anchor: string;
   onClick: () => void;
   post: string;
+  imageDescription?: string;
 }) {
   return (
     <motion.div
@@ -52,9 +54,11 @@ export default function Post({
       <div className="flex items-center justify-center">
         <ParallaxCard post={post} />
       </div>
-      <span className="my-[0.4rem] ml-[3%] opacity-[0.5] text-[0.7rem]">
-        Home sweet home
-      </span>
+      {imageDescription ? (
+        <span className="my-[0.4rem] ml-[3%] opacity-[0.5] text-[0.7rem]">
+          {imageDescription}
+        </span>
+      ) : null}
       {/*<Picture image={image}/>*/}
       <Footer link={link} anchor={anchor} />
     </motion.div>
@@ -135,14 +139,6 @@ function Body({ body }: { body: React.ReactNode[] }) {
         <li key={index}>{item}</li>
       ))}
     </ul>
-  );
-}
-
-function Picture({ image }: { image: string }) {
-  return (
-    <div className="w-[100%] h-[420px] rounded-[12px] flex justify-center items-center overflow-hidden">
-      <img alt="" src={image} className="w-[100%]" />
-    </div>
   );
 }
 

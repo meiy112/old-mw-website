@@ -6,12 +6,13 @@ import {
   MouseParallaxChild,
   MouseParallaxContainer,
 } from "react-parallax-mouse";
+import StudyShark from "./StudyShark";
 
 const inter = Inter({ subsets: ["latin"] });
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function ParallaxCard({ post }: { post: string }) {
-  if (post == "about") {
+  if (post === "about") {
     return (
       <div className="relative aspect-[898/549] w-[100%] rounded-[12px] flex justify-center items-center overflow-hidden">
         <MouseParallaxContainer
@@ -113,6 +114,8 @@ export default function ParallaxCard({ post }: { post: string }) {
         </MouseParallaxContainer>
       </div>
     );
+  } else if (post === "study shark") {
+    return <StudyShark />;
   } else {
     return (
       <div className="w-[100%] h-[420px] rounded-[12px] flex justify-center items-center overflow-hidden">

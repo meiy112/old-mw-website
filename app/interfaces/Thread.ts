@@ -33,4 +33,5 @@ export interface PostData {
   link: string;
   thread?: Thread[];
   post: string;
+  imageDescription?: string;
 }

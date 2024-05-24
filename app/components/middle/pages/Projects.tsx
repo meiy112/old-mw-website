@@ -35,7 +35,7 @@ export default function Projects() {
       transition={{ duration: 0.3 }}
     >
       <LayoutGroup>
-        {MaintenanceData.map((post, index) => (
+        {postContent.map((post, index) => (
           <Post
             key={"projects" + index}
             postKey={"projects" + index}
@@ -49,6 +49,7 @@ export default function Projects() {
             link={post.link}
             onClick={() => setModalIndex(index)}
             post={post.post}
+            imageDescription={post.imageDescription}
           />
         ))}
 
@@ -88,10 +89,10 @@ export default function Projects() {
             <ModalPost
               key={modalIndex}
               layoutId={`post-${"projects" + modalIndex}`}
-              {...MaintenanceData[modalIndex]}
+              {...postContent[modalIndex]}
               onClick={closeModal}
-              {...(MaintenanceData[modalIndex].thread
-                ? { thread: MaintenanceData[modalIndex].thread }
+              {...(postContent[modalIndex].thread
+                ? { thread: postContent[modalIndex].thread }
                 : {})}
             />
           )}

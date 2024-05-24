@@ -58,6 +58,7 @@ export default function About({
       anchor: "wiki.com/Waiting_for_Godot",
       link: "https://en.wikipedia.org/wiki/Waiting_for_Godot",
       post: "about",
+      imageDescription: "Home sweet home",
     },
     //{
     //  isPinned: false,
@@ -109,6 +110,7 @@ export default function About({
             post={post.post}
             onClick={() => setModalIndex(index)}
             {...(post.thread ? { thread: post.thread } : {})}
+            imageDescription={post.imageDescription}
           />
         ))}
 
