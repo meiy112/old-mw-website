@@ -17,7 +17,7 @@ export const postContent: PostData[] = [
       </p>,
       <p key="body1">
         Click on <NavLink name="This Post" tab="-" /> and scroll down to learn
-        more about Study Shark's creation process!
+        more about Study Shark&#39;s creation process!
       </p>,
     ],
     image: "/images/pinned-post.jpg",
@@ -34,7 +34,8 @@ export const postContent: PostData[] = [
             paragraph: (
               <>
                 <b>
-                  "Friendship ended with MongoDB. Now MySQL is my best friend."
+                  &#34;Friendship ended with MongoDB. Now MySQL is my best
+                  friend.&#34;
                 </b>
                 <div className="opacity-[0.6] text-[0.8rem]">
                   - Maggie Weng, Emma Huang, and Oscar Yik before they stepped
