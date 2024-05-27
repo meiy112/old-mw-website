@@ -78,7 +78,7 @@ function Body({ body }: { body: Content[] }) {
         <Image url={item.url} description={item.description} key={index} />
       );
     } else {
-      return <div>{item.paragraph}</div>;
+      return <div key={index}>{item.paragraph}</div>;
     }
   };
 
@@ -98,7 +98,7 @@ function Image({
 }) {
   return (
     <div className="flex flex-col w-[100%] gap-y-[0.4em]">
-      <img src={url} className="w-[100%] h-[250px] rounded-[12px]" />
+      <img src={url} className="w-[100%] rounded-[12px]" />
       <span className="ml-[3%] opacity-[0.5] text-[0.7rem]">{description}</span>
     </div>
   );

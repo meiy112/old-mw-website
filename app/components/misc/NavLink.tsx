@@ -16,6 +16,8 @@ export default function NavLink({
     if (tab === "Contact" && setIsModalOpen) {
       setIsModalOpen(true);
       e.stopPropagation();
+    } else if (tab === "-") {
+      // do nothing
     } else {
       setCurrentPage(tab);
     }

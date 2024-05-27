@@ -1,35 +1,149 @@
 import { PostData } from "@/app/interfaces/Thread";
+import NavLink from "../misc/NavLink";
 
 export const postContent: PostData[] = [
   {
     isPinned: true,
-    date: "April 2024",
+    date: "March-April 2024",
     title: "Study Shark",
     typeOf: ["Mobile App"],
-    body: [<p key="body0">This project post will be updated soon!</p>],
+    body: [
+      <p key="body0">
+        Study Shark enables users to create, manage, and track personalized
+        topics, notes, quizzes, and flashcards to facilitate their study
+        process. Additionally, users can share their study materials with
+        others, search for study resources created by other users, and join
+        study groups.
+      </p>,
+      <p key="body1">
+        Click on <NavLink name="This Post" tab="-" /> and scroll down to learn
+        more about Study Shark's creation process!
+      </p>,
+    ],
     image: "/images/pinned-post.jpg",
     anchor: "github/study-shark",
     link: "https://github.com/meiy112/study-shark",
     post: "study shark",
     thread: [
       {
-        title: "Lorem Ipsum is kinda boring.",
-        date: "April 2024",
+        title: "Let's make an app... with SQL!",
+        date: "March 2024",
         content: [
           {
             type: "paragraph",
-            paragraph:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          },
-          {
-            type: "image",
-            url: "/images/Projects/study-shark-1.jpg",
-            description: "Description of the image above",
+            paragraph: (
+              <>
+                <b>
+                  "Friendship ended with MongoDB. Now MySQL is my best friend."
+                </b>
+                <div className="opacity-[0.6] text-[0.8rem]">
+                  - Maggie Weng, Emma Huang, and Oscar Yik before they stepped
+                  into relational database hell.
+                </div>
+              </>
+            ),
           },
           {
             type: "paragraph",
             paragraph:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+              "What better way to learn SQL than by creating an app centered around database design? Once upon a time, my friends and I picked up MySQL and settled on a study-themed mobile app idea. I'd been interested in mobile development for a while, so this project was long overdue.",
+          },
+          {
+            type: "paragraph",
+            paragraph:
+              "For the rest of our tech stack, we picked React Native, Node.js, and Express (Javascript my beloved <3).",
+          },
+          {
+            type: "image",
+            url: "/images/Projects/StudyShark/figma-1.png",
+            description:
+              "The home page, the inside of a topic, and topic settings",
+          },
+          {
+            type: "paragraph",
+            paragraph:
+              "Before we started coding, we came up with these features: ",
+          },
+          {
+            type: "paragraph",
+            paragraph: (
+              <>
+                <b>Create and Manage Topics:</b> Users can create their own
+                topics to organize their study material. Each topic can have a
+                title, description, and privacy settings.
+              </>
+            ),
+          },
+          {
+            type: "paragraph",
+            paragraph: (
+              <>
+                <b>Create and Share Study Material:</b> Within each topic, users
+                can create various types of study material including notes,
+                quizzes, and flashcards. They can share these materials with
+                other users or groups.
+              </>
+            ),
+          },
+          {
+            type: "paragraph",
+            paragraph: (
+              <>
+                <b>Search and Discover Study Material:</b> Users can search for
+                study material created by other users. They can explore
+                different topics and study materials shared within the
+                community.
+              </>
+            ),
+          },
+          {
+            type: "paragraph",
+            paragraph: (
+              <>
+                <b>Join Study Groups:</b> Users can join study groups to
+                collaborate with others who are studying similar topics. They
+                can share and discuss study material within these groups.
+              </>
+            ),
+          },
+          {
+            type: "paragraph",
+            paragraph: (
+              <>
+                <b>Earn Achievements:</b> Users can earn achievements based on
+                their study progress. Achievements come in different levels of
+                difficulty and provide users with points and rewards.
+              </>
+            ),
+          },
+          {
+            type: "image",
+            url: "/images/Projects/StudyShark/figma-2.png",
+            description:
+              "The profile page, the inside of a note, and the explore page",
+          },
+          {
+            type: "paragraph",
+            paragraph: (
+              <>
+                By the way, why Study{" "}
+                <b>
+                  <u>Shark</u>
+                </b>
+                , you might ask? We really like sharks. They might even be on
+                par with ducks.
+              </>
+            ),
+          },
+        ],
+      },
+      {
+        title: "The Great Database Design",
+        date: "March 2024",
+        content: [
+          {
+            type: "paragraph",
+            paragraph: "",
           },
         ],
       },

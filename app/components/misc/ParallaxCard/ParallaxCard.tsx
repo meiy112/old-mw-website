@@ -79,14 +79,16 @@ export default function ParallaxCard({ post }: { post: string }) {
             factorY={0.5}
             style={{
               position: "absolute",
-              right: "-18vw",
-              bottom: "-38%",
+              //  right: "-18vw",
+              //  bottom: "-38%",
+              width: "100%",
+              height: "100%",
             }}
           >
             <img
               src="/images/About/sailboat.png"
               alt="boat"
-              className="size-[42vw]"
+              className="scale-[100%] absolute left-[44.5%] top-[-17%]"
             />
           </MouseParallaxChild>
           <div className="h-[25%] w-[100%] absolute bottom-0 flex items-end">

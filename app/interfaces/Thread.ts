@@ -7,7 +7,7 @@ export interface Thread {
 export interface Content {
   type: "image" | "paragraph";
   url?: string;
-  paragraph?: string;
+  paragraph?: any;
   description?: string;
 }
 

@@ -45,7 +45,7 @@ export default function ModalPost({
   return (
     <div className="modal-post-container z-40 fixed overflow-y-scroll inset-0 justify-center items-start flex">
       <ModalBar onClick={onClick} />
-      <div className="static py-[5vh] px-[1vw] modal-post">
+      <div className="static py-[5vh] px-[1vw] modal-post flex flex-col">
         <motion.div
           className="flex flex-col rounded-[20px] p-[2vw]"
           style={{ backgroundColor: theme.palette.background.default }}

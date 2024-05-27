@@ -39,7 +39,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/StudyShark/ss-stats.png"
+            src="/images/Projects/StudyShark/ss-stats.png"
             alt="stats"
             className="absolute scale-[0.35] bottom-[-3%] left-[32.2%]"
           />
@@ -54,7 +54,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/StudyShark/ss-topic.png"
+            src="/images/Projects/StudyShark/ss-topic.png"
             alt="quiz"
             className="absolute scale-[0.22] bottom-[-22%] left-[10%]"
           />
@@ -71,7 +71,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/StudyShark/ss-phone1.png"
+            src="/images/Projects/StudyShark/ss-phone1.png"
             alt="phone"
             className="absolute scale-[0.55]"
           />
@@ -88,7 +88,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/StudyShark/ss-quiz.png"
+            src="/images/Projects/StudyShark/ss-quiz.png"
             alt="quiz"
             className="absolute scale-[0.25]"
           />
@@ -103,7 +103,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/StudyShark/ss-phone2.png"
+            src="/images/Projects/StudyShark/ss-phone2.png"
             alt="quiz"
             className="absolute scale-[0.55] top-[-11%] left-[6%]"
           />
@@ -118,7 +118,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/StudyShark/ss-notes.png"
+            src="/images/Projects/StudyShark/ss-notes.png"
             alt="quiz"
             className="absolute scale-[0.25] bottom-[-37%] right-[1%]"
           />
@@ -133,7 +133,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/StudyShark/ss-subject.png"
+            src="/images/Projects/StudyShark/ss-subject.png"
             alt="quiz"
             className="absolute scale-[0.2] bottom-[-11%] left-[30%]"
           />
@@ -148,7 +148,7 @@ export default function StudyShark() {
           }}
         >
           <img
-            src="/images/StudyShark/ss-public.png"
+            src="/images/Projects/StudyShark/ss-public.png"
             alt="quiz"
             className="absolute scale-[0.36] top-[-11%] right-[19%]"
           />
