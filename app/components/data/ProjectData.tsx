@@ -47,7 +47,7 @@ export const postContent: PostData[] = [
           {
             type: "paragraph",
             paragraph:
-              "What better way to learn SQL than by creating an app centered around database design? Once upon a time, my friends and I picked up MySQL and settled on a study-themed mobile app idea. I'd been interested in mobile development for a while, so this project was long overdue.",
+              "What better way to learn SQL than by creating an app centered around database design? My friends and I thought the same before we picked up MySQL and settled on a study-themed mobile app idea. I'd been interested in mobile development for a while, so this project was long overdue.",
           },
           {
             type: "paragraph",
@@ -131,8 +131,7 @@ export const postContent: PostData[] = [
                 <b>
                   <u>Shark</u>
                 </b>
-                , you might ask? We really like sharks. They might even be on
-                par with ducks.
+                ? We really like sharks. They might even be on par with ducks.
               </>
             ),
           },
