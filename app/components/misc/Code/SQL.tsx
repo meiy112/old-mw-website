@@ -2,7 +2,7 @@
 export function GroupBy() {
   return (
     <div className="cursor-text">
-      <Com>get user's groups</Com>
+      <Com>get user&apos;s groups</Com>
       <Key>SELECT</Key>
       <Ind>
         <Key>DISTINCT</Key>
@@ -144,7 +144,11 @@ export function SumLikes() {
 
 // comments
 function Com({ children }: { children: React.ReactNode }) {
-  return <div className="text-[#5D95] italic">// {children} </div>;
+  return (
+    <div className="text-[#5D95] italic">
+      {"//"} {children}{" "}
+    </div>
+  );
 }
 
 // keyword (eg. SELECT)

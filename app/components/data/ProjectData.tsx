@@ -202,7 +202,7 @@ export const postContent: PostData[] = [
             paragraph: (
               <>
                 Check out our <NavLink name="GitHub Repo" tab="git-shark" /> for
-                this project if you haven't already.
+                this project if you haven&apos;t already.
               </>
             ),
           },
