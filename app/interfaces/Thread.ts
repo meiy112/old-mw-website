@@ -5,10 +5,13 @@ export interface Thread {
 }
 
 export interface Content {
-  type: "image" | "paragraph";
+  type: "image" | "paragraph" | "code" | "video";
   url?: string;
   paragraph?: any;
   description?: string;
+  code?: any;
+  lang?: string;
+  title?: string;
 }
 
 export interface Image extends Content {
@@ -20,6 +23,19 @@ export interface Image extends Content {
 export interface Paragraph extends Content {
   type: "paragraph";
   paragraph: string;
+}
+
+export interface CodeSnippet extends Content {
+  type: "code";
+  code: any;
+  lang: string;
+  title: string;
+}
+
+export interface Video extends Content {
+  type: "video";
+  url: string;
+  description: string;
 }
 
 export interface PostData {

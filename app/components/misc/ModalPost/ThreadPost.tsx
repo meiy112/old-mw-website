@@ -3,6 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 import { motion } from "framer-motion";
 import { LuMoreHorizontal } from "react-icons/lu";
+import CodeSnippet from "../CodeSnippet";
 
 export default function ThreadPost({ thread }: { thread: Thread }) {
   const theme = useTheme();
@@ -77,6 +78,19 @@ function Body({ body }: { body: Content[] }) {
       return (
         <Image url={item.url} description={item.description} key={index} />
       );
+    } else if (item.type === "code") {
+      return (
+        <CodeSnippet
+          code={item.code}
+          lang={item.lang}
+          title={item.title}
+          key={index}
+        />
+      );
+    } else if (item.type === "video") {
+      return (
+        <Video url={item.url} description={item.description} key={index} />
+      );
     } else {
       return <div key={index}>{item.paragraph}</div>;
     }
@@ -86,6 +100,29 @@ function Body({ body }: { body: Content[] }) {
     <ul className="px-[5.8%] font-normal mt-[1.3em] text-[0.91rem] tracking-[0.32px] flex flex-col items-start gap-y-[1.4em] leading-[1.9em]">
       {body.map((item, index) => getContent({ item, index }))}
     </ul>
+  );
+}
+
+function Video({
+  url,
+  description,
+}: {
+  url: string | undefined;
+  description: string | undefined;
+}) {
+  return (
+    <div className="flex flex-col w-[100%] gap-y-[0.4em]">
+      <video
+        poster="images/Projects/StudyShark/demo-placeholder.png"
+        controls
+        loop
+        muted
+        className="w-[100%] rounded-[12px]"
+      >
+        <source src={url} type="video/mp4" />
+      </video>
+      <span className="ml-[3%] opacity-[0.5] text-[0.7rem]">{description}</span>
+    </div>
   );
 }
 

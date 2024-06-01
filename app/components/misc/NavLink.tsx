@@ -18,6 +18,8 @@ export default function NavLink({
       e.stopPropagation();
     } else if (tab === "-") {
       // do nothing
+    } else if (tab === "git-shark") {
+      window.location.href = "https://github.com/meiy112/study-shark";
     } else {
       setCurrentPage(tab);
     }

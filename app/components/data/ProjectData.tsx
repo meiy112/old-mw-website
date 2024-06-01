@@ -1,5 +1,6 @@
 import { PostData } from "@/app/interfaces/Thread";
 import NavLink from "../misc/NavLink";
+import { GroupBy, SumLikes } from "../misc/Code/SQL";
 
 export const postContent: PostData[] = [
   {
@@ -47,7 +48,7 @@ export const postContent: PostData[] = [
           {
             type: "paragraph",
             paragraph:
-              "What better way to learn SQL than by creating an app centered around database design? My friends and I thought the same before we picked up MySQL and settled on a study-themed mobile app idea. I'd been interested in mobile development for a while, so this project was long overdue.",
+              "What better way to learn SQL than by creating an app centered around database design? My friends and I thought so too, so we picked up MySQL and settled on a study-themed mobile app idea. Since I'd been interested in mobile development for a while, this project was long overdue.",
           },
           {
             type: "paragraph",
@@ -64,6 +65,15 @@ export const postContent: PostData[] = [
             type: "paragraph",
             paragraph:
               "Before we started coding, we came up with these features: ",
+          },
+          {
+            type: "paragraph",
+            paragraph: (
+              <>
+                <b>User Authentication:</b> Users can sign up or log in to an
+                account.
+              </>
+            ),
           },
           {
             type: "paragraph",
@@ -143,7 +153,58 @@ export const postContent: PostData[] = [
         content: [
           {
             type: "paragraph",
-            paragraph: "",
+            paragraph:
+              "Here's how our entities and relationships looked like after we normalized our database to 3NF.",
+          },
+          {
+            type: "image",
+            url: "/images/Projects/StudyShark/er-diagram.png",
+            description: "The final ER diagram",
+          },
+          {
+            type: "paragraph",
+            paragraph: "Some snippets of our SQL queries:",
+          },
+          {
+            type: "code",
+            code: <GroupBy />,
+            lang: "sql",
+            title: "getGroups",
+          },
+          {
+            type: "paragraph",
+            paragraph: "We probably had around 60 queries total.",
+          },
+          {
+            type: "code",
+            code: <SumLikes />,
+            lang: "sql",
+            title: "getSumLikes",
+          },
+        ],
+      },
+      {
+        title: "Get Ready for the Final Result...",
+        date: "March 2024",
+        content: [
+          {
+            type: "paragraph",
+            paragraph:
+              "Enjoy the following video demo of some of our final features!",
+          },
+          {
+            type: "video",
+            url: "/Demo/study-shark.mp4",
+            description: "Video demo of Study Shark",
+          },
+          {
+            type: "paragraph",
+            paragraph: (
+              <>
+                Check out our <NavLink name="GitHub Repo" tab="git-shark" /> for
+                this project if you haven't already.
+              </>
+            ),
           },
         ],
       },
