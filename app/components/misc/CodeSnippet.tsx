@@ -34,9 +34,11 @@ export default function CodeSnippet({
           <div className="rounded-[50%] size-[13.5px] bg-[#FFBA00]" />
           <div className="rounded-[50%] size-[13.5px] bg-[#00CB19]" />
         </div>
-        <div className="text-white opacity-[0.7] bg-[#22272E] rounded-t-[15px] flex items-center justify-center px-[25px] mt-[5px]">
-          {getIcon(lang)}
-          {title}.{lang}
+        <div className="text-white bg-[#22272E] rounded-t-[15px] flex items-center justify-center px-[25px] mt-[5px]">
+          <span className="opacity-[0.7] flex items-center justify-center">
+            {getIcon(lang)}
+            {title}.{lang}{" "}
+          </span>
         </div>
       </section>
       <section
