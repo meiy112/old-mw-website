@@ -93,14 +93,14 @@ function BioDescription() {
         <span>... and this isn&#39;t X/Twitter.</span>
         <Emoji unified="1f609" size={24} emojiStyle={EmojiStyle.APPLE} />
       </div>
-      <div>
+      <p>
         UBC CompSci Student. Aspiring Full-Stack Developer. Designer. Digital
         Artist. Coding Tutor. Casual Hiker. All-Nighter Puller. Duck Enthusiast.
-      </div>
-      <div className="flex gap-x-[5px] items-center">
+      </p>
+      <p className="flex gap-x-[5px] items-center">
         <span>Based in Vancouver </span>
         <Emoji unified="1f303" size={24} emojiStyle={EmojiStyle.APPLE} />
-      </div>
+      </p>
     </div>
   );
 }
